@@ -21,6 +21,7 @@ class Problemas
 {
 private:
     vector<Problema> lista_problemas;
+    bool cmp(const Problema& p1, const Problema& p2);
 
 public:
     //Constructoras
@@ -37,6 +38,20 @@ public:
         \post El resultado es una copia de la lista de problemas p.
     */
     Problemas(const Problemas& p);
+
+    //Modificadoras
+    /** @brief Añade al parametro implícito el nuevo problema
+        \pre <em>cierto</em>
+        \post El resultado és el parametro implícito pero añadiendo p a este.
+    */
+    void afegir_problema(const Problema& p);
+
+    //Escritura
+    /** @brief Escribe por el canal standard de salida el vector de problemas de forma ordenada. 
+        \pre <em>cierto</em>
+        \post El resultado es escribir en el canal standard de salida el vector de problemas de forma ordenada.
+    */
+    void Escribir();
 };
 
 #endif
