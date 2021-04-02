@@ -29,23 +29,65 @@ public:
 
         Se ejecuta automáticamente al declarar un problema.
         \pre <em>cierto</em>
-        \post El resultado es un usuario con identificador igual a cero, número de envíos totales igual a cero y número de envíos correctos igual a cero.
+        \post El resultado es un usuario con identificador igual a cero, y con el resto  de paràmetros implíctos inicializados a cero, con los registros vacíos, y sin estar apuntado a ningún curso.
     */   
     Usuari();
 
     /** @brief Creadora con identificador concreto. 
         \pre <em>cierto</em>
-        \post El resultado es un problema con identificador igual a id, número de envíos totales igual a cero y número de envíos correctos igual a cero.
+        \post El resultado es un usuario con identificador igual a id, y con el resto  de paràmetros implíctos inicializados a cero, con los registros vacíos, y sin estar apuntado a ningún curso.
     */   
     Usuari(string id);
+
+    /** @brief Creadora copia de un usuario. 
+        \pre <em>cierto</em>
+        \post El resultado es un usuario identico a u.
+    */   
+    Usuari(const Usuari& u);
   
     //Modificadoras
 
     
     //Consultoras
 
+    /** @brief Consultora del identificador del usuario.
+        \pre <em>cierto</em>
+        \post El resultado es el identificador del usario.
+    */   
+    string consultar_id() const;
 
-    //Escritura y lectura de Problema
+    /** @brief Consultora de el número de problemas que ha intentado resolver.
+        \pre <em>cierto</em>
+        \post El resultado es el número de problemas que ha intentado resolver.
+    */   
+
+    int consultar_intentados() const;
+
+    /** @brief Consultora de el número de problemas resueltos satisfactoriamente.
+        \pre <em>cierto</em>
+        \post El resultado es el número de problemas resueltos satisfactoriamente.
+    */   
+    int consultar_resueltos() const;
+
+    /** @brief Consultora de el número de envios total realizados.
+        \pre <em>cierto</em>
+        \post El resultado es el número total de envio realizados.
+    */   
+    int consultar_total_envios() const;
+
+    /** @brief Consultora de si el usuario está inscrito en un curso.
+        \pre <em>cierto</em>
+        \post El resultado es true si el usuario está inscrito en un curso y false si no lo está.
+    */   
+    bool consultar_incscrito_curso() const;
+
+    /** @brief Consultora de el curso que está inscrito el usuario.
+        \pre El usuario tiene que estar inscrito en algun curso.
+        \post El resultado el identificador de el curso al cual estás inscrito.
+    */   
+    int cusro_inscrito() const;
+
+    //Escritura y lectura de Usuari
 
 private:
     string id;
