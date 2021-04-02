@@ -41,7 +41,7 @@ public:
 
     //Modificadoras
     /** @brief Añade al parametro implícito el nuevo problema
-        \pre <em>cierto</em>
+        \pre p no existe ya en el parametro implícito.
         \post El resultado és el parametro implícito pero añadiendo p a este.
     */
     void afegir_problema(const Problema& p);
