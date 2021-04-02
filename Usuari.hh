@@ -10,7 +10,7 @@
 using namespace std;
 #include <iostream>
 #include <string>
-#include <vector>
+#include <list>
 #endif 
 
 #include "Problema.hh"
@@ -47,6 +47,23 @@ public:
   
     //Modificadoras
 
+    /** @brief Modificadora del número total de envíos.
+        \pre <em>cierto</em>
+        \post El parametro implícito pas a tener el número total de envíos igual a num.
+    */
+    void modificar_numero_envios(int num);
+
+    /** @brief Se añade un problema a la lista de problemas intentados.
+        \pre p no esta ya en la lista.
+        \post Se añade p a la lista de problemas intentados.
+    */
+    void afegir_problema_intentado(const Problema& p);
+
+    /** @brief Se añade un problema a la lista de problemas resueltos.
+        \pre p no esta ya en la lista.
+        \post Se añade p a la lista de problemas resueltos.
+    */
+    void afegir_problema_resuelto(const Problema& p);
     
     //Consultoras
 
@@ -91,13 +108,12 @@ public:
 
 private:
     string id;
-    int num_intentados;
-    int num_resueltos;
     int env_totales;
     bool inscrito_en_curso;
     int curso_inscrito;
-    vector<Problema> problemas_resueltos;
-    vector<Problema> problemas_resolvibles;
+    list<Problema> problemas_resueltos;
+    list<Problema> problemas_resolvibles;
+    list<Problema> problemas_intentados;
 };
 
 #endif
