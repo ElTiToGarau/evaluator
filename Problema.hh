@@ -33,6 +33,12 @@ public:
       \post El resultado es un problema con identificador igual a id, número de envíos totales igual a cero y número de envíos correctos igual a cero.
   */   
   Problema(string id);
+
+    /** @brief Creadora con copia de un problema.. 
+      \pre <em>cierto</em>
+      \post El resultado es un problema identico a p.
+  */   
+  Problema(const Problema& p);
   
   //Modificadoras
 
@@ -66,13 +72,19 @@ public:
   */   
   void incrementar_correctos();
 
+  /** @brief Pone en el parametro implicito id igual a "id", solo si no se havia puesto otro id con anterioridad.
+      \pre string == "0".
+      \post El parametro implícito pasa a tener id igual a "id".
+  */   
+  void afegir_id(string id);
+
   //Consultoras
 
     /** @brief Consultora del identificador.
       \pre <em>cierto</em>
       \post El resultado es el identificador del parámetro implícito
   */
-    int consultar_id() const;
+    string consultar_id() const;
 
     /** @brief Consultora del número de envíos totales.
       \pre <em>cierto</em>
