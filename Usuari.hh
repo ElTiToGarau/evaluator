@@ -10,7 +10,7 @@
 using namespace std;
 #include <iostream>
 #include <string>
-#include <list>
+#include <set>
 #endif 
 
 #include "Problema.hh"
@@ -112,14 +112,31 @@ public:
     */   
     void leer();
 
+    /** @brief Escribe en el canal standard de salida los problemas resueltos.
+        \pre <em>cierto</em>
+        \post Se ha escrito en el canal standard de salida los problemas resueltos en orden creciente.
+    */   
+    void escribir_resueltos();
+
+    /** @brief Escribe en el canal standard de salida los problemas enviables.
+        \pre <em>cierto</em>
+        \post Se ha escrito en el canal standard de salida los problemas enviables en orden creciente.
+    */   
+    void escribir_enviables();
+
 private:
     string id;
     int env_totales;
     bool inscrito_en_curso;
     int curso_inscrito;
-    list<Problema> problemas_resueltos;
-    list<Problema> problemas_resolvibles;
-    list<Problema> problemas_intentados;
+    struct cmp {
+    bool operator() (Problema& a, Problema& b) const{
+        return a.consultar_id() < b.consultar_id();
+        }
+    };
+    set<Problema,cmp> problemas_resueltos;
+    set<Problema,cmp> problemas_enviables;
+    set<Problema,cmp> problemas_intentados;
 };
 
 #endif

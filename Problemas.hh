@@ -48,9 +48,10 @@ public:
     Problemas(const Problemas& p);
 
     //Modificadoras
-    /** @brief Añade al parametro implícito el nuevo problema
-        \pre p no existe ya en el parametro implícito.
-        \post El resultado és el parametro implícito pero añadiendo p a este.
+    /** @brief Añade al parametro implícito el nuevo problema.
+        \pre <em>cierto</em>
+        \post El resultado és el parametro implícito pero añadiendo p a este, en el caso que p ya exista se imprime un mensaje de error, 
+        en el caso contrario se imprime el número total de problemas.
     */
     void afegir_problema(const Problema& p);
 
@@ -67,6 +68,12 @@ public:
         \post El resultado es escribir en el canal standard de salida el set de problemas de forma ordenada.
     */
     void Escribir();
+
+    /** @brief Escribe por el canal standard de salida el problema concreto. 
+        \pre El problema identificado por id tiene que existir.
+        \post El resultado es escribir en el canal standard de salida el problema si existe, de otro modo imprime un mensaje de error.
+    */
+    void Escribir(string id);
 };
 
 #endif
