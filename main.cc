@@ -13,8 +13,6 @@ using namespace std;
 #include "Sesion.hh"
 #include "Usuarios.hh"
 
-/** @brief Programa principal d'EVALUATOR <em>Plataforma de gestió de problemes i cursos de programació</em>.
-*/
 int main() {
     Problemas conjunt_problemes;
     Usuarios conjunto_usuarios;
@@ -100,7 +98,15 @@ int main() {
 
         }
         else if(comando == "listar_usuarios" or comando == "lu"){
-
+            conjunto_usuarios.Escribir();
+        }
+        else if(comando == "escribir_usuario" or comando == "eu"){
+            string id;
+            cin >> id;
+            if(conjunto_usuarios.existe_usuarios(id)){
+                conjunto_usuarios.Escribir(id);
+            }
+            else cout << "No existe ningún usuario con este identificador." << endl;
         }
     }
 }

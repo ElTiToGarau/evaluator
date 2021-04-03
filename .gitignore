@@ -2,3 +2,4 @@
 *.exe
 *.x
 /DOC
+/.vscode
