@@ -1,4 +1,4 @@
-/** @file Probelmas.hh
+/** @file Problemas.hh
     @brief Especificación de la clase Probelmas 
 */
 
@@ -9,19 +9,27 @@
 #ifndef NO_DIAGRAM
 using namespace std;
 #include <iostream>
-#include <vector>
+#include <set>
 #endif 
 
 #include "Problema.hh"
 
-    /** @class Sesion
+    /** @class Problemas
     @brief Representa todo el conjunto de problemas.
     */
 class Problemas
 {
 private:
-    vector<Problema> lista_problemas;
-    bool cmp(const Problema& p1, const Problema& p2);
+    struct cmp {
+    bool operator() (Problema& a, Problema& b) const{
+        double rat1,rat2;
+        rat1=(a.consultar_totales() + 1)/(a.consultar_correctos() + 1);
+        rat2=(b.consultar_totales()+1)/(b.consultar_correctos()+1);
+        if(rat1!=rat2) return rat1<rat2;
+        else return a.consultar_id() < b.consultar_id();
+        }
+    };
+    set<Problema, cmp> lista_problemas;
 
 public:
     //Constructoras
@@ -29,7 +37,7 @@ public:
 
         Se ejecuta automáticamente al declarar un problema.
         \pre <em>cierto</em>
-        \post El resultado es un vector de problemas vacío.
+        \post El resultado es un set de problemas vacío.
     */
     Problemas();
 
@@ -46,10 +54,17 @@ public:
     */
     void afegir_problema(const Problema& p);
 
-    //Escritura
-    /** @brief Escribe por el canal standard de salida el vector de problemas de forma ordenada. 
+    //Consultoras
+    /** @brief Consulta el número de probelmas que existen
         \pre <em>cierto</em>
-        \post El resultado es escribir en el canal standard de salida el vector de problemas de forma ordenada.
+        \post El resultado és el número de problemas que hay en total.
+    */
+    int num_problemas() const;
+
+    //Escritura
+    /** @brief Escribe por el canal standard de salida el set de problemas de forma ordenada. 
+        \pre <em>cierto</em>
+        \post El resultado es escribir en el canal standard de salida el set de problemas de forma ordenada.
     */
     void Escribir();
 };

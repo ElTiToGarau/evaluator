@@ -2,20 +2,28 @@
     @brief Programa principal d'EVALUATOR <em>Plataforma de gestió de problemes i cursos de programació</em>.
 */
 
-
 #ifndef NO_DIAGRAM 
 using namespace std;
 #include <iostream>
 #endif
 
+#include "Problema.hh"
+#include "Problemas.hh"
+#include "Usuari.hh"
+#include "Sesion.hh"
+
 /** @brief Programa principal d'EVALUATOR <em>Plataforma de gestió de problemes i cursos de programació</em>.
 */
 int main() {
+    Problemas conjunt_problemes;
     string comando;
     cin >> comando;
     while(comando != "fin"){
         if(comando == "nuevo_problema" or comando == "np"){
-            
+            string id;
+            cin >> id;
+            Problema p(id);
+            conjunt_problemes.afegir_problema(p);
         }
         else if(comando == "nueva_sesion" or comando == "ns"){
 

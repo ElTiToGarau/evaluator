@@ -106,6 +106,12 @@ public:
 
     //Escritura y lectura de Usuari
 
+    /** @brief Lee del canal standard de entrada el id de un usario.
+        \pre el parametro implícito id tiene que ser igual a 0.
+        \post Se ha leido del canal standard de entrada el id de un usario.
+    */   
+    void leer();
+
 private:
     string id;
     int env_totales;
