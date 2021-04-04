@@ -24,6 +24,8 @@ class Curso
 private:
     list<Sesion> problemes_sessio;
     int num_sesiones;
+    int veces_completado;
+    int usuarios_incritos;
 
 public:
     //Constructoras
@@ -45,14 +47,20 @@ public:
     */
     int consultar_num_sesiones();
 
+    /** @brief Indica a que sesion pertenece el problema p. 
+        \pre <em>cierto</em>
+        \post El resultado es el identificador de la sesion en la que se encuentra p, en caso de que p no formase parte del curso retorna "NO_EN_CURSO".
+    */
+    string sesion_problema(string id);
+
     //Escritura y lectura
 
     /** @brief Lee por el canal standard de entrada la sesiones del curso. 
         \pre <em>cierto</em>
-        \post El resultado es leer del canal standard de entrada el las sesiones que formaran el curso, si hay intersección de problemas en las sesiones devuelve false,
+        \post El resultado es leer del canal standard de entrada un número de sesiones s que formaran el curso, si hay intersección de problemas en las sesiones devuelve false,
         de otro modo devuelve true.
     */
-    bool leer();
+    bool leer(int s);
 };
 
 #endif

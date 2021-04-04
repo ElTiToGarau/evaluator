@@ -13,11 +13,14 @@ using namespace std;
 #include "Sesion.hh"
 #include "Usuarios.hh"
 #include "Sesiones.hh"
+#include "Curso.hh"
+#include "Cursos.hh"
 
 int main() {
     Problemas conjunt_problemes;
     Usuarios conjunto_usuarios;
     Sesiones conjunto_sesiones;
+    Cursos conjunto_cursos;
     string comando;
     cin >> comando;
     while(comando != "fin"){
@@ -39,7 +42,14 @@ int main() {
             else cout << "Ya existe una sesión con el mismo id." << endl;
         }
         else if(comando == "nuevo_curso" or comando == "nc"){
-
+            int s;
+            cin >> s;
+            Curso c;
+            if(c.leer(s)){
+                conjunto_cursos.afegir_curso(c);
+                cout << conjunto_cursos.num_cursos() << endl;
+            }
+            else cout << "Hay uno o más problemas que se repiten en el curso!" << endl;
         }
         else if(comando == "alta_usuario" or comando == "a"){
             string id;
@@ -72,7 +82,19 @@ int main() {
             else cout << "No existe ningún usuario con este identificador." << endl;
         }
         else if(comando == "sesion_problema" or comando == "sp"){
-
+            int c;
+            cin >> c;
+            if(conjunto_cursos.existe_curso(c)){
+                string p;
+                cin >> p;
+                if(conjunt_problemes.existe_problema(p)){
+                    string ses = conjunto_cursos.sesion_problema(c,p);
+                    if(ses != "NO_EN_CURSO") cout << ses << endl;
+                    else cout << "El problema no esta en el curso." << endl;
+                }
+                else cout << "No existe el problema: " << p << endl;
+            }
+            else cout << "No existe el curso: " << c << endl;
         }
         else if(comando == "problemas_resueltos" or comando == "pr"){
             string id;
@@ -116,7 +138,15 @@ int main() {
             else cout << "No existe ningúna sesión con este identificador." << endl;
         }
         else if(comando == "listar_cursos" or comando == "lc"){
-
+            conjunto_cursos.Escribir();
+        }
+        else if(comando == "escribir_curso" or comando == "lc"){
+            int c;
+            cin >> c;
+            if(conjunto_cursos.existe_curso(c)){
+                conjunto_cursos.Escribir(c);
+            }
+            else cout << "No existe ningún curso con este identificador." << endl;
         }
         else if(comando == "listar_usuarios" or comando == "lu"){
             conjunto_usuarios.Escribir();

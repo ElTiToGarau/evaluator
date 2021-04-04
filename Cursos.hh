@@ -30,7 +30,13 @@ public:
 
         Se ejecuta automáticamente al declarar un problema.
         \pre <em>cierto</em>
-        \post El resultado es un map de cursos vacío.
+        \post El resultado es un map de cursos vacío, con id igual a "0" y con N=0.
+    */
+    Cursos();
+
+    /** @brief Creadora con id especifico. 
+        \pre <em>cierto</em>
+        \post El resultado es un map de cursos vacío, con identificador igual a id y con N=0.
     */
     Cursos();
 
@@ -53,6 +59,12 @@ public:
         \post El resultado és el true si existe una sesión con identificador id, y false si no exsite.
     */
     bool existe_curso(int id) const;
+
+    /** @brief Indica a que sesion pertenece el problema p dentro del curso c. 
+        \pre <em>cierto</em>
+        \post El resultado es el identificador de la sesion en la que se encuentra p en el curso c, en caso de que p no formase parte del curso retorna "NO_EN_CURSO".
+    */
+    string sesion_problema(int c, string p);
 
     //Escritura
     /** @brief Escribe por el canal standard de salida el map de cursos de forma ordenada. 
