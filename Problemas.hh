@@ -1,5 +1,5 @@
 /** @file Problemas.hh
-    @brief Especificación de la clase Probelmas 
+    @brief Especificación de la clase Problemas 
 */
 
 
