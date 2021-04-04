@@ -2,7 +2,6 @@
     @brief Especificación de la clase Sesiones 
 */
 
-
 #ifndef _SESIONES_HH_
 #define _SESIONES_HH_
 
@@ -40,11 +39,11 @@ public:
 
     //Modificadoras
     /** @brief Añade al parametro implícito el nuevo problema.
-        \pre <em>cierto</em>
+        \pre No existe otra sesíon con el mismo id que s.
         \post El resultado és el parametro implícito pero añadiendo p a este, en el caso que p ya exista se imprime un mensaje de error, 
         en el caso contrario se imprime el número total de problemas.
     */
-    void afegir_sesion(const Sesion& p);
+    void afegir_sesion(const Sesion& s);
 
     //Consultoras
     /** @brief Consulta el número de sesiones que existen

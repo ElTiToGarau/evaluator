@@ -28,7 +28,15 @@ int main() {
             conjunt_problemes.afegir_problema(p);
         }
         else if(comando == "nueva_sesion" or comando == "ns"){
-
+            string s;
+            cin >> s;
+            if(not conjunto_sesiones.existe_sesion(s)){
+                Sesion ses(s);
+                ses.leer();
+                conjunto_sesiones.afegir_sesion(ses);
+                cout << conjunto_sesiones.num_sesiones() << endl;
+            }
+            else cout << "Ya existe una sesión con el mismo id." << endl;
         }
         else if(comando == "nuevo_curso" or comando == "nc"){
 

@@ -71,7 +71,7 @@ public:
 
     /** @brief Lee por el canal standard de entrada la estructura de problemas de la sesion. 
         \pre <em>cierto</em>
-        \post El resultado es leer en el canal standard de entrada el vector de problemas de forma ordenada.
+        \post El resultado es leer del canal standard de entrada el conjunto de problemas de forma ordenada.
     */
     void leer();
 };
