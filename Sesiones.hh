@@ -20,6 +20,7 @@ using namespace std;
 class Sesiones
 {
 private:
+    string id;
     struct cmp {
     bool operator() (Sesion& a, Sesion& b) const{
         return a.consultar_id() < b.consultar_id();
@@ -40,8 +41,7 @@ public:
     //Modificadoras
     /** @brief Añade al parametro implícito el nuevo problema.
         \pre No existe otra sesíon con el mismo id que s.
-        \post El resultado és el parametro implícito pero añadiendo p a este, en el caso que p ya exista se imprime un mensaje de error, 
-        en el caso contrario se imprime el número total de problemas.
+        \post El resultado és el parametro implícito pero añadiendo s a este.
     */
     void afegir_sesion(const Sesion& s);
 

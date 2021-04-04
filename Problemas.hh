@@ -20,6 +20,7 @@ using namespace std;
 class Problemas
 {
 private:
+    string id;
     struct cmp {
     bool operator() (Problema& a, Problema& b) const{
         double rat1,rat2;
@@ -50,8 +51,7 @@ public:
     //Modificadoras
     /** @brief Añade al parametro implícito el nuevo problema.
         \pre <em>cierto</em>
-        \post El resultado és el parametro implícito pero añadiendo p a este, en el caso que p ya exista se imprime un mensaje de error, 
-        en el caso contrario se imprime el número total de problemas.
+        \post El resultado és el parametro implícito pero añadiendo p a este.
     */
     void afegir_problema(const Problema& p);
 

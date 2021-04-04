@@ -20,6 +20,7 @@ using namespace std;
 class Usuarios
 {
 private:
+    string id;
     struct cmp {
     bool operator() (Usuari& a, Usuari& b) const{
         return a.consultar_id() < b.consultar_id();
