@@ -62,6 +62,12 @@ public:
     */
     int num_problemas() const;
 
+    /** @brief Consulta si existe un problema con identificador id.
+        \pre <em>cierto</em>
+        \post El resultado és el true si existe un problema con identificador id, y false si no exsite.
+    */
+    bool existe_problema(string id) const;
+
     //Escritura
     /** @brief Escribe por el canal standard de salida el set de problemas de forma ordenada. 
         \pre <em>cierto</em>

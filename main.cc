@@ -12,10 +12,12 @@ using namespace std;
 #include "Usuari.hh"
 #include "Sesion.hh"
 #include "Usuarios.hh"
+#include "Sesiones.hh"
 
 int main() {
     Problemas conjunt_problemes;
     Usuarios conjunto_usuarios;
+    Sesiones conjunto_sesiones;
     string comando;
     cin >> comando;
     while(comando != "fin"){
@@ -89,10 +91,21 @@ int main() {
         else if(comando == "escribir_problema" or comando == "ep"){
             string p;
             cin >> p;
-            conjunt_problemes.Escribir(p);
+            if(conjunt_problemes.existe_problema(p)){
+                conjunt_problemes.Escribir(p);
+            }
+            else cout << "No existe ningún problema con este identificador." << endl;
         }
         else if(comando == "listar_sesiones" or comando == "ls"){
-
+            conjunto_sesiones.Escribir();
+        }
+        else if(comando == "escribir_sesion" or  comando == "es"){
+            string s;
+            cin >> s;
+            if(conjunto_sesiones.existe_sesion(s)){
+                conjunto_sesiones.Escribir(s);
+            }
+            else cout << "No existe ningúna sesión con este identificador." << endl;
         }
         else if(comando == "listar_cursos" or comando == "lc"){
 

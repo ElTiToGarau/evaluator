@@ -23,6 +23,7 @@ class Sesion
 private:
     string id;
     BinTree<Problema> problemes_sessio;
+    int num_problemas;
 
 public:
     //Constructoras
@@ -47,6 +48,19 @@ public:
     Sesion(const Sesion& s);
 
     //Modificadoras
+
+    //Consultoras
+    /** @brief Consulta el id de la sesión. 
+        \pre <em>cierto</em>
+        \post El resultado es el id de la sesion.
+    */
+    string consultar_id();
+
+    /** @brief Consulta el número de problemas que hay en la sesión. 
+        \pre <em>cierto</em>
+        \post El resultado es el número de problemas que contiene la sesión.
+    */
+    int consultar_num_problemas();
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el vector de problemas de forma ordenada. 
