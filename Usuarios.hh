@@ -51,6 +51,12 @@ public:
     */
     void baja_usuario(string id);
 
+    /** @brief Inscribe a un usuario a un curso.
+        \pre Existe un usuario con el identificador id que no esta inscrito a ningún curso y también un curso con identificador c.
+        \post Inscribe al usuario identificado por id al curso con identificador c.
+    */
+    void inscribir_curso(string id, int c);
+
     //Consultoras
     /** @brief Consulta el número de usuarios registrados.
         \pre <em>cierto</em>
@@ -69,6 +75,12 @@ public:
         \post El resultado és el true si existe un usario con identificador id, y false si no exsite.
     */
     bool existe_usuarios(string id) const;
+
+    /** @brief Consultora de si el usuario está inscrito en un curso.
+        \pre <em>cierto</em>
+        \post El resultado es true si el usuario está inscrito en un curso y false si no lo está.
+    */   
+    bool consultar_incscrito_curso(string id) const;
 
     //Escritura y lectura
 

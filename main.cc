@@ -75,7 +75,18 @@ int main() {
             else cout << "No existe ningún usuario con este identifiacdor." << endl;
         }
         else if(comando == "inscribir_curso" or comando == "i"){
-
+            string id;
+            cin >> id;
+            if(conjunto_usuarios.existe_usuarios(id) and not conjunto_usuarios.consultar_incscrito_curso(id)){
+                int c;
+                cin >> c;
+                if(conjunto_cursos.existe_curso(c)){
+                    conjunto_usuarios.inscribir_curso(id,c);
+                    cout << conjunto_cursos.consultar_num_usuarios(c) << endl;
+                }
+                else cout << "No existe ningún curso con este id." << endl;
+            }
+            else cout << "El usuario introducido o no existe o ya esta incrito en un curso." << endl;
         }
         else if(comando == "curso_usuario" or comando == "cu"){
             string id;

@@ -53,6 +53,12 @@ public:
     */
     string sesion_problema(string id);
 
+    /** @brief Consulta el número de usuarios inscritos en el curso. 
+        \pre <em>cierto</em>
+        \post El resultado es el número de usuarios inscritos en el curso.
+    */
+    int consultar_num_usuarios();
+
     //Escritura y lectura
 
     /** @brief Lee por el canal standard de entrada la sesiones del curso. 

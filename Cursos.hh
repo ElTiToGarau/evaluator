@@ -66,6 +66,12 @@ public:
     */
     string sesion_problema(int c, string p);
 
+    /** @brief Consulta el número de usuarios inscritos en el curso <em>c</em>. 
+        \pre Tiene que existir el curso c.
+        \post El resultado es el número de usuarios inscritos en el curso <em>c</em>.
+    */
+    int consultar_num_usuarios(int c);
+
     //Escritura y lecttura
     /** @brief Escribe por el canal standard de salida el map de cursos de forma ordenada. 
         \pre <em>cierto</em>

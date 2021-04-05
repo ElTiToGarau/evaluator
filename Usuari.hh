@@ -64,6 +64,12 @@ public:
         \post Se añade p a la lista de problemas resueltos.
     */
     void afegir_problema_resuelto(const Problema& p);
+
+    /** @brief Inscribe al usuario a un curso.
+        \pre El usuario no esta inscrito a ningún curso y también un curso con identificador c.
+        \post Inscribe al usuario al curso con identificador c.
+    */
+    void inscribir_curso(int c);
     
     //Consultoras
 
