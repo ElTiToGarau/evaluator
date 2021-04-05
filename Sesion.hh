@@ -10,6 +10,7 @@
 using namespace std;
 #include <iostream>
 #include "BinTree.hh"
+#include <list>
 #endif 
 
 #include "Problema.hh"

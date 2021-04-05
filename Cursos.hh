@@ -38,7 +38,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es un map de cursos vacío, con identificador igual a id y con N=0.
     */
-    Cursos();
+    Cursos(int id);
 
     //Modificadoras
     /** @brief Añade al parametro implícito el nuevo curso.
