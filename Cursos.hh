@@ -66,7 +66,7 @@ public:
     */
     string sesion_problema(int c, string p);
 
-    //Escritura
+    //Escritura y lecttura
     /** @brief Escribe por el canal standard de salida el map de cursos de forma ordenada. 
         \pre <em>cierto</em>
         \post El resultado es escribir en el canal standard de salida el map de cursos de forma ordenada.
@@ -78,6 +78,12 @@ public:
         \post El resultado es escribir en el canal standard de salida el curso concreto.
     */
     void Escribir(int id);
+
+    /** @brief Lee por el canal standard de entrada el conjunto de cursos. 
+        \pre <em>cierto</em>
+        \post El resultado es leer del canal standard de entrada el conjunto de cursos y ponerlos en el parametro implícito.
+    */
+    void leer();
 };
 
 #endif

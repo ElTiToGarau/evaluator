@@ -68,7 +68,7 @@ public:
     */
     bool existe_problema(string id) const;
 
-    //Escritura
+    //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el set de problemas de forma ordenada. 
         \pre <em>cierto</em>
         \post El resultado es escribir en el canal standard de salida el set de problemas de forma ordenada.
@@ -80,6 +80,12 @@ public:
         \post El resultado es escribir en el canal standard de salida el problema si existe, de otro modo imprime un mensaje de error.
     */
     void Escribir(string id);
+
+    /** @brief Lee por el canal standard de entrada el conjunto de problemas. 
+        \pre <em>cierto</em>
+        \post El resultado es leer del canal standard de entrada el conjunto de problemas y ponerlos en el parametro implícito.
+    */
+    void leer();
 };
 
 #endif

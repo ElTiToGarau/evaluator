@@ -1,5 +1,5 @@
 /** @file main.cc
-    @brief Programa principal d'EVALUATOR <em>Plataforma de gestió de problemes i cursos de programació</em>.
+    @brief Programa principal d'EVALUATOR <em>Plataforma de gestión de problemas i cursos de programación</em>.
 */
 
 #ifndef NO_DIAGRAM 
@@ -21,6 +21,10 @@ int main() {
     Usuarios conjunto_usuarios;
     Sesiones conjunto_sesiones;
     Cursos conjunto_cursos;
+    conjunt_problemes.leer();
+    conjunto_sesiones.leer();
+    conjunto_cursos.leer();
+    conjunto_usuarios.leer();
     string comando;
     cin >> comando;
     while(comando != "fin"){
@@ -159,5 +163,6 @@ int main() {
             }
             else cout << "No existe ningún usuario con este identificador." << endl;
         }
+        else cout << "El comando introducido no esta dentro de los aceptados, porfavor vuelvelo a intentar." << endl;
     }
 }

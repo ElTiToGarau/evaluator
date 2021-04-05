@@ -22,7 +22,8 @@ class Sesion
 {
 private:
     string id;
-    BinTree<Problema> problemes_sessio;
+    BinTree<Problema> problemes_sessio_bin;
+    list<string> problemes_sessio;
     int num_problemas;
 
 public:

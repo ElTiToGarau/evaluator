@@ -70,7 +70,7 @@ public:
     */
     bool existe_usuarios(string id) const;
 
-    //Escritura
+    //Escritura y lectura
 
     /** @brief Escribe por el canal standard de salida el set de usuarios de forma ordenada. 
         \pre <em>cierto</em>
@@ -95,6 +95,12 @@ public:
         \post Se ha escrito en el canal standard de salida los problemas enviables por el usuario id en orden creciente.
     */   
     void escribir_enviables(string id);
+
+    /** @brief Lee por el canal standard de entrada el conjunto de usuarios. 
+        \pre <em>cierto</em>
+        \post El resultado es leer del canal standard de entrada el conjunto de usuarios y ponerlos en el parametro implícito.
+    */
+    void leer();
 };
 
 #endif
