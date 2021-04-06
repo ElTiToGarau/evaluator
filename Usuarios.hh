@@ -56,6 +56,13 @@ public:
         \post Inscribe al usuario identificado por id al curso con identificador c.
     */
     void inscribir_curso(string id, int c);
+    
+    /** @brief Comprueva si el resultado es correcto o incoreecto, y actualiza todas las estadísticas correspondientes.
+        \pre Existe un usuario con el identificador <em>id</em>, existe un problema <em>p</em>, <em>r</em> solo puede ser 1 o 0
+        \post Actualiza todas las estadísticas correspondientes, tanto en el caso que r sea 1 como en el que r sea 0.
+        En el caso que una vez enviado el problema <em>p</em> se haya completado el curso, el usuario dejará de estar inscrito en el curso.
+    */
+    void comprovar_resultado(string id, string p, int r);
 
     //Consultoras
     /** @brief Consulta el número de usuarios registrados.
@@ -70,7 +77,7 @@ public:
     */
     int curso_usuario(string id) const;
 
-    /** @brief Consulta sin existe un usario con identificador id.
+    /** @brief Consulta si existe un usario con identificador id.
         \pre <em>cierto</em>
         \post El resultado és el true si existe un usario con identificador id, y false si no exsite.
     */
@@ -81,6 +88,12 @@ public:
         \post El resultado es true si el usuario está inscrito en un curso y false si no lo está.
     */   
     bool consultar_incscrito_curso(string id) const;
+    
+    /** @brief Consulta si un usuario puede enviar un problema. 
+        \pre Tiene que existir el problema p.
+        \post El resultado es true si el problema p es enviable para el usuario id, y false en caso contrario.
+    */
+    bool problema_enviable(string id, string p);
 
     //Escritura y lectura
 

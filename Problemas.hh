@@ -15,7 +15,7 @@ using namespace std;
 #include "Problema.hh"
 
     /** @class Problemas
-    @brief Representa todo el conjunto de problemas.
+    @brief Representa todo el conjunto de Problemas.
     */
 class Problemas
 {

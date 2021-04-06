@@ -15,7 +15,7 @@ using namespace std;
 #include "Curso.hh"
 
     /** @class Cursos
-    @brief Representa todo el conjunto de cursos.
+    @brief Representa todo el conjunto de Cursos.
     */
 class Cursos
 {
@@ -71,6 +71,12 @@ public:
         \post El resultado es el número de usuarios inscritos en el curso <em>c</em>.
     */
     int consultar_num_usuarios(int c);
+    
+    /** @brief Consulta si un problema esta dentro del conjunto de problemas de un curso. 
+        \pre Tiene que existir el curso c y el problema p.
+        \post El resultado es true si existe un problema <em>p</em> dentro del conjunto de problemas del curso <em>c</em>, y false en caso contrario.
+    */
+    bool existe_problema_en_curso(int c, string p);
 
     //Escritura y lecttura
     /** @brief Escribe por el canal standard de salida el map de cursos de forma ordenada. 

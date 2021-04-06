@@ -15,7 +15,7 @@ using namespace std;
 #include "Problema.hh"
 
     /** @class Sesiones
-    @brief Representa todo el conjunto de sesiones.
+    @brief Representa todo el conjunto de Sesiones.
     */
 class Sesiones
 {

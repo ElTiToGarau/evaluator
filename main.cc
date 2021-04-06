@@ -128,7 +128,24 @@ int main() {
             else cout << "No existe ningún usuario con este identificador." << endl;
         }
         else if(comando == "envio" or comando == "e"){
-
+            string id;
+            cin >> id;
+            if(conjunto_usuarios.existe_usuarios(id) and conjunto_usuarios.consultar_incscrito_curso(id)){
+                string p;
+                cin >> p;
+                int curs;
+                curs = conjunto_usuarios.curso_usuario(id);
+                if(conjunto_cursos.existe_problema_en_curso(curs,id)){
+                    if(conjunto_usuarios.problema_enviable(id,p)){
+                        int r;
+                        cin >> r;
+                        conjunto_usuarios.comprovar_resultado(id,p,r);
+                    }
+                    else cout << "El problema no es enviable por el usuario." << endl;
+                }
+                cout << "El problema a enviar no forma parte del curso en el que esta inscrito el usuario." << endl;
+            }
+            cout << "El usuaio introducido o no existe o no esta inscrito a ningún curso." << endl;
         }
         else if(comando == "listar_problemas" or comando == "lp"){
             conjunt_problemes.Escribir();
@@ -174,6 +191,6 @@ int main() {
             }
             else cout << "No existe ningún usuario con este identificador." << endl;
         }
-        else cout << "El comando introducido no esta dentro de los aceptados, porfavor vuelvelo a intentar." << endl;
+        else cout << "El comando: "<< comando << ", no esta dentro de los aceptados, porfavor vuelvelo a intentar." << endl;
     }
 }

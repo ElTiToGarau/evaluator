@@ -13,7 +13,7 @@ using namespace std;
 #endif 
 
 /** @class Problema
-    @brief Representa un problema con su identificador, así como el número total de envios al problema, y también el número de envios correctos al problema.
+    @brief Representa un Problema con su identificador, así como el número total de envios al problema, y también el número de envios correctos al problema.
 */
 class Problema
 {

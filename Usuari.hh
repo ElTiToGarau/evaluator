@@ -16,7 +16,7 @@ using namespace std;
 #include "Problema.hh"
 
 /** @class Usuari
-    @brief Representa un usuario con su identificador, el número de problemas que ha intentado resolver, cuantos de estos ha resuelto satisfactoriamente y cuàntos envío en total ha realizado.
+    @brief Representa un Usuari con su identificador, el número de problemas que ha intentado resolver, cuantos de estos ha resuelto satisfactoriamente y cuàntos envío en total ha realizado.
     También tenemos que saber si el usuario está inscrito en algun curso, y si es así en cual, así como un registro de los problemas ya resueltos, y otro de los problemas que ya se peuden intentar resolver en el curso actual.
 */
 
