@@ -44,37 +44,37 @@ public:
 
     /** @brief Modifica los valores de número total de envíos y número correcto de envíos.
       \pre Número total de envíos >= número correcto de envíos y totales >= correctos.
-      \post El parametro implícito pasa a tener total de envíos "totales", y número correcto de envíos "correctos".
+      \post El parámetro implícito pasa a tener total de envíos "totales", y número correcto de envíos "correctos".
   */   
   void modificar(int correctos, int totales);
   
     /** @brief Modifica el valor de envíos correctos.
       \pre Número total de envíos >= número correcto de envíos.
-      \post El parametro implícito pasa a tener número correcto de envíos "correctos".
+      \post El parámetro implícito pasa a tener número correcto de envíos "correctos".
   */   
   void modificar_correctos(int correctos);
 
     /** @brief Modifica el valor de total de envíos.
       \pre Número total de envíos >= número correcto de envíos.
-      \post El parametro implícito pasa a tener total de envíos "totales".
+      \post El parámetro implícito pasa a tener total de envíos "totales".
   */   
   void modificar_totales(int totales);
 
   /** @brief Incrementa en 1 el número total de envíos.
       \pre Número total de envíos >= número correcto de envíos.
-      \post El parametro implícito pasa a tener número total de envíos + 1.
+      \post El parámetro implícito pasa a tener número total de envíos + 1.
   */   
   void incrementar_totales();
 
   /** @brief Incrementa en 1 el número total de envíos y el número de envíos correctos.
       \pre Número total de envíos >= número correcto de envíos.
-      \post El parametro implícito pasa a tener número total de envíos + 1 y número correcto de envíos + 1.
+      \post El parámetro implícito pasa a tener número total de envíos + 1 y número correcto de envíos + 1.
   */   
   void incrementar_correctos();
 
-  /** @brief Pone en el parametro implicito id igual a "id", solo si no se havia puesto otro id con anterioridad.
+  /** @brief Pone en el parámetro implicito id igual a "id", solo si no se havia puesto otro id con anterioridad.
       \pre string == "0".
-      \post El parametro implícito pasa a tener id igual a "id".
+      \post El parámetro implícito pasa a tener id igual a "id".
   */   
   void afegir_id(string id);
 

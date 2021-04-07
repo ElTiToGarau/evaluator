@@ -39,22 +39,22 @@ public:
     Sesiones();
 
     //Modificadoras
-    /** @brief Añade al parametro implícito el nuevo problema.
-        \pre No existe otra sesíon con el mismo id que s.
-        \post El resultado és el parametro implícito pero añadiendo s a este.
+    /** @brief Añade al parámetro implícito el nuevo problema.
+        \pre No existe otra sesión con el mismo id que s.
+        \post El resultado es el parámetro implícito pero añadiendo s a este.
     */
     void afegir_sesion(const Sesion& s);
 
     //Consultoras
     /** @brief Consulta el número de sesiones que existen
         \pre <em>cierto</em>
-        \post El resultado és el número de sesiones que hay en total.
+        \post El resultado es el número de sesiones que hay en total.
     */
     int num_sesiones() const;
 
     /** @brief Consulta si existe una sesión con identificador id.
         \pre <em>cierto</em>
-        \post El resultado és el true si existe una sesión con identificador id, y false si no exsite.
+        \post El resultado es el true si existe una sesión con identificador id, y false si no exsite.
     */
     bool existe_sesion(string id) const;
 
@@ -73,7 +73,7 @@ public:
 
     /** @brief Lee por el canal standard de entrada el conjunto de sesiones. 
         \pre <em>cierto</em>
-        \post El resultado es leer del canal standard de entrada el conjunto de sesiones y ponerlos en el parametro implícito.
+        \post El resultado es leer del canal standard de entrada el conjunto de sesiones y ponerlos en el parámetro implícito.
     */
     void leer();
 };

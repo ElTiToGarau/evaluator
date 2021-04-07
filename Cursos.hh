@@ -30,7 +30,7 @@ public:
 
         Se ejecuta automáticamente al declarar un problema.
         \pre <em>cierto</em>
-        \post El resultado es un map de cursos vacío, con id igual a "0" y con N=0.
+        \post El resultado es un map de cursos vacío, con id igual a "0" y con N = 0.
     */
     Cursos();
 
@@ -41,26 +41,26 @@ public:
     Cursos(int id);
 
     //Modificadoras
-    /** @brief Añade al parametro implícito el nuevo curso.
+    /** @brief Añade al parámetro implícito el nuevo curso.
         \pre <em>cierto</em>
-        \post El resultado és el parametro implícito pero añadiendo c a este.
+        \post El resultado es el parámetro implícito pero añadiendo c a este.
     */
     void afegir_curso(const Curso& c);
 
     //Consultoras
     /** @brief Consulta el número de sesiones que existen
         \pre <em>cierto</em>
-        \post El resultado és el número de sesiones que hay en total.
+        \post El resultado es el número de sesiones que hay en total.
     */
     int num_cursos() const;
 
     /** @brief Consulta si existe una sesión con identificador id.
         \pre <em>cierto</em>
-        \post El resultado és el true si existe una sesión con identificador id, y false si no exsite.
+        \post El resultado es el true si existe una sesión con identificador id, y false si no exsite.
     */
     bool existe_curso(int id) const;
 
-    /** @brief Indica a que sesion pertenece el problema p dentro del curso c. 
+    /** @brief Indica a que sesión pertenece el problema p dentro del curso c. 
         \pre <em>cierto</em>
         \post El resultado es el identificador de la sesion en la que se encuentra p en el curso c, en caso de que p no formase parte del curso retorna "NO_EN_CURSO".
     */

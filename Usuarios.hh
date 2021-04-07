@@ -39,15 +39,15 @@ public:
     Usuarios();
 
     //Modificadoras
-    /** @brief Añade al parametro implícito el nuevo usuario.
+    /** @brief Añade al parámetro implícito el nuevo usuario.
         \pre No existe ningún usuario con el mismo identificador.
-        \post El resultado és el parametro implícito pero añadiendo u en este.
+        \post El resultado és el parámetro implícito pero añadiendo u en este.
     */
     void afegir_usauri(Usuari& u);
 
-    /** @brief Borra al usuario identificado por id del parametro implícito.
+    /** @brief Borra al usuario identificado por id del parámetro implícito.
         \pre Existe un usuario con el identificador id.
-        \post El resultado és el parametro implícito pero sin u en este.
+        \post El resultado és el parámetro implícito pero sin u en este.
     */
     void baja_usuario(string id);
 
@@ -123,7 +123,7 @@ public:
 
     /** @brief Lee por el canal standard de entrada el conjunto de usuarios. 
         \pre <em>cierto</em>
-        \post El resultado es leer del canal standard de entrada el conjunto de usuarios y ponerlos en el parametro implícito.
+        \post El resultado es leer del canal standard de entrada el conjunto de usuarios y ponerlos en el parámetro implícito.
     */
     void leer();
 };

@@ -47,9 +47,9 @@ public:
     */
     int consultar_num_sesiones();
 
-    /** @brief Indica a que sesion pertenece el problema p. 
+    /** @brief Indica a que sesión pertenece el problema p. 
         \pre <em>cierto</em>
-        \post El resultado es el identificador de la sesion en la que se encuentra p, en caso de que p no formase parte del curso retorna "NO_EN_CURSO".
+        \post El resultado es el identificador de la sesión en la que se encuentra p, en caso de que p no formase parte del curso retorna "NO_EN_CURSO".
     */
     string sesion_problema(string id);
 
@@ -63,7 +63,7 @@ public:
 
     /** @brief Lee por el canal standard de entrada la sesiones del curso. 
         \pre <em>cierto</em>
-        \post El resultado es leer del canal standard de entrada un número de sesiones s que formaran el curso, si hay intersección de problemas en las sesiones devuelve false,
+        \post El resultado es leer del canal standard de entrada un número de sesiones <em>s</em> que formaran el curso, si hay intersección de problemas en las sesiones devuelve false,
         de otro modo devuelve true.
     */
     bool leer(int s);

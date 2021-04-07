@@ -42,16 +42,16 @@ public:
     */
     Problemas();
 
-    /** @brief Creadora de una cópia. 
+    /** @brief Creadora de una copia. 
         \pre <em>cierto</em>
         \post El resultado es una copia de la lista de problemas p.
     */
     Problemas(const Problemas& p);
 
     //Modificadoras
-    /** @brief Añade al parametro implícito el nuevo problema.
+    /** @brief Añade al parámetro implícito el nuevo problema.
         \pre <em>cierto</em>
-        \post El resultado és el parametro implícito pero añadiendo p a este.
+        \post El resultado és el parámetro implícito pero añadiendo p a este.
     */
     void afegir_problema(const Problema& p);
 
@@ -83,7 +83,7 @@ public:
 
     /** @brief Lee por el canal standard de entrada el conjunto de problemas. 
         \pre <em>cierto</em>
-        \post El resultado es leer del canal standard de entrada el conjunto de problemas y ponerlos en el parametro implícito.
+        \post El resultado es leer del canal standard de entrada el conjunto de problemas y ponerlos en el parámetro implícito.
     */
     void leer();
 };

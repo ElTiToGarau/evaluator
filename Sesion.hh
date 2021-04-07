@@ -16,7 +16,7 @@ using namespace std;
 #include "Problema.hh"
 
     /** @class Sesion
-    @brief Representa un Sesion con su identificador, y el subconjunto de problemas por la que esta formada la sesion.
+    @brief Representa un Sesion con su identificador, y el subconjunto de problemas por la que esta formada la sesión.
     */
 
 class Sesion
@@ -33,19 +33,19 @@ public:
 
         Se ejecuta automáticamente al declarar un problema.
         \pre <em>cierto</em>
-        \post El resultado es una sesion con id=0 y sin problemas.
+        \post El resultado es una sesión con id=0 y sin problemas.
     */
     Sesion();
 
     /** @brief Creadora con identificador especifico. 
         \pre <em>cierto</em>
-        \post El resultado es una sesion con identificador igual a id y sin problemas.
+        \post El resultado es una sesión con identificador igual a id y sin problemas.
     */
     Sesion(string id);
 
-    /** @brief Creadora de una cópia. 
+    /** @brief Creadora de una copia. 
         \pre <em>cierto</em>
-        \post El resultado es una copia de la sesion s.
+        \post El resultado es una copia de la sesión s.
     */
     Sesion(const Sesion& s);
 
@@ -54,7 +54,7 @@ public:
     //Consultoras
     /** @brief Consulta el id de la sesión. 
         \pre <em>cierto</em>
-        \post El resultado es el id de la sesion.
+        \post El resultado es el id de la sesión.
     */
     string consultar_id();
 
@@ -71,7 +71,7 @@ public:
     */
     void Escribir();
 
-    /** @brief Lee por el canal standard de entrada la estructura de problemas de la sesion. 
+    /** @brief Lee por el canal standard de entrada la estructura de problemas de la sesión. 
         \pre <em>cierto</em>
         \post El resultado es leer del canal standard de entrada el conjunto de problemas de forma ordenada.
     */

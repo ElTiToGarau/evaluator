@@ -29,13 +29,13 @@ public:
 
         Se ejecuta automáticamente al declarar un problema.
         \pre <em>cierto</em>
-        \post El resultado es un usuario con identificador igual a cero, y con el resto  de paràmetros implíctos inicializados a cero, con los registros vacíos, y sin estar apuntado a ningún curso.
+        \post El resultado es un usuario con identificador igual a cero, y con el resto  de parámetros implíctos inicializados a cero, con los registros vacíos, y sin estar apuntado a ningún curso.
     */   
     Usuari();
 
     /** @brief Creadora con identificador concreto. 
         \pre <em>cierto</em>
-        \post El resultado es un usuario con identificador igual a id, y con el resto  de paràmetros implíctos inicializados a cero, con los registros vacíos, y sin estar apuntado a ningún curso.
+        \post El resultado es un usuario con identificador igual a id, y con el resto  de parámetros implíctos inicializados a cero, con los registros vacíos, y sin estar apuntado a ningún curso.
     */   
     Usuari(string id);
 
@@ -49,7 +49,7 @@ public:
 
     /** @brief Modificadora del número total de envíos.
         \pre <em>cierto</em>
-        \post El parametro implícito pas a tener el número total de envíos igual a num.
+        \post El parámetro implícito pas a tener el número total de envíos igual a num.
     */
     void modificar_numero_envios(int num);
 
@@ -113,7 +113,7 @@ public:
     //Escritura y lectura de Usuari
 
     /** @brief Lee del canal standard de entrada el id de un usario.
-        \pre el parametro implícito id tiene que ser igual a 0.
+        \pre el parámetro implícito id tiene que ser igual a 0.
         \post Se ha leido del canal standard de entrada el id de un usario.
     */   
     void leer();
