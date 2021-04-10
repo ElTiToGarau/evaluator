@@ -2,7 +2,7 @@
 
 ## Pràctica de l'assignatura de PRO2 de la FIB.
 
-Los  comandos  aceptados  se  describen  a  continuación.  Todo  ellos  se  presentan  en dos versiones, una con el nombre completo y otra con el nombre abreviado. La sintaxisexacta de la entrada y la salida de cada comando se podrá derivar del juego de pruebas público del ejercicio creado en el Jutge para cada entrega.
+Los  comandos  aceptados  se  describen  a  continuación.  Todo  ellos  se  presentan  en dos versiones, una con el nombre completo y otra con el nombre abreviado.
 
 1. `nuevo_problema p`: añade un problema nuevo con identificadorp. El comandoadmite la forma abreviada `np p`. Si ya existía un problema en la plataforma con elmismo identificador se imprime un mensaje de error. En caso contrario se imprimeel número de problemas P en la colección después de añadirlo.
 2. `nueva_sesion s`: añade una sesión nueva con identificadors. El comando admite la forma abreviada `ns s`. Primero se debe leer la estructura de problemas de lasesión, de la misma manera que se hizo en las sesiones iniciales (se garantiza quelos problemas existen y no están repetidos). Si ya existía una sesión en la plataforma con el mismo identificador se imprime un mensaje de error. En caso contrariose imprime el número de sesiones Q en el repositorio después de añadirla.
