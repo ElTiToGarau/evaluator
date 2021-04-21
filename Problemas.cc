@@ -26,7 +26,7 @@
         for(map<string,Problema>::iterator it=lista_problemas.begin(); it!=lista_problemas.end(); ++it) {
             lista_ordenada.push_back(*it);
         }
-        sort (lista_ordenada.begin(), lista_ordenada.end(), cmp);
+        lista_ordenada.sort(cmp);
         for(list<pair<string,Problema>>::iterator it=lista_ordenada.begin(); it != lista_ordenada.end(); ++it){
             cout << (*it).first;
             cout << (*it).second.consultar_totales() << ",";
