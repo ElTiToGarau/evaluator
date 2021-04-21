@@ -2,14 +2,12 @@
     @brief Especificación de la clase Problema 
 */
 
-
 #ifndef _PROBLEMA_HH_
 #define _PROBLEMA_HH_
 
 #ifndef NO_DIAGRAM
 using namespace std;
 #include <iostream>
-#include <string>
 #endif 
 
 /** @class Problema
@@ -27,12 +25,6 @@ public:
       \post El resultado es un problema con identificador igual a cero, número de envíos totales igual a cero y número de envíos correctos igual a cero.
   */   
   Problema();
-
-    /** @brief Creadora con identificador concreto. 
-      \pre <em>cierto</em>
-      \post El resultado es un problema con identificador igual a id, número de envíos totales igual a cero y número de envíos correctos igual a cero.
-  */   
-  Problema(string id);
 
     /** @brief Creadora con copia de un problema.. 
       \pre <em>cierto</em>
@@ -72,19 +64,7 @@ public:
   */   
   void incrementar_correctos();
 
-  /** @brief Pone en el parámetro implicito id igual a "id", solo si no se havia puesto otro id con anterioridad.
-      \pre string == "0".
-      \post El parámetro implícito pasa a tener id igual a "id".
-  */   
-  void afegir_id(string id);
-
   //Consultoras
-
-    /** @brief Consultora del identificador.
-      \pre <em>cierto</em>
-      \post El resultado es el identificador del parámetro implícito
-  */
-    string consultar_id() const;
 
     /** @brief Consultora del número de envíos totales.
       \pre <em>cierto</em>
@@ -101,7 +81,6 @@ public:
   //Escritura y lectura de Problema
 
 private:
-    string id;
     int env_totales;
     int env_correctos;
 };

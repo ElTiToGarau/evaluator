@@ -21,7 +21,9 @@ int main() {
     Usuarios conjunto_usuarios;
     Sesiones conjunto_sesiones;
     Cursos conjunto_cursos;
-    conjunt_problemes.leer();
+    int P;
+    cin >> P;
+    conjunt_problemes.leer(P);
     conjunto_sesiones.leer();
     conjunto_cursos.leer();
     conjunto_usuarios.leer();
@@ -31,8 +33,10 @@ int main() {
         if(comando == "nuevo_problema" or comando == "np"){
             string id;
             cin >> id;
-            Problema p(id);
-            conjunt_problemes.afegir_problema(p);
+            if(not conjunt_problemes.existe_problema(id)){
+                conjunt_problemes.afegir_problema(id);
+            }
+            else cout << "Ya existe un problema on el id: " << id << endl;
         }
         else if(comando == "nueva_sesion" or comando == "ns"){
             string s;
