@@ -9,8 +9,8 @@
 #ifndef NO_DIAGRAM
 using namespace std;
 #include <iostream>
-#include <string>
 #include <set>
+#include <map>
 #endif 
 
 #include "Problema.hh"
@@ -32,18 +32,6 @@ public:
         \post El resultado es un usuario con identificador igual a cero, y con el resto  de parámetros implíctos inicializados a cero, con los registros vacíos, y sin estar apuntado a ningún curso.
     */   
     Usuari();
-
-    /** @brief Creadora con identificador concreto. 
-        \pre <em>cierto</em>
-        \post El resultado es un usuario con identificador igual a id, y con el resto  de parámetros implíctos inicializados a cero, con los registros vacíos, y sin estar apuntado a ningún curso.
-    */   
-    Usuari(string id);
-
-    /** @brief Creadora copia de un usuario. 
-        \pre <em>cierto</em>
-        \post El resultado es un usuario identico a u.
-    */   
-    Usuari(const Usuari& u);
   
     //Modificadoras
 
@@ -57,27 +45,39 @@ public:
         \pre p no esta ya en la lista.
         \post Se añade p a la lista de problemas intentados.
     */
-    void afegir_problema_intentado(const Problema& p);
+    void afegir_problema_intentado(const string id);
 
     /** @brief Se añade un problema a la lista de problemas resueltos.
         \pre p no esta ya en la lista.
         \post Se añade p a la lista de problemas resueltos.
     */
-    void afegir_problema_resuelto(const Problema& p);
+    void afegir_problema_resuelto(const string id, const int num);
+
+    /** @brief Se añade un problema a la lista de problemas enviables.
+        \pre p no esta ya en la lista.
+        \post Se añade p a la lista de problemas enviables.
+    */
+    void afegir_problema_enviable(const string id);
+
+    /** @brief Suprime un problema a la lista de problemas enviables.
+        \pre p esta en la lista.
+        \post Se elimina p a la lista de problemas enviables.
+    */
+    void suprimir_problema_enviable(const string id);
+
+    /** @brief Se aumenta en 1 el numero de envios a cierto problema de la lista de problemas enviables.
+        \pre p esta en la lista de problemas enviables.
+        \post Se aumenta en 1 el númerode envios al problema id de la lista de problemas enviables.
+    */
+    void aumentar_problema_enviable(const string id);
 
     /** @brief Inscribe al usuario a un curso.
         \pre El usuario no esta inscrito a ningún curso y también un curso con identificador c.
         \post Inscribe al usuario al curso con identificador c.
     */
-    void inscribir_curso(int c);
+    void inscribir_curso(const int c);
     
     //Consultoras
-
-    /** @brief Consultora del identificador del usuario.
-        \pre <em>cierto</em>
-        \post El resultado es el identificador del usario.
-    */   
-    string consultar_id() const;
 
     /** @brief Consultora de el número de problemas que ha intentado resolver.
         \pre <em>cierto</em>
@@ -112,12 +112,6 @@ public:
 
     //Escritura y lectura de Usuari
 
-    /** @brief Lee del canal standard de entrada el id de un usario.
-        \pre el parámetro implícito id tiene que ser igual a 0.
-        \post Se ha leido del canal standard de entrada el id de un usario.
-    */   
-    void leer();
-
     /** @brief Escribe en el canal standard de salida los problemas resueltos.
         \pre <em>cierto</em>
         \post Se ha escrito en el canal standard de salida los problemas resueltos en orden creciente.
@@ -131,18 +125,12 @@ public:
     void escribir_enviables();
 
 private:
-    string id;
     int env_totales;
     bool inscrito_en_curso;
     int curso_inscrito;
-    struct cmp {
-    bool operator() (Problema& a, Problema& b) const{
-        return a.consultar_id() < b.consultar_id();
-        }
-    };
-    set<Problema,cmp> problemas_resueltos;
-    set<Problema,cmp> problemas_enviables;
-    set<Problema,cmp> problemas_intentados;
+    map<string,int> problemas_resueltos;
+    map<string,int> problemas_enviables;
+    set<string> problemas_intentados;
 };
 
 #endif

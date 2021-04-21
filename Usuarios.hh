@@ -9,7 +9,7 @@
 #ifndef NO_DIAGRAM
 using namespace std;
 #include <iostream>
-#include <set>
+#include <map>
 #endif 
 
 #include "Usuari.hh"
@@ -20,13 +20,7 @@ using namespace std;
 class Usuarios
 {
 private:
-    string id;
-    struct cmp {
-    bool operator() (Usuari& a, Usuari& b) const{
-        return a.consultar_id() < b.consultar_id();
-        }
-    };
-    set<Usuari, cmp> lista_usuarios;
+    map<string,Usuari> lista_usuaris;
 
 public:
     //Constructoras
@@ -43,7 +37,7 @@ public:
         \pre No existe ningún usuario con el mismo identificador.
         \post El resultado és el parámetro implícito pero añadiendo u en este.
     */
-    void afegir_usauri(Usuari& u);
+    void afegir_usauri(const string id);
 
     /** @brief Borra al usuario identificado por id del parámetro implícito.
         \pre Existe un usuario con el identificador id.
