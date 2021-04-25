@@ -69,7 +69,7 @@ public:
         \pre Existe un usuario identificado por id.
         \post El resultado és el curso el que està apuntadon el usuario, o zero si no esta apuntado a ningún curso.
     */
-    int curso_usuario(string id) const;
+    int curso_usuario(string id);
 
     /** @brief Consulta si existe un usario con identificador id.
         \pre <em>cierto</em>
@@ -81,7 +81,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es true si el usuario está inscrito en un curso y false si no lo está.
     */   
-    bool consultar_incscrito_curso(string id) const;
+    bool consultar_incscrito_curso(string id);
     
     /** @brief Consulta si un usuario puede enviar un problema. 
         \pre Tiene que existir el problema p.
@@ -98,7 +98,7 @@ public:
     void Escribir();
 
     /** @brief Escribe por el canal standard de salida el usuario concreto. 
-        \pre El problema identificado por id tiene que existir.
+        \pre El usuario identificado por id tiene que existir.
         \post El resultado es escribir en el canal standard de salida el usuario concreto si existe, de otro modo imprime un mensaje de error.
     */
     void Escribir(string id);
@@ -119,7 +119,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es leer del canal standard de entrada el conjunto de usuarios y ponerlos en el parámetro implícito.
     */
-    void leer();
+    void leer(int M);
 };
 
 #endif

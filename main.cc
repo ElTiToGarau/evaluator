@@ -21,12 +21,12 @@ int main() {
     Usuarios conjunto_usuarios;
     Sesiones conjunto_sesiones;
     Cursos conjunto_cursos;
-    int P;
-    cin >> P;
+    int P,Q,N,M;
+    cin >> P >> Q >> N >> M;
     conjunt_problemes.leer(P);
-    conjunto_sesiones.leer();
-    conjunto_cursos.leer();
-    conjunto_usuarios.leer();
+    conjunto_sesiones.leer(Q);
+    conjunto_cursos.leer(N);
+    conjunto_usuarios.leer(M);
     string comando;
     cin >> comando;
     while(comando != "fin"){
@@ -42,13 +42,14 @@ int main() {
             string s;
             cin >> s;
             if(not conjunto_sesiones.existe_sesion(s)){
-                Sesion ses(s);
+                Sesion ses;
                 ses.leer();
                 conjunto_sesiones.afegir_sesion(ses);
                 cout << conjunto_sesiones.num_sesiones() << endl;
             }
             else cout << "Ya existe una sesión con el mismo id." << endl;
         }
+        /*
         else if(comando == "nuevo_curso" or comando == "nc"){
             int s;
             cin >> s;
@@ -59,12 +60,12 @@ int main() {
             }
             else cout << "Hay uno o más problemas que se repiten en el curso!" << endl;
         }
+        */
         else if(comando == "alta_usuario" or comando == "a"){
             string id;
             cin >> id;
             if(not conjunto_usuarios.existe_usuarios(id)){
-                Usuari u(id);
-                conjunto_usuarios.afegir_usauri(u);
+                conjunto_usuarios.afegir_usauri(id);
                 cout << conjunto_usuarios.num_usuarios() << endl;
             }
             else cout << "Ya hay un usuario registrado con el mismo id." << endl;
@@ -131,6 +132,7 @@ int main() {
             }
             else cout << "No existe ningún usuario con este identificador." << endl;
         }
+        /*
         else if(comando == "envio" or comando == "e"){
             string id;
             cin >> id;
@@ -151,6 +153,7 @@ int main() {
             }
             cout << "El usuaio introducido o no existe o no esta inscrito a ningún curso." << endl;
         }
+        */
         else if(comando == "listar_problemas" or comando == "lp"){
             conjunt_problemes.Escribir();
         }

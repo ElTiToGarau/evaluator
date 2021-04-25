@@ -79,6 +79,13 @@ public:
     
     //Consultoras
 
+    /** @brief Consulta si un problema esta dentro de la lista de problemas enviables.
+        \pre <em>cierto</em>
+        \post El resultado es true si el problema esta en la lista de problemas enviables, y false en cason contrario.
+    */   
+
+    bool consultar_problema_enviable(string p);
+
     /** @brief Consultora de el número de problemas que ha intentado resolver.
         \pre <em>cierto</em>
         \post El resultado es el número de problemas que ha intentado resolver.
@@ -108,7 +115,7 @@ public:
         \pre El usuario tiene que estar inscrito en algun curso.
         \post El resultado el identificador de el curso al cual estás inscrito.
     */   
-    int cusro_inscrito() const;
+    int cusro_inscrito();
 
     //Escritura y lectura de Usuari
 

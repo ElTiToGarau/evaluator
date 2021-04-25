@@ -22,10 +22,9 @@ using namespace std;
 class Sesion
 {
 private:
-    string id;
-    BinTree<Problema> problemes_sessio_bin;
-    list<string> problemes_sessio;
+    BinTree<string> problemes_sessio_bin;
     int num_problemas;
+    static BinTree<string> preorde(BinTree<string>& t);
 
 public:
     //Constructoras
@@ -33,30 +32,13 @@ public:
 
         Se ejecuta automáticamente al declarar un problema.
         \pre <em>cierto</em>
-        \post El resultado es una sesión con id=0 y sin problemas.
+        \post El resultado es una sesión sin problemas.
     */
     Sesion();
-
-    /** @brief Creadora con identificador especifico. 
-        \pre <em>cierto</em>
-        \post El resultado es una sesión con identificador igual a id y sin problemas.
-    */
-    Sesion(string id);
-
-    /** @brief Creadora de una copia. 
-        \pre <em>cierto</em>
-        \post El resultado es una copia de la sesión s.
-    */
-    Sesion(const Sesion& s);
 
     //Modificadoras
 
     //Consultoras
-    /** @brief Consulta el id de la sesión. 
-        \pre <em>cierto</em>
-        \post El resultado es el id de la sesión.
-    */
-    string consultar_id();
 
     /** @brief Consulta el número de problemas que hay en la sesión. 
         \pre <em>cierto</em>

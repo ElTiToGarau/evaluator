@@ -34,6 +34,11 @@
 
     }
 
+    bool Usuari::consultar_problema_enviable(string p){
+        if(problemas_enviables.count(p)==1) return true;
+        else return false;
+    }
+
     int Usuari::consultar_intentados() const {
         return problemas_intentados.size();
     }
@@ -50,7 +55,7 @@
         return inscrito_en_curso;
     }
 
-    int Usuari::cusro_inscrito() const {
+    int Usuari::cusro_inscrito(){
         return curso_inscrito;
     }
 
