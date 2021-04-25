@@ -8,7 +8,7 @@
 #ifndef NO_DIAGRAM
 using namespace std;
 #include <iostream>
-#include <set>
+#include <map>
 #endif 
 
 #include "Sesion.hh"
@@ -20,13 +20,7 @@ using namespace std;
 class Sesiones
 {
 private:
-    string id;
-    struct cmp {
-    bool operator() (Sesion& a, Sesion& b) const{
-        return a.consultar_id() < b.consultar_id();
-        }
-    };
-    set<Sesion, cmp> lista_sesiones;
+    map<string, Sesion> conjunt_sesions;
 
 public:
     //Constructoras
@@ -43,7 +37,7 @@ public:
         \pre No existe otra sesión con el mismo id que s.
         \post El resultado es el parámetro implícito pero añadiendo s a este.
     */
-    void afegir_sesion(const Sesion& s);
+    void afegir_sesion(string id, const Sesion& s);
 
     //Consultoras
     /** @brief Consulta el número de sesiones que existen
@@ -56,7 +50,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es el true si existe una sesión con identificador id, y false si no exsite.
     */
-    bool existe_sesion(string id) const;
+    bool existe_sesion(string id);
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el set de sesiones de forma ordenada. 
@@ -75,7 +69,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es leer del canal standard de entrada el conjunto de sesiones y ponerlos en el parámetro implícito.
     */
-    void leer();
+    void leer(int Q);
 };
 
 #endif

@@ -95,7 +95,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es leer del canal standard de entrada el conjunto de cursos y ponerlos en el parametro implícito.
     */
-    void leer();
+    void leer(int N);
 };
 
 #endif

@@ -44,7 +44,7 @@ int main() {
             if(not conjunto_sesiones.existe_sesion(s)){
                 Sesion ses;
                 ses.leer();
-                conjunto_sesiones.afegir_sesion(ses);
+                conjunto_sesiones.afegir_sesion(s,ses);
                 cout << conjunto_sesiones.num_sesiones() << endl;
             }
             else cout << "Ya existe una sesión con el mismo id." << endl;

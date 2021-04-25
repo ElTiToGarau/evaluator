@@ -24,7 +24,9 @@ class Sesion
 private:
     BinTree<string> problemes_sessio_bin;
     int num_problemas;
-    static BinTree<string> preorde(BinTree<string>& t);
+    static BinTree<string> preorde(const BinTree<string>& t);
+    static void postorde(const BinTree<string>& t);
+    static int recalcular_num_problemas(const BinTree<string>& t);
 
 public:
     //Constructoras
