@@ -35,17 +35,16 @@
     BinTree<string> Sesion::preorde(const BinTree<string>& t){
         string a1, a2;
         cin >> a1 >> a2;
+        BinTree<string> esq, dre;
         if(a1!="0"){
             BinTree<string> e(a1);
-            e = preorde(e);
+            esq = preorde(e);
         }
-        else BinTree<string> e;
         if(a2!="0"){
             BinTree<string> d(a2);
-            d = preorde(d);
+            dre = preorde(d);
         }
-        else BinTree<string> d;
-        return BinTree<string>(t.value(),e,d);
+        return BinTree<string>(t.value(), esq, dre);
     }
 
     int Sesion::recalcular_num_problemas(const BinTree<string>& t){
