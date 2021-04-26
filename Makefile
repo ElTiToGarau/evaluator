@@ -1,7 +1,7 @@
 OPCIONS = -D_JUDGE_ -D_GLIBCXX_DEBUG -O2 -Wall -Wextra -Werror -Wno-sign-compare -std=c++11
 
-main.exe: main.o Problema.o Problemas.o Usuari.o
-	g++ -o main.exe main.o Problema. Problemas.o Usuari.o Usuarios.o Sesiones.o Sesion.o Curso.o Cursos.o
+main.exe: main.o Problema.o Problemas.o Sesiones.o Sesion.o Curso.o Cursos.o Usuari.o Usuarios.o
+	g++ -o main.exe main.o Problema.o Problemas.o Usuari.o Usuarios.o Sesiones.o Sesion.o Curso.o Cursos.o
 	rm *.o
 
 main.o: main.cc
