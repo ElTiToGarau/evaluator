@@ -22,8 +22,7 @@ using namespace std;
 class Curso
 {
 private:
-    list<Sesion> problemes_sessio;
-    int num_sesiones;
+    list<string> conjunto_sesiones;
     int veces_completado;
     int usuarios_incritos;
 
@@ -39,6 +38,18 @@ public:
 
     //Modificadoras
 
+    /** @brief Modifica el número de veces que se ha completado el curso. 
+        \pre <em>cierto</em>
+        \post El resultado es poner en el parametro implicito el nuevo numero de veces que se ha resuelto correctamente el curso.
+    */
+    void modificar_veces_resuelto(int num);
+
+    /** @brief Modifica el número de usuarios inscritos en el curso. 
+        \pre <em>cierto</em>
+        \post El resultado es poner en el parametro implicito el nuevo numero de usuarios registrados en el curso.
+    */
+    void modificar_usuarios_inscritos(int num);
+
     //Consultoras
 
     /** @brief Consulta el número de sesiones que hay en el curso. 
@@ -47,11 +58,17 @@ public:
     */
     int consultar_num_sesiones();
 
-    /** @brief Indica a que sesión pertenece el problema p. 
+    /** @brief Consulta el número de veces que se ha completado el curso. 
         \pre <em>cierto</em>
-        \post El resultado es el identificador de la sesión en la que se encuentra p, en caso de que p no formase parte del curso retorna "NO_EN_CURSO".
+        \post El resultado es el número de veces que se ha completado el curso.
     */
-    string sesion_problema(string id);
+    int consultar_veces_resuelto();
+
+    /** @brief Devuelve una copia de la lista de sesiones que forman el curso. 
+        \pre <em>cierto</em>
+        \post El resultado es la lista de sesiones las cuales conforman el curso.
+    */
+    list<string> lista_sesiones();
 
     /** @brief Consulta el número de usuarios inscritos en el curso. 
         \pre <em>cierto</em>
@@ -67,6 +84,12 @@ public:
         de otro modo devuelve true.
     */
     bool leer(int s);
+
+    /** @brief Escribe por el canal standard de salida la sesiones que conforman curso. 
+        \pre <em>cierto</em>
+        \post El resultado es escribir por el canal standard de salida el conjunto de sesiones que conforman el curso.
+    */
+    void escribir_sesiones();
 };
 
 #endif

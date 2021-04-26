@@ -9,6 +9,7 @@
 using namespace std;
 #include <iostream>
 #include <map>
+#include <list>
 #endif 
 
 #include "Sesion.hh"
@@ -51,6 +52,12 @@ public:
         \post El resultado es el true si existe una sesión con identificador id, y false si no exsite.
     */
     bool existe_sesion(string id);
+
+    /** @brief Consulta si existe un determinado problema en una lista de sesiones.
+        \pre <em>cierto</em>
+        \post El resultado es el true si existe el problema en la lista de sesiones, y false en caso contrario.
+    */
+    string existe_problema(const list<string>& l, string p);
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el set de sesiones de forma ordenada. 

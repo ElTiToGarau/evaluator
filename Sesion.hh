@@ -10,7 +10,6 @@
 using namespace std;
 #include <iostream>
 #include "BinTree.hh"
-#include <list>
 #endif 
 
 #include "Problema.hh"
@@ -27,6 +26,7 @@ private:
     static BinTree<string> preorde(const BinTree<string>& t);
     static void postorde(const BinTree<string>& t);
     static int recalcular_num_problemas(const BinTree<string>& t);
+    static bool find(const BinTree<string>& t, string id);
 
 public:
     //Constructoras
@@ -47,6 +47,12 @@ public:
         \post El resultado es el número de problemas que contiene la sesión.
     */
     int consultar_num_problemas();
+
+    /** @brief Consulta si existe un problema con identificador id. 
+        \pre <em>cierto</em>
+        \post El resultado true si sí existe tal problema, i false en caso contrario.
+    */
+    bool existe_problema(string id);
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el vector de problemas de forma ordenada. 

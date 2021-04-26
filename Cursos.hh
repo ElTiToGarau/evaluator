@@ -7,7 +7,8 @@
 
 #ifndef NO_DIAGRAM
 using namespace std;
-#include <map>
+#include <vector>
+#include <list>
 #include <iostream>
 #endif 
 
@@ -20,9 +21,7 @@ using namespace std;
 class Cursos
 {
 private:
-    string id;
-    int N;
-    map<int, Curso> list_cursos;
+    vector<Curso> list_cursos;
 
 public:
     //Constructoras
@@ -33,12 +32,6 @@ public:
         \post El resultado es un map de cursos vacío, con id igual a "0" y con N = 0.
     */
     Cursos();
-
-    /** @brief Creadora con id especifico. 
-        \pre <em>cierto</em>
-        \post El resultado es un map de cursos vacío, con identificador igual a id y con N=0.
-    */
-    Cursos(int id);
 
     //Modificadoras
     /** @brief Añade al parámetro implícito el nuevo curso.
@@ -58,25 +51,19 @@ public:
         \pre <em>cierto</em>
         \post El resultado es el true si existe una sesión con identificador id, y false si no exsite.
     */
-    bool existe_curso(int id) const;
+    bool existe_curso(int id);
 
-    /** @brief Indica a que sesión pertenece el problema p dentro del curso c. 
+    /** @brief Devuelve una lista con las sesiones que tiene el curso c
         \pre <em>cierto</em>
-        \post El resultado es el identificador de la sesion en la que se encuentra p en el curso c, en caso de que p no formase parte del curso retorna "NO_EN_CURSO".
+        \post El resultado es una lista con las sesiones que tiene el curso c.
     */
-    string sesion_problema(int c, string p);
+    list<string> lista_sesiones(int c);
 
     /** @brief Consulta el número de usuarios inscritos en el curso <em>c</em>. 
         \pre Tiene que existir el curso c.
         \post El resultado es el número de usuarios inscritos en el curso <em>c</em>.
     */
     int consultar_num_usuarios(int c);
-    
-    /** @brief Consulta si un problema esta dentro del conjunto de problemas de un curso. 
-        \pre Tiene que existir el curso c y el problema p.
-        \post El resultado es true si existe un problema <em>p</em> dentro del conjunto de problemas del curso <em>c</em>, y false en caso contrario.
-    */
-    bool existe_problema_en_curso(int c, string p);
 
     //Escritura y lecttura
     /** @brief Escribe por el canal standard de salida el map de cursos de forma ordenada. 
@@ -92,7 +79,7 @@ public:
     void Escribir(int id);
 
     /** @brief Lee por el canal standard de entrada el conjunto de cursos. 
-        \pre <em>cierto</em>
+        \pre El parametro implicito no esta inicializado.
         \post El resultado es leer del canal standard de entrada el conjunto de cursos y ponerlos en el parametro implícito.
     */
     void leer(int N);

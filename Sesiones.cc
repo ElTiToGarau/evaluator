@@ -38,3 +38,10 @@
             conjunt_sesions.insert(pair<string,Sesion>(id,s));
         }
     }
+
+    string Sesiones::existe_problema(const list<string>& l, string p){
+        for(list<string>::const_iterator it=l.begin(); it!=l.end(); ++it){
+            if(conjunt_sesions[(*it)].existe_problema(p)) return (*it);
+        }
+        return "0";
+    }

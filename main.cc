@@ -108,11 +108,14 @@ int main() {
                 string p;
                 cin >> p;
                 if(conjunt_problemes.existe_problema(p)){
-                    string ses = conjunto_cursos.sesion_problema(c,p);
-                    if(ses != "NO_EN_CURSO") cout << ses << endl;
-                    else cout << "El problema no esta en el curso." << endl;
+                    list<string> L = conjunto_cursos.lista_sesiones(c);
+                    string ses = conjunto_sesiones.existe_problema(L,p);
+                    if(ses!="0"){
+                        cout << ses << endl;
+                    }
+                    else cout << "El problema: " << p << " no pertenece al curso " << c << endl;
                 }
-                else cout << "No existe el problema: " << p << endl;
+                else cout << "El problema: " << p << " no pertenece al conjunto de problemas." << endl;
             }
             else cout << "No existe el curso: " << c << endl;
         }
