@@ -39,9 +39,15 @@
     }
 
     void Curso::escribir_sesiones(){
+        list<string>::iterator it2=conjunto_sesiones.end();
+        --it2;
         cout << "(";
-        for(list<string>::iterator it=conjunto_sesiones.begin(); it!=conjunto_sesiones.end(); ++it){
-            cout << (*it) << " ";
+        for(list<string>::iterator it1=conjunto_sesiones.begin(); it1!=it2; ++it1){
+            cout << (*it1) << " ";
         }
-        cout << '\b' << ")";
+        cout << (*it2) << ")";
+    }
+
+    void Curso::decrementar_usuarios_inscritos(){
+        --usuarios_incritos;
     }

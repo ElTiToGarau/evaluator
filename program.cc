@@ -40,6 +40,7 @@ int main() {
             cout << " " << id << endl;
             if(not conjunt_problemes.existe_problema(id)){
                 conjunt_problemes.afegir_problema(id);
+                cout << conjunt_problemes.num_problemas() << endl;
             }
             else cout << "error: el problema ya existe" << endl;
         }
@@ -85,6 +86,10 @@ int main() {
             cin >> id;
             cout << " " << id << endl;
             if(conjunto_usuarios.existe_usuarios(id)){
+                if(conjunto_usuarios.consultar_incscrito_curso(id)){
+                    int c = conjunto_usuarios.curso_usuario(id);
+                    conjunto_cursos.decrementar_usuarios_inscritos(c);
+                }
                 conjunto_usuarios.baja_usuario(id);
                 cout << conjunto_usuarios.num_usuarios() << endl;
             }
@@ -225,7 +230,7 @@ int main() {
             cout << endl;
             conjunto_cursos.Escribir();
         }
-        else if(comando == "escribir_curso" or comando == "lc"){
+        else if(comando == "escribir_curso" or comando == "ec"){
             cout << "#" << comando;
             int c;
             cin >> c;

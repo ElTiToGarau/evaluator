@@ -52,6 +52,12 @@ public:
     */
     void incrementar_usuarios_inscritos(int c);
 
+    /** @brief Modifica el número de usuarios inscritos en el curso. 
+        \pre <em>cierto</em>
+        \post El resultado es que el curso <em>c</em> tiene un concursante menos.
+    */
+    void decrementar_usuarios_inscritos(int c);
+
     //Consultoras
     /** @brief Consulta el número de sesiones que existen
         \pre <em>cierto</em>

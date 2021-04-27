@@ -33,3 +33,7 @@ Problema.o: Problema.cc
 clean:
 	rm *.exe
 	rm *.o
+	rm *.tar
+
+tar:
+	tar -cvf practica.tar *.cc Makefile Curso.hh Cursos.hh Problema.hh Problemas.hh Sesion.hh Sesiones.hh Usuari.hh Usuarios.hh

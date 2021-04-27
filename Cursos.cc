@@ -11,7 +11,7 @@
     }
 
     bool Cursos::existe_curso(int id){
-        if(list_cursos.size()>= id-1) return true;
+        if(list_cursos.size()> id-1) return true;
         else return false;
     }
 
@@ -58,4 +58,8 @@
 
     void Cursos::incrementar_usuarios_inscritos(int c){
         list_cursos[c-1].incrementar_usuarios_inscritos();
+    }
+
+    void Cursos::decrementar_usuarios_inscritos(int c){
+        list_cursos[c-1].decrementar_usuarios_inscritos();
     }

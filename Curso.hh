@@ -50,6 +50,12 @@ public:
     */
     void incrementar_usuarios_inscritos();
 
+    /** @brief Modifica el número de usuarios inscritos en el curso. 
+        \pre <em>cierto</em>
+        \post El resultado es que el curso tiene un concursante más.
+    */
+    void decrementar_usuarios_inscritos();
+
     //Consultoras
 
     /** @brief Consulta el número de sesiones que hay en el curso. 
