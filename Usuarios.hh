@@ -10,6 +10,7 @@
 using namespace std;
 #include <iostream>
 #include <map>
+#include <list>
 #endif 
 
 #include "Usuari.hh"
@@ -49,7 +50,7 @@ public:
         \pre Existe un usuario con el identificador id que no esta inscrito a ningún curso y también un curso con identificador c.
         \post Inscribe al usuario identificado por id al curso con identificador c.
     */
-    void inscribir_curso(string id, int c);
+    void inscribir_usuario_curso(string id, int c, const list<string>& l);
     
     /** @brief Comprueva si el resultado es correcto o incoreecto, y actualiza todas las estadísticas correspondientes.
         \pre Existe un usuario con el identificador <em>id</em>, existe un problema <em>p</em>, <em>r</em> solo puede ser 1 o 0

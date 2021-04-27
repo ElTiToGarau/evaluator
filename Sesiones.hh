@@ -58,6 +58,12 @@ public:
         \post El resultado es el true si existe el problema en la lista de sesiones, y false en caso contrario.
     */
     string existe_problema(const list<string>& l, string p);
+    
+    /** @brief Consulta los problemas raiz de cada sesión en la lista.
+        \pre <em>cierto</em>
+        \post El resultado es una lista con todos los problemas base de las sesiones en la lista.
+    */
+    list<string> problemas_raiz(const list<string>& l);
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el set de sesiones de forma ordenada. 

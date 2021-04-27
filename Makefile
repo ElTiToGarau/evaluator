@@ -32,4 +32,4 @@ Problema.o: Problema.cc
 	g++ -c Problema.cc $(OPCIONS)
 
 clean:
-	rm *.o
+	rm *.exe

@@ -14,10 +14,8 @@
     }
 
     void Sesion::leer() {
-        string p;
-        cin >> p;
-        BinTree<string> ses(p);
-        ses=preorde(ses);
+        BinTree<string> ses;
+        preorde(ses);
         problemes_sessio_bin = ses;
         num_problemas = recalcular_num_problemas(problemes_sessio_bin);
     }
@@ -32,19 +30,16 @@
         }
     }
 
-    BinTree<string> Sesion::preorde(const BinTree<string>& t){
-        string a1, a2;
-        cin >> a1 >> a2;
-        BinTree<string> esq, dre;
-        if(a1!="0"){
-            BinTree<string> e(a1);
-            esq = preorde(e);
+    void Sesion::preorde(BinTree<string>& t){
+        string a;
+        cin >> a;
+        if(a!="0"){
+            BinTree<string> l;
+            preorde(l);
+            BinTree<string> r;
+            preorde(r);
+            t=BinTree<string>(a,l,r);
         }
-        if(a2!="0"){
-            BinTree<string> d(a2);
-            dre = preorde(d);
-        }
-        return BinTree<string>(t.value(), esq, dre);
     }
 
     int Sesion::recalcular_num_problemas(const BinTree<string>& t){
@@ -69,4 +64,8 @@
 
     bool Sesion::existe_problema(string id){
         return find(problemes_sessio_bin,id);
+    }
+    
+    string Sesion::return_raiz(){
+        return problemes_sessio_bin.value();
     }

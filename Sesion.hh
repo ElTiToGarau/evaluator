@@ -23,9 +23,29 @@ class Sesion
 private:
     BinTree<string> problemes_sessio_bin;
     int num_problemas;
-    static BinTree<string> preorde(const BinTree<string>& t);
+    
+    /** @brief Lee el arbol binario en formato preorden. 
+        \pre El arbol que se pasa por referencia tiene que tener una raiz.
+        \post El resultado es devolver el arbol binario, leido en formato preorden.
+    */
+    static void preorde(BinTree<string>& t);
+    
+    /** @brief Escribe el arbol binario en formato postorden. 
+        \pre El arbol que se pasa por referencia tiene que tener una raiz.
+        \post El resultado es escribir por el canal standard de salida el arbol binario en formato postorden.
+    */
     static void postorde(const BinTree<string>& t);
+    
+    /** @brief Devuelve el tamaño del arbol binario. 
+        \pre <em>cierto</em>
+        \post El resultado es el tamaño del arbol binario que se ha introducido por referencia.
+    */
     static int recalcular_num_problemas(const BinTree<string>& t);
+    
+    /** @brief Indica si existe un problema con cierto identificador en el arbol binario. 
+        \pre <em>cierto</em>
+        \post El resultado es true si existe un problema en el arbol binario con identificador id, y false en caso contrario.
+    */
     static bool find(const BinTree<string>& t, string id);
 
 public:
@@ -53,6 +73,12 @@ public:
         \post El resultado true si sí existe tal problema, i false en caso contrario.
     */
     bool existe_problema(string id);
+    
+    /** @brief Consulta la raiz del arbol binario de la sesión. 
+        \pre <em>cierto</em>
+        \post El resultado es el identificador de la raiz del arbol binario.
+    */
+    string return_raiz();
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el vector de problemas de forma ordenada. 

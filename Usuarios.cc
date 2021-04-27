@@ -11,8 +11,8 @@
         lista_usuaris.erase(id);
     }
 
-    void Usuarios::inscribir_curso(string id, int c) {
-
+    void Usuarios::inscribir_usuario_curso(string id, int c, const list<string>& l) {
+        lista_usuaris[id].inscribir_curso(c, l);
     }
 
     /*void Usuarios::comprovar_resultado(string id, string p, int r){
@@ -51,7 +51,7 @@
             if((*it).second.consultar_incscrito_curso()){
                 cout << (*it).second.cusro_inscrito() << ")" << endl;
             }
-            else cout << 0 << endl;
+            else cout << 0 << ")" << endl;
         }
     }
 

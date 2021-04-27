@@ -28,7 +28,7 @@
         }
         lista_ordenada.sort(cmp);
         for(list<pair<string,Problema>>::iterator it=lista_ordenada.begin(); it != lista_ordenada.end(); ++it){
-            cout << (*it).first;
+            cout << (*it).first << "(";
             cout << (*it).second.consultar_totales() << ",";
             cout << (*it).second.consultar_correctos() << ",";
             cout << (((*it).second.consultar_totales()+1)/((*it).second.consultar_correctos()+1)) << ")" << endl;
@@ -51,7 +51,7 @@
         }
     }
 
-    bool cmp(const pair<string,Problema>& a, const pair<string,Problema>& b) {
+    bool Problemas::cmp(const pair<string,Problema>& a, const pair<string,Problema>& b) {
         int t = a.second.consultar_totales();
         int e = a.second.consultar_correctos();
         double ratio_a = ((t+1.0)/(e+1.0));

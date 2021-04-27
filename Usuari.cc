@@ -30,8 +30,12 @@
         ++problemas_enviables[id];
     }
 
-    void Usuari::inscribir_curso(const int c){
-
+    void Usuari::inscribir_curso(int c, const list<string>& l){
+        inscrito_en_curso=true;
+        curso_inscrito = c;
+        for(list<string>::const_iterator it=l.begin(); it!=l.end(); ++it){
+            problemas_enviables.insert(pair<string,int>((*it),0));
+        }
     }
 
     bool Usuari::consultar_problema_enviable(string p){

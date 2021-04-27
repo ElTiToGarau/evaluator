@@ -45,6 +45,9 @@
     void Cursos::leer(int N){
         for(int i=0; i<N; ++i){
             Curso c;
+            int s;
+            cin >> s;
+            c.leer(s);
             list_cursos.push_back(c);
         }
     }

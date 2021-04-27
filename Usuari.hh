@@ -11,6 +11,7 @@ using namespace std;
 #include <iostream>
 #include <set>
 #include <map>
+#include <list>
 #endif 
 
 #include "Problema.hh"
@@ -75,7 +76,7 @@ public:
         \pre El usuario no esta inscrito a ningún curso y también un curso con identificador c.
         \post Inscribe al usuario al curso con identificador c.
     */
-    void inscribir_curso(const int c);
+    void inscribir_curso(int c, const list<string>& l);
     
     //Consultoras
 

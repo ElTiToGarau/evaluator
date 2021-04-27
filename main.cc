@@ -22,10 +22,13 @@ int main() {
     Sesiones conjunto_sesiones;
     Cursos conjunto_cursos;
     int P,Q,N,M;
-    cin >> P >> Q >> N >> M;
+    cin >> P;
     conjunt_problemes.leer(P);
+    cin >> Q;
     conjunto_sesiones.leer(Q);
+    cin >> N;
     conjunto_cursos.leer(N);
+    cin >> M;
     conjunto_usuarios.leer(M);
     string comando;
     cin >> comando;
@@ -36,7 +39,7 @@ int main() {
             if(not conjunt_problemes.existe_problema(id)){
                 conjunt_problemes.afegir_problema(id);
             }
-            else cout << "Ya existe un problema on el id: " << id << endl;
+            else cout << "error: el problema ya existe" << endl;
         }
         else if(comando == "nueva_sesion" or comando == "ns"){
             string s;
@@ -47,7 +50,7 @@ int main() {
                 conjunto_sesiones.afegir_sesion(s,ses);
                 cout << conjunto_sesiones.num_sesiones() << endl;
             }
-            else cout << "Ya existe una sesión con el mismo id." << endl;
+            else cout << "error: la sesion ya existe" << endl;
         }
         /*
         else if(comando == "nuevo_curso" or comando == "nc"){
@@ -68,7 +71,7 @@ int main() {
                 conjunto_usuarios.afegir_usauri(id);
                 cout << conjunto_usuarios.num_usuarios() << endl;
             }
-            else cout << "Ya hay un usuario registrado con el mismo id." << endl;
+            else cout << "error: el usuario ya existe" << endl;
         }
         else if(comando == "baja_usuario" or comando == "b"){
             string id;
@@ -77,29 +80,37 @@ int main() {
                 conjunto_usuarios.baja_usuario(id);
                 cout << conjunto_usuarios.num_usuarios() << endl;
             }
-            else cout << "No existe ningún usuario con este identifiacdor." << endl;
+            else cout << "error: el usuario no existe" << endl;
         }
         else if(comando == "inscribir_curso" or comando == "i"){
             string id;
             cin >> id;
-            if(conjunto_usuarios.existe_usuarios(id) and not conjunto_usuarios.consultar_incscrito_curso(id)){
+            if(conjunto_usuarios.existe_usuarios(id)){
                 int c;
                 cin >> c;
                 if(conjunto_cursos.existe_curso(c)){
-                    conjunto_usuarios.inscribir_curso(id,c);
-                    cout << conjunto_cursos.consultar_num_usuarios(c) << endl;
+                    if(not conjunto_usuarios.consultar_incscrito_curso(id)){
+                        list<string> S = conjunto_cursos.lista_sesiones(c);
+                        list<string> P = conjunto_sesiones.problemas_raiz(S);
+                        conjunto_usuarios.inscribir_usuario_curso(id,c,P);
+                        cout << conjunto_cursos.consultar_num_usuarios(c) << endl;
+                    }
+                    else cout << "error: usuario inscrito en otro curso" << endl;
                 }
-                else cout << "No existe ningún curso con este id." << endl;
+                else cout << "error: el curso no existe" << endl;
             }
-            else cout << "El usuario introducido o no existe o ya esta incrito en un curso." << endl;
+            else cout << "error: el usuario no existe" << endl;
         }
         else if(comando == "curso_usuario" or comando == "cu"){
             string id;
             cin >> id;
             if(conjunto_usuarios.existe_usuarios(id)){
-                cout << conjunto_usuarios.curso_usuario(id) << endl;
+                if(conjunto_usuarios.consultar_incscrito_curso(id)){
+                    cout << conjunto_usuarios.curso_usuario(id) << endl;
+                }
+                else cout << 0 << endl;
             }
-            else cout << "No existe ningún usuario con este identificador." << endl;
+            else cout << "error: el usuario no existe" << endl;
         }
         else if(comando == "sesion_problema" or comando == "sp"){
             int c;
@@ -113,11 +124,11 @@ int main() {
                     if(ses!="0"){
                         cout << ses << endl;
                     }
-                    else cout << "El problema: " << p << " no pertenece al curso " << c << endl;
+                    else cout << "error: el problema no pertenece al curso" << endl;
                 }
-                else cout << "El problema: " << p << " no pertenece al conjunto de problemas." << endl;
+                else cout << "error: el problema no existe" << endl;
             }
-            else cout << "No existe el curso: " << c << endl;
+            else cout << "error: el curso no existe" << endl;
         }
         else if(comando == "problemas_resueltos" or comando == "pr"){
             string id;
@@ -125,15 +136,18 @@ int main() {
             if(conjunto_usuarios.existe_usuarios(id)){
                 conjunto_usuarios.escribir_resueltos(id);
             }
-            else cout << "No existe ningún usuario con este identificador." << endl;
+            else cout << "error: el usuario no existe" << endl;
         }
         else if(comando == "problemas_enviables" or comando == "pe"){
             string id;
             cin >> id;
             if(conjunto_usuarios.existe_usuarios(id)){
-                conjunto_usuarios.escribir_enviables(id);
+                if(conjunto_usuarios.consultar_incscrito_curso(id)){
+                    conjunto_usuarios.escribir_enviables(id);
+                }
+                else cout << "error: usuario no inscrito en ningun curso" << endl;
             }
-            else cout << "No existe ningún usuario con este identificador." << endl;
+            else cout << "error: el usuario no existe" << endl;
         }
         /*
         else if(comando == "envio" or comando == "e"){
@@ -166,7 +180,7 @@ int main() {
             if(conjunt_problemes.existe_problema(p)){
                 conjunt_problemes.Escribir(p);
             }
-            else cout << "No existe ningún problema con este identificador." << endl;
+            else cout << "error: el problema no existe" << endl;
         }
         else if(comando == "listar_sesiones" or comando == "ls"){
             conjunto_sesiones.Escribir();
@@ -177,7 +191,7 @@ int main() {
             if(conjunto_sesiones.existe_sesion(s)){
                 conjunto_sesiones.Escribir(s);
             }
-            else cout << "No existe ningúna sesión con este identificador." << endl;
+            else cout << "error: la sesion no existe" << endl;
         }
         else if(comando == "listar_cursos" or comando == "lc"){
             conjunto_cursos.Escribir();
@@ -188,7 +202,7 @@ int main() {
             if(conjunto_cursos.existe_curso(c)){
                 conjunto_cursos.Escribir(c);
             }
-            else cout << "No existe ningún curso con este identificador." << endl;
+            else cout << "error: el curso no existe" << endl;
         }
         else if(comando == "listar_usuarios" or comando == "lu"){
             conjunto_usuarios.Escribir();
@@ -199,8 +213,9 @@ int main() {
             if(conjunto_usuarios.existe_usuarios(id)){
                 conjunto_usuarios.Escribir(id);
             }
-            else cout << "No existe ningún usuario con este identificador." << endl;
+            else cout << "error: el usuario no existe" << endl;
         }
         else cout << "El comando: "<< comando << ", no esta dentro de los aceptados, porfavor vuelvelo a intentar." << endl;
+        cin >> comando;
     }
 }
