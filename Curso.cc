@@ -17,12 +17,12 @@
         return veces_completado;
     }
 
-    void Curso::modificar_usuarios_inscritos(int num){
-        usuarios_incritos=num;
+    void Curso::incrementar_usuarios_inscritos(){
+        ++usuarios_incritos;
     }
 
-    void Curso::modificar_veces_resuelto(int num){
-        veces_completado=num;
+    void Curso::incrementar_veces_resuelto(){
+        ++veces_completado;
     }
 
     list<string> Curso::lista_sesiones(){

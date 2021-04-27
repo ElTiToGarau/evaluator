@@ -11,7 +11,7 @@
     }
 
     bool Cursos::existe_curso(int id){
-        if(list_cursos.size()<= id-1) return true;
+        if(list_cursos.size()>= id-1) return true;
         else return false;
     }
 
@@ -50,4 +50,12 @@
             c.leer(s);
             list_cursos.push_back(c);
         }
+    }
+
+    void Cursos::incrementar_veces_resuelto(int c){
+        list_cursos[c-1].incrementar_veces_resuelto();
+    }
+
+    void Cursos::incrementar_usuarios_inscritos(int c){
+        list_cursos[c-1].incrementar_usuarios_inscritos();
     }

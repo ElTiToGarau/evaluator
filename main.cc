@@ -33,9 +33,11 @@ int main() {
     string comando;
     cin >> comando;
     while(comando != "fin"){
+        cout << "#" << comando;
         if(comando == "nuevo_problema" or comando == "np"){
             string id;
             cin >> id;
+            cout << " " << id << endl;
             if(not conjunt_problemes.existe_problema(id)){
                 conjunt_problemes.afegir_problema(id);
             }
@@ -44,6 +46,7 @@ int main() {
         else if(comando == "nueva_sesion" or comando == "ns"){
             string s;
             cin >> s;
+            cout << " " << s << endl;
             if(not conjunto_sesiones.existe_sesion(s)){
                 Sesion ses;
                 ses.leer();
@@ -67,6 +70,7 @@ int main() {
         else if(comando == "alta_usuario" or comando == "a"){
             string id;
             cin >> id;
+            cout << " " << id << endl;
             if(not conjunto_usuarios.existe_usuarios(id)){
                 conjunto_usuarios.afegir_usauri(id);
                 cout << conjunto_usuarios.num_usuarios() << endl;
@@ -76,6 +80,7 @@ int main() {
         else if(comando == "baja_usuario" or comando == "b"){
             string id;
             cin >> id;
+            cout << " " << id << endl;
             if(conjunto_usuarios.existe_usuarios(id)){
                 conjunto_usuarios.baja_usuario(id);
                 cout << conjunto_usuarios.num_usuarios() << endl;
@@ -85,14 +90,16 @@ int main() {
         else if(comando == "inscribir_curso" or comando == "i"){
             string id;
             cin >> id;
+            int c;
+            cin >> c;
+            cout << " " << id << " " << c << endl;
             if(conjunto_usuarios.existe_usuarios(id)){
-                int c;
-                cin >> c;
                 if(conjunto_cursos.existe_curso(c)){
                     if(not conjunto_usuarios.consultar_incscrito_curso(id)){
                         list<string> S = conjunto_cursos.lista_sesiones(c);
                         list<string> P = conjunto_sesiones.problemas_raiz(S);
                         conjunto_usuarios.inscribir_usuario_curso(id,c,P);
+                        conjunto_cursos.incrementar_usuarios_inscritos(c);
                         cout << conjunto_cursos.consultar_num_usuarios(c) << endl;
                     }
                     else cout << "error: usuario inscrito en otro curso" << endl;
@@ -104,6 +111,7 @@ int main() {
         else if(comando == "curso_usuario" or comando == "cu"){
             string id;
             cin >> id;
+            cout << " " << id << endl;
             if(conjunto_usuarios.existe_usuarios(id)){
                 if(conjunto_usuarios.consultar_incscrito_curso(id)){
                     cout << conjunto_usuarios.curso_usuario(id) << endl;
@@ -115,9 +123,10 @@ int main() {
         else if(comando == "sesion_problema" or comando == "sp"){
             int c;
             cin >> c;
+            string p;
+            cin >> p;
+            cout << " " << c << " " << p << endl;
             if(conjunto_cursos.existe_curso(c)){
-                string p;
-                cin >> p;
                 if(conjunt_problemes.existe_problema(p)){
                     list<string> L = conjunto_cursos.lista_sesiones(c);
                     string ses = conjunto_sesiones.existe_problema(L,p);
@@ -133,6 +142,7 @@ int main() {
         else if(comando == "problemas_resueltos" or comando == "pr"){
             string id;
             cin >> id;
+            cout << " " << id << endl;
             if(conjunto_usuarios.existe_usuarios(id)){
                 conjunto_usuarios.escribir_resueltos(id);
             }
@@ -141,6 +151,7 @@ int main() {
         else if(comando == "problemas_enviables" or comando == "pe"){
             string id;
             cin >> id;
+            cout << " " << id << endl;
             if(conjunto_usuarios.existe_usuarios(id)){
                 if(conjunto_usuarios.consultar_incscrito_curso(id)){
                     conjunto_usuarios.escribir_enviables(id);
@@ -172,50 +183,57 @@ int main() {
         }
         */
         else if(comando == "listar_problemas" or comando == "lp"){
+            cout << endl;
             conjunt_problemes.Escribir();
         }
         else if(comando == "escribir_problema" or comando == "ep"){
             string p;
             cin >> p;
+            cout << " " << p << endl;
             if(conjunt_problemes.existe_problema(p)){
                 conjunt_problemes.Escribir(p);
             }
             else cout << "error: el problema no existe" << endl;
         }
         else if(comando == "listar_sesiones" or comando == "ls"){
+            cout << endl;
             conjunto_sesiones.Escribir();
         }
         else if(comando == "escribir_sesion" or  comando == "es"){
             string s;
             cin >> s;
+            cout << " " << s << endl;
             if(conjunto_sesiones.existe_sesion(s)){
                 conjunto_sesiones.Escribir(s);
             }
             else cout << "error: la sesion no existe" << endl;
         }
         else if(comando == "listar_cursos" or comando == "lc"){
+            cout << endl;
             conjunto_cursos.Escribir();
         }
         else if(comando == "escribir_curso" or comando == "lc"){
             int c;
             cin >> c;
+            cout << " " << c << endl;
             if(conjunto_cursos.existe_curso(c)){
                 conjunto_cursos.Escribir(c);
             }
             else cout << "error: el curso no existe" << endl;
         }
         else if(comando == "listar_usuarios" or comando == "lu"){
+            cout << endl;
             conjunto_usuarios.Escribir();
         }
         else if(comando == "escribir_usuario" or comando == "eu"){
             string id;
             cin >> id;
+            cout << " " << id << endl;
             if(conjunto_usuarios.existe_usuarios(id)){
                 conjunto_usuarios.Escribir(id);
             }
             else cout << "error: el usuario no existe" << endl;
         }
-        else cout << "El comando: "<< comando << ", no esta dentro de los aceptados, porfavor vuelvelo a intentar." << endl;
         cin >> comando;
     }
 }

@@ -40,6 +40,18 @@ public:
     */
     void afegir_curso(const Curso& c);
 
+    /** @brief Modifica el número de veces que se ha completado el curso. 
+        \pre <em>cierto</em>
+        \post El resultado es que el curso <em>c</em> se ha resuelto una vez más.
+    */
+    void incrementar_veces_resuelto(int c);
+
+    /** @brief Modifica el número de usuarios inscritos en el curso. 
+        \pre <em>cierto</em>
+        \post El resultado es que el curso <em>c</em> tiene un concursante más.
+    */
+    void incrementar_usuarios_inscritos(int c);
+
     //Consultoras
     /** @brief Consulta el número de sesiones que existen
         \pre <em>cierto</em>

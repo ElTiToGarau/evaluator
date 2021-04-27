@@ -40,15 +40,15 @@ public:
 
     /** @brief Modifica el número de veces que se ha completado el curso. 
         \pre <em>cierto</em>
-        \post El resultado es poner en el parametro implicito el nuevo numero de veces que se ha resuelto correctamente el curso.
+        \post El resultado es que el curso se ha resuelto una vez más.
     */
-    void modificar_veces_resuelto(int num);
+    void incrementar_veces_resuelto();
 
     /** @brief Modifica el número de usuarios inscritos en el curso. 
         \pre <em>cierto</em>
-        \post El resultado es poner en el parametro implicito el nuevo numero de usuarios registrados en el curso.
+        \post El resultado es que el curso tiene un concursante más.
     */
-    void modificar_usuarios_inscritos(int num);
+    void incrementar_usuarios_inscritos();
 
     //Consultoras
 
