@@ -46,10 +46,10 @@
         return "0";
     }
     
-    list<string> Sesiones::problemas_raiz(const list<string>& l){
+    list<string> Sesiones::problemas_raiz(const list<string>& l, const map<string,int>& m){
         list<string> llista;
         for(list<string>::const_iterator it=l.begin(); it!=l.end(); ++it){
-            llista.push_back(conjunt_sesions[(*it)].return_raiz());
+            llista.splice(llista.begin(),conjunt_sesions[(*it)].return_raiz(m));
         }
         return llista;
     }

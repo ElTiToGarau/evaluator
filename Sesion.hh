@@ -10,6 +10,8 @@
 using namespace std;
 #include <iostream>
 #include "BinTree.hh"
+#include <map>
+#include <list>
 #endif 
 
 #include "Problema.hh"
@@ -48,6 +50,12 @@ private:
     */
     static bool find(const BinTree<string>& t, string id);
 
+    /** @brief Retorna los problemas base de la sesión en cuestion.
+        \pre <em>cierto</em>
+        \post Retorna los problemas base de la sesión segun los prequisitos, y los problemas que ya hayan sido resueltos
+    */
+    static void return_problemas_base(const BinTree<string>& t, const map<string,int>& m, list<string>& l);
+
 public:
     //Constructoras
     /** @brief Creadora por defecto. 
@@ -78,7 +86,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es el identificador de la raiz del arbol binario.
     */
-    string return_raiz();
+    list<string> return_raiz(const map<string,int>& t);
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el vector de problemas de forma ordenada. 

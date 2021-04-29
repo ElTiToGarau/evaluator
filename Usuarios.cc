@@ -82,3 +82,7 @@
             lista_usuaris.insert(pair<string,Usuari> (id,u));
         }
     }
+
+    map<string,int> Usuarios::devolver_problemas_resueltos(string id){
+        return lista_usuaris[id].devolver_problemas_resueltos();
+    }

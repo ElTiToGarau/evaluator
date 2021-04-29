@@ -66,6 +66,17 @@
         return find(problemes_sessio_bin,id);
     }
     
-    string Sesion::return_raiz(){
-        return problemes_sessio_bin.value();
+    list<string> Sesion::return_raiz(const map<string,int>& t){
+        list<string> l;
+       return_problemas_base(problemes_sessio_bin,t,l);
+       return l;
+    }
+
+    void Sesion::return_problemas_base(const BinTree<string>& t, const map<string,int>& m, list<string>& l){
+        while(not t.empty()){
+            string a=t.value();
+            if(m.count(a)==1) l.push_back(a);
+            return_problemas_base(t.left(),m,l);
+            return_problemas_base(t.right(),m,l);
+        }
     }

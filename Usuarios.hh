@@ -90,6 +90,12 @@ public:
     */
     bool problema_enviable(string id, string p);
 
+    /** @brief Consulta que problemas se han resuelto y con cuantos intentos del usuario concretado.
+        \pre <em>cierto</em>
+        \post El resultado devuelve los problemas resueltos en orden creciente por el identificador del curso, así como cuantas veces se ha intentado resolver el problema por el usuario identificado por id.
+    */   
+    map<string,int> devolver_problemas_resueltos(string id);
+
     //Escritura y lectura
 
     /** @brief Escribe por el canal standard de salida el set de usuarios de forma ordenada. 

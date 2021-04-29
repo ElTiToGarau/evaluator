@@ -63,7 +63,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es una lista con todos los problemas base de las sesiones en la lista.
     */
-    list<string> problemas_raiz(const list<string>& l);
+    list<string> problemas_raiz(const list<string>& l, const map<string,int>& m);
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el set de sesiones de forma ordenada. 

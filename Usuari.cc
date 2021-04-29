@@ -76,3 +76,7 @@
             cout << "(" << (*it).second << ")" << endl;
         }
     }
+
+    map<string,int> Usuari::devolver_problemas_resueltos(){
+        return problemas_resueltos;
+    }

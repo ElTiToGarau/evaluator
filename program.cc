@@ -106,7 +106,8 @@ int main() {
                 if(conjunto_cursos.existe_curso(c)){
                     if(not conjunto_usuarios.consultar_incscrito_curso(id)){
                         list<string> S = conjunto_cursos.lista_sesiones(c);
-                        list<string> P = conjunto_sesiones.problemas_raiz(S);
+                        map<string,int> M = conjunto_usuarios.devolver_problemas_resueltos(id);
+                        list<string> P = conjunto_sesiones.problemas_raiz(S,M);
                         conjunto_usuarios.inscribir_usuario_curso(id,c,P);
                         conjunto_cursos.incrementar_usuarios_inscritos(c);
                         cout << conjunto_cursos.consultar_num_usuarios(c) << endl;
