@@ -49,7 +49,7 @@
     list<string> Sesiones::problemas_raiz(const list<string>& l, const map<string,int>& m){
         list<string> llista;
         for(list<string>::const_iterator it=l.begin(); it!=l.end(); ++it){
-            llista.splice(llista.begin(),conjunt_sesions[(*it)].return_raiz(m));
+            conjunt_sesions[(*it)].return_raiz(m,llista);
         }
         return llista;
     }

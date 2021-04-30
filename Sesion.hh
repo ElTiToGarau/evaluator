@@ -86,7 +86,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es el identificador de la raiz del arbol binario.
     */
-    list<string> return_raiz(const map<string,int>& t);
+    void return_raiz(const map<string,int>& t, list<string>& l);
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el vector de problemas de forma ordenada. 
