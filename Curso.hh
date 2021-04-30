@@ -22,17 +22,20 @@ using namespace std;
 class Curso
 {
 private:
+    /** @brief  Conjunto de los identificadores de las sesiones por las cuales se conforma el curso */
     list<string> conjunto_sesiones;
+    /** @brief  Número total de veces que se ha completado el curso */
     int veces_completado;
+    /** @brief  Número total de usuarios inscritos en el curso actualmente */
     int usuarios_incritos;
 
 public:
     //Constructoras
     /** @brief Creadora por defecto. 
 
-        Se ejecuta automáticamente al declarar un problema.
+        Se ejecuta automáticamente al declarar un curso.
         \pre <em>cierto</em>
-        \post El resultado es un curso con id=0 y sin problemas.
+        \post El resultado es un curso sin inicializar
     */
     Curso();
 
@@ -52,7 +55,7 @@ public:
 
     /** @brief Modifica el número de usuarios inscritos en el curso. 
         \pre <em>cierto</em>
-        \post El resultado es que el curso tiene un concursante más.
+        \post El resultado es que el curso tiene un concursante menos.
     */
     void decrementar_usuarios_inscritos();
 
@@ -72,7 +75,7 @@ public:
 
     /** @brief Devuelve una copia de la lista de sesiones que forman el curso. 
         \pre <em>cierto</em>
-        \post El resultado es la lista de sesiones las cuales conforman el curso.
+        \post El resultado es el conjunto de sesiones las cuales conforman el curso.
     */
     list<string> lista_sesiones();
 

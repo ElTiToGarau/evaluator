@@ -23,7 +23,9 @@ using namespace std;
 class Sesion
 {
 private:
+    /** @brief  Identificadores de los problemas que contiene la sesión en formato de prerequisitos */
     BinTree<string> problemes_sessio_bin;
+    /** @brief  Número de problemas por el cual esta formada la sesión */
     int num_problemas;
     
     /** @brief Lee el arbol binario en formato preorden. 
@@ -60,7 +62,7 @@ public:
     //Constructoras
     /** @brief Creadora por defecto. 
 
-        Se ejecuta automáticamente al declarar un problema.
+        Se ejecuta automáticamente al declarar una sesión.
         \pre <em>cierto</em>
         \post El resultado es una sesión sin problemas.
     */
@@ -89,9 +91,9 @@ public:
     void return_raiz(const map<string,int>& t, list<string>& l);
 
     //Escritura y lectura
-    /** @brief Escribe por el canal standard de salida el vector de problemas de forma ordenada. 
+    /** @brief Escribe por el canal standard de salida el conjunto de problemas de forma ordenada. 
         \pre <em>cierto</em>
-        \post El resultado es escribir en el canal standard de salida el vector de problemas de forma ordenada.
+        \post El resultado es escribir en el canal standard de salida el conjunto de problemas de forma ordenada.
     */
     void Escribir();
 

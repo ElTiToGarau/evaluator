@@ -22,7 +22,7 @@ public:
 
       Se ejecuta automáticamente al declarar un problema.
       \pre <em>cierto</em>
-      \post El resultado es un problema con identificador igual a cero, número de envíos totales igual a cero y número de envíos correctos igual a cero.
+      \post El resultado es un problema sin inicializar.
   */   
   Problema();
 
@@ -81,7 +81,9 @@ public:
   //Escritura y lectura de Problema
 
 private:
+    /** @brief Número de envíos totales al problema */
     int env_totales;
+    /** @brief Número de envíos correctos al problema */
     int env_correctos;
 };
 

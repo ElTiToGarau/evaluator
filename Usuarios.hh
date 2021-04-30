@@ -21,6 +21,7 @@ using namespace std;
 class Usuarios
 {
 private:
+    /** @brief  Lista de usuarios, ordenados por su identificado */
     map<string,Usuari> lista_usuaris;
 
 public:
@@ -29,7 +30,7 @@ public:
 
         Se ejecuta automáticamente al declarar la clase Usuarios.
         \pre <em>cierto</em>
-        \post El resultado es un set de usuarios vacío.
+        \post El resultado es un conjunto de usuarios sin inicializar.
     */
     Usuarios();
 
@@ -98,15 +99,15 @@ public:
 
     //Escritura y lectura
 
-    /** @brief Escribe por el canal standard de salida el set de usuarios de forma ordenada. 
+    /** @brief Escribe por el canal standard de salida el conjunto de usuarios de forma ordenada. 
         \pre <em>cierto</em>
-        \post El resultado es escribir en el canal standard de salida el set de usuarios de forma ordenada.
+        \post El resultado es escribir en el canal standard de salida el conjunto de usuarios de forma ordenada.
     */
     void Escribir();
 
     /** @brief Escribe por el canal standard de salida el usuario concreto. 
         \pre El usuario identificado por id tiene que existir.
-        \post El resultado es escribir en el canal standard de salida el usuario concreto si existe, de otro modo imprime un mensaje de error.
+        \post El resultado es escribir en el canal standard de salida el usuario concreto.
     */
     void Escribir(string id);
 
@@ -123,8 +124,8 @@ public:
     void escribir_enviables(string id);
 
     /** @brief Lee por el canal standard de entrada el conjunto de usuarios. 
-        \pre <em>cierto</em>
-        \post El resultado es leer del canal standard de entrada el conjunto de usuarios y ponerlos en el parámetro implícito.
+        \pre M > 0
+        \post El resultado es leer del canal standard de entrada el conjunto de <em>P</em> usuarios.
     */
     void leer(int M);
 };

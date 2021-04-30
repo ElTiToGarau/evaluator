@@ -21,15 +21,16 @@ using namespace std;
 class Sesiones
 {
 private:
+    /** @brief  Conjunto de sesiones ordenadas por su identificador*/
     map<string, Sesion> conjunt_sesions;
 
 public:
     //Constructoras
     /** @brief Creadora por defecto. 
 
-        Se ejecuta automáticamente al declarar un problema.
+        Se ejecuta automáticamente al declarar un conjunto de sesiones.
         \pre <em>cierto</em>
-        \post El resultado es un set de problemas vacío.
+        \post El resultado es un conjunto de sesiones sin inicializar.
     */
     Sesiones();
 
@@ -66,9 +67,9 @@ public:
     list<string> problemas_raiz(const list<string>& l, const map<string,int>& m);
 
     //Escritura y lectura
-    /** @brief Escribe por el canal standard de salida el set de sesiones de forma ordenada. 
+    /** @brief Escribe por el canal standard de salida el conjunto de sesiones de forma ordenada. 
         \pre <em>cierto</em>
-        \post El resultado es escribir en el canal standard de salida el set de sesiones de forma ordenada.
+        \post El resultado es escribir en el canal standard de salida el conjunto de sesiones de forma ordenada.
     */
     void Escribir();
 

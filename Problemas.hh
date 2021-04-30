@@ -22,16 +22,22 @@ using namespace std;
 class Problemas
 {
 private:
+    /** @brief Diccionario de problemas ordenados por el nombre de cada problema */
     map<string,Problema> lista_problemas;
+
+    /** @brief Función de comparación de dos problemas. 
+        \pre <em>cierto</em>
+        \post Compara dos probelmas en función del ratio de cada uno, en caso de empate compara el identificador de cada problema.
+    */
     static bool cmp(const pair<string,Problema>& a, const pair<string,Problema>& b);
     
 public:
     //Constructoras
     /** @brief Creadora por defecto. 
 
-        Se ejecuta automáticamente al declarar un problema.
+        Se ejecuta automáticamente al declarar un conjunto de problemas.
         \pre <em>cierto</em>
-        \post El resultado es un set de problemas vacío.
+        \post El resultado es un conjunto de problemas sin inicializar.
     */
     Problemas();
     
@@ -57,26 +63,26 @@ public:
 
     /** @brief Consulta si existe un problema con identificador id.
         \pre <em>cierto</em>
-        \post El resultado és el true si existe un problema con identificador id, y false si no exsite.
+        \post El resultado és true si existe un problema con identificador id, y false si no exsite.
     */
     bool existe_problema(string id) const;
 
     //Escritura y lectura
-    /** @brief Escribe por el canal standard de salida el set de problemas de forma ordenada. 
+    /** @brief Escribe por el canal standard de salida el conjunto de problemas de forma ordenada. 
         \pre <em>cierto</em>
-        \post El resultado es escribir en el canal standard de salida el set de problemas de forma ordenada.
+        \post El resultado es escribir en el canal standard de salida el conjunto de problemas de forma ordenada.
     */
     void Escribir();
 
     /** @brief Escribe por el canal standard de salida el problema concreto. 
         \pre El problema identificado por id tiene que existir.
-        \post El resultado es escribir en el canal standard de salida el problema si existe, de otro modo imprime un mensaje de error.
+        \post El resultado es escribir en el canal standard de salida el problema.
     */
     void Escribir(string id);
 
     /** @brief Lee por el canal standard de entrada el conjunto de problemas. 
-        \pre <em>cierto</em>
-        \post El resultado es leer del canal standard de entrada el conjunto de problemas y ponerlos en el parámetro implícito.
+        \pre P > 0
+        \post El resultado es leer del canal standard de entrada el conjunto de <em>P</em> problemas.
     */
     void leer(int P);
 };

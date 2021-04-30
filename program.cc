@@ -1,3 +1,9 @@
+/**
+ * @author Gerard Oliva Viñas
+ * @mainpage 
+ * Pràctica de Gerard Oliva Viñas, completant el projecte EVALUATOR.
+ */
+
 /** @file main.cc
     @brief Programa principal d'EVALUATOR <em>Plataforma de gestión de problemas i cursos de programación</em>.
 */

@@ -21,15 +21,16 @@ using namespace std;
 class Cursos
 {
 private:
+    /** @brief  Conjunto de cursos */
     vector<Curso> list_cursos;
 
 public:
     //Constructoras
     /** @brief Creadora por defecto. 
 
-        Se ejecuta automáticamente al declarar un problema.
+        Se ejecuta automáticamente al declarar un conjunto de cursos.
         \pre <em>cierto</em>
-        \post El resultado es un map de cursos vacío, con id igual a "0" y con N = 0.
+        \post El resultado es un conjunto de cursos sin inicializar.
     */
     Cursos();
 
@@ -71,9 +72,9 @@ public:
     */
     bool existe_curso(int id);
 
-    /** @brief Devuelve una lista con las sesiones que tiene el curso c
+    /** @brief Devuelve el conjunto de las sesiones que tiene el curso c
         \pre <em>cierto</em>
-        \post El resultado es una lista con las sesiones que tiene el curso c.
+        \post El resultado es un conjunto de las sesiones que tiene el curso c.
     */
     list<string> lista_sesiones(int c);
 
@@ -84,9 +85,9 @@ public:
     int consultar_num_usuarios(int c);
 
     //Escritura y lecttura
-    /** @brief Escribe por el canal standard de salida el map de cursos de forma ordenada. 
+    /** @brief Escribe por el canal standard de salida el conjunto de cursos de forma ordenada. 
         \pre <em>cierto</em>
-        \post El resultado es escribir en el canal standard de salida el map de cursos de forma ordenada.
+        \post El resultado es escribir en el canal standard de salida el conjunto de cursos de forma ordenada.
     */
     void Escribir();
 

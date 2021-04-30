@@ -28,61 +28,61 @@ public:
 
     /** @brief Creadora por defecto. 
 
-        Se ejecuta automáticamente al declarar un problema.
+        Se ejecuta automáticamente al declarar un usuario.
         \pre <em>cierto</em>
-        \post El resultado es un usuario con identificador igual a cero, y con el resto  de parámetros implíctos inicializados a cero, con los registros vacíos, y sin estar apuntado a ningún curso.
-    */   
+        \post El resultado es un usuario sin inicializar.
+    */
     Usuari();
   
     //Modificadoras
 
     /** @brief Modificadora del número total de envíos.
         \pre <em>cierto</em>
-        \post El parámetro implícito pas a tener el número total de envíos igual a num.
+        \post El parámetro implícito pasa a tener el número total de envíos igual a num.
     */
     void modificar_numero_envios(int num);
 
-    /** @brief Se añade un problema a la lista de problemas intentados.
-        \pre p no esta ya en la lista.
-        \post Se añade p a la lista de problemas intentados.
+    /** @brief Se añade un problema al conjunto de problemas intentados.
+        \pre p no esta ya en el conjunto.
+        \post Se añade p al conjunto de problemas intentados.
     */
     void afegir_problema_intentado(const string id);
 
-    /** @brief Se añade un problema a la lista de problemas resueltos.
-        \pre p no esta ya en la lista.
-        \post Se añade p a la lista de problemas resueltos.
+    /** @brief Se añade un problema al conjunto de problemas resueltos.
+        \pre p no esta ya en el conjunto.
+        \post Se añade p al conjunto de problemas resueltos.
     */
     void afegir_problema_resuelto(const string id, const int num);
 
-    /** @brief Se añade un problema a la lista de problemas enviables.
-        \pre p no esta ya en la lista.
-        \post Se añade p a la lista de problemas enviables.
+    /** @brief Se añade un problema al conjunto de problemas enviables.
+        \pre p no esta ya en el conjunto.
+        \post Se añade p al conjunto de problemas enviables.
     */
     void afegir_problema_enviable(const string id);
 
-    /** @brief Suprime un problema a la lista de problemas enviables.
-        \pre p esta en la lista.
-        \post Se elimina p a la lista de problemas enviables.
+    /** @brief Suprime un problema del conjunto de problemas enviables.
+        \pre p esta en el conjunto.
+        \post Se elimina p al conjunto de problemas enviables.
     */
     void suprimir_problema_enviable(const string id);
 
-    /** @brief Se aumenta en 1 el numero de envios a cierto problema de la lista de problemas enviables.
-        \pre p esta en la lista de problemas enviables.
-        \post Se aumenta en 1 el númerode envios al problema id de la lista de problemas enviables.
+    /** @brief Se aumenta en 1 el numero de envios a cierto problema del conjunto de problemas enviables.
+        \pre p esta en el connunto de problemas enviables.
+        \post Se aumenta en 1 el númerode envios al problema id del conjunto de problemas enviables.
     */
     void aumentar_problema_enviable(const string id);
 
     /** @brief Inscribe al usuario a un curso.
-        \pre El usuario no esta inscrito a ningún curso y también un curso con identificador c.
+        \pre El usuario no esta inscrito a ningún curso y también deve existir el curso con identificador c.
         \post Inscribe al usuario al curso con identificador c.
     */
     void inscribir_curso(int c, const list<string>& l);
     
     //Consultoras
 
-    /** @brief Consulta si un problema esta dentro de la lista de problemas enviables.
+    /** @brief Consulta si un problema esta dentro del conjunto de problemas enviables.
         \pre <em>cierto</em>
-        \post El resultado es true si el problema esta en la lista de problemas enviables, y false en cason contrario.
+        \post El resultado es true si el problema esta en el conjunto de problemas enviables, y false en cason contrario.
     */   
 
     bool consultar_problema_enviable(string p);
@@ -139,11 +139,17 @@ public:
     void escribir_enviables();
 
 private:
+    /** @brief  Envíos totales realizados por el usuario */
     int env_totales;
+    /** @brief  True si el usuario esta inscrito en un curso, false en caso contrario */
     bool inscrito_en_curso;
+    /** @brief  En caso de que el usuario este incsrito en un curso, indica en que curso esta inscrito */
     int curso_inscrito;
+    /** @brief  Problemas resueltos, y cuantos intentos se han hecho a cada uno */
     map<string,int> problemas_resueltos;
+    /** @brief  Problemas enviables, y cuantos intentos se han hecho a cada uno */
     map<string,int> problemas_enviables;
+    /** @brief  Problemas los cuales por lo menos ha hecho un envío */
     set<string> problemas_intentados;
 };
 
