@@ -36,12 +36,6 @@ public:
   
     //Modificadoras
 
-    /** @brief Modificadora del número total de envíos.
-        \pre <em>cierto</em>
-        \post El parámetro implícito pasa a tener el número total de envíos igual a num.
-    */
-    void modificar_numero_envios(int num);
-
     /** @brief Aumenta en 1 el número total de envios realizados.
         \pre <em>cierto</em>
         \post El parámetro implícito pasa a tener 1 envío mas.
@@ -55,7 +49,7 @@ public:
     void afegir_problema_intentado(const string id);
 
     /** @brief Se añade un problema al conjunto de problemas resueltos.
-        \pre p no esta ya en el conjunto.
+        \pre p tiene que pertenecer al conjunto de problemas enviables.
         \post Se añade p al conjunto de problemas resueltos.
     */
     void afegir_problema_resuelto(const string id);

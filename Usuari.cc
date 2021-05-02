@@ -6,10 +6,6 @@
         curso_inscrito=0;
     }
 
-    void Usuari::modificar_numero_envios(int num){
-        env_totales=num;
-    }
-
     void Usuari::afegir_problema_intentado(const string id){
         problemas_intentados.insert(id);
     }

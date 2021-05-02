@@ -71,6 +71,18 @@ public:
     */
     void aumentar_numero_envios(const string id);
 
+    /** @brief Se añade un problema al conjunto de problemas resueltos de un usuario concreto.
+        \pre p tiene que pertenecer al conjunto de problemas enviables.
+        \post Se añade p al conjunto de problemas resueltos del usaurio id.
+    */
+    void afegir_problema_resuelto(const string id, const string p);
+
+    /** @brief Se añade un problema al conjunto de problemas enviables del usuario concreto.
+        \pre p no esta ya en el conjunto.
+        \post Se añade p al conjunto de problemas enviables del usuario id.
+    */
+    void afegir_problema_enviable(const string id, const string p);
+
     //Consultoras
     /** @brief Consulta el número de usuarios registrados.
         \pre <em>cierto</em>

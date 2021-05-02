@@ -94,3 +94,8 @@
     void Usuarios::aumentar_numero_envios(const string id) {
         lista_usuaris[id].aumentar_numero_envios();
     }
+
+    void Usuarios::afegir_problema_resuelto(const string id, const string p) {
+        lista_usuaris[id].afegir_problema_resuelto(p);
+        lista_usuaris[id].suprimir_problema_enviable(p);
+    }

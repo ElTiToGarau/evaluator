@@ -10,11 +10,6 @@ Problema::Problema(const Problema& p){
     env_totales=p.env_totales;
 }
 
-void Problema::modificar(int correctos, int totales){
-    env_correctos=correctos;
-    env_totales=totales;
-}
-
 void Problema::modificar_correctos(int correctos){
     env_correctos=correctos;
 }

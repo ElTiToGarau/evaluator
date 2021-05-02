@@ -202,6 +202,7 @@ int main() {
                         }
                         else{
                             conjunt_problemes.incrementar_correctos(p);
+                            conjunto_usuarios.afegir_problema_resuelto(id,p);
                             
                         }
                     }
