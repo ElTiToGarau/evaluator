@@ -13,7 +13,9 @@ using namespace std;
 #include <list>
 #endif 
 
+#include "Sesiones.hh"
 #include "Usuari.hh"
+#include "Cursos.hh"
 
     /** @class Usuarios
     @brief Representa todo el conjunto de Usuarios.
@@ -51,7 +53,7 @@ public:
         \pre Existe un usuario con el identificador id que no esta inscrito a ningún curso y también un curso con identificador c.
         \post Inscribe al usuario identificado por id al curso con identificador c.
     */
-    void inscribir_usuario_curso(string id, int c, const list<string>& l);
+    void inscribir_usuario_curso(Cursos& c, Sesiones& s, string id, int curs);
 
     /** @brief Se aumenta en 1 el numero de envios a cierto problema del conjunto de problemas enviables del usuario concreto.
         \pre p esta en el connunto de problemas enviables.

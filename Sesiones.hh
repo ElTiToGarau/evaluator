@@ -15,7 +15,6 @@ using namespace std;
 #include "Sesion.hh"
 #include "Problema.hh"
 #include "Cursos.hh"
-#include "Usuarios.hh"
 
     /** @class Sesiones
     @brief Representa todo el conjunto de Sesiones.
@@ -62,12 +61,6 @@ public:
     */
     string existe_problema(Cursos& c, int curs, const string p);
 
-    /** @brief Consulta si existe un determinado problema en una lista de sesiones.
-        \pre <em>cierto</em>
-        \post El resultado es el true si existe el problema en la lista de sesiones, y false en caso contrario.
-    */
-    string existe_problema(Cursos& c, Usuarios& u, const string id, const string p);
-    
     /** @brief Consulta los problemas raiz de cada sesión en la lista.
         \pre <em>cierto</em>
         \post El resultado es una lista con todos los problemas base de las sesiones en la lista.

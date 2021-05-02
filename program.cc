@@ -111,11 +111,7 @@ int main() {
             if(conjunto_usuarios.existe_usuarios(id)){
                 if(conjunto_cursos.existe_curso(c)){
                     if(not conjunto_usuarios.consultar_incscrito_curso(id)){
-                        list<string> S = conjunto_cursos.lista_sesiones(c);
-                        map<string,int> M = conjunto_usuarios.devolver_problemas_resueltos(id);
-                        list<string> P = conjunto_sesiones.problemas_raiz(S,M);
-                        conjunto_usuarios.inscribir_usuario_curso(id,c,P);
-                        conjunto_cursos.incrementar_usuarios_inscritos(c);
+                        conjunto_usuarios.inscribir_usuario_curso(conjunto_cursos,conjunto_sesiones,id,c);
                         cout << conjunto_cursos.consultar_num_usuarios(c) << endl;
                     }
                     else cout << "error: usuario inscrito en otro curso" << endl;
@@ -185,7 +181,8 @@ int main() {
             if(conjunto_usuarios.existe_usuarios(id) and conjunto_usuarios.consultar_incscrito_curso(id)){
                 string p;
                 cin >> p;
-                string ses = conjunto_sesiones.existe_problema(conjunto_cursos,conjunto_usuarios,id,p);
+                int curs = conjunto_usuarios.curso_usuario(id);
+                string ses = conjunto_sesiones.existe_problema(conjunto_cursos,curs,p);
                 if(ses!="0"){
                     if(conjunto_usuarios.problema_enviable(id,p)){
                         int r;

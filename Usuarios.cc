@@ -11,8 +11,11 @@
         lista_usuaris.erase(id);
     }
 
-    void Usuarios::inscribir_usuario_curso(string id, int c, const list<string>& l) {
-        lista_usuaris[id].inscribir_curso(c, l);
+    void Usuarios::inscribir_usuario_curso(Cursos& c, Sesiones& s, string id, int curs) {
+        list<string> S = c.lista_sesiones(curs);
+        list<string> P = s.problemas_raiz(S,lista_usuaris[id].devolver_problemas_resueltos());
+        lista_usuaris[id].inscribir_curso(curs, P);
+        c.incrementar_usuarios_inscritos(curs);
     }
 
     int Usuarios::num_usuarios() const {
