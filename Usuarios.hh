@@ -83,7 +83,20 @@ public:
     */
     void afegir_problema_enviable(const string id, const string p);
 
+    /** @brief Se añade un conjunto de problemas al conjunto de problemas enviables del usuario concreto.
+        \pre p no esta ya en el conjunto.
+        \post Se añade L al conjunto de problemas enviables del usuario id.
+    */
+    void afegir_problemas_enviable(const string id, const list<string>& L);
+
     //Consultoras
+
+    /** @brief Consultora de el número de problemas enviables de un usuario concreto.
+        \pre <em>cierto</em>
+        \post El resultado es el número de problemas que se pueden enviar del usuario id.
+    */   
+    int consultar_num_enviables(const string id);
+
     /** @brief Consulta el número de usuarios registrados.
         \pre <em>cierto</em>
         \post El resultado és el número total de usuarios registrados en la plataforma.

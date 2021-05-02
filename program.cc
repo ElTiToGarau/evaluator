@@ -203,7 +203,12 @@ int main() {
                         else{
                             conjunt_problemes.incrementar_correctos(p);
                             conjunto_usuarios.afegir_problema_resuelto(id,p);
-                            
+                            conjunto_usuarios.aumentar_numero_envios(id);
+                            list<string> P = conjunto_sesiones.trobar_fulles(ses,p);
+                            conjunto_usuarios.afegir_problemas_enviable(id,P);
+                            if(conjunto_usuarios.consultar_num_enviables(id)==0){
+                                
+                            }
                         }
                     }
                     else cout << "El problema no es enviable por el usuario." << endl;

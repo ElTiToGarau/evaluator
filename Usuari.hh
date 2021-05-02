@@ -72,6 +72,12 @@ public:
     */
     void aumentar_problema_enviable(const string id);
 
+    /** @brief Se añade un conjunto de problemas al conjunto de problemas enviables.
+        \pre p no esta ya en el conjunto.
+        \post Se añade L al conjunto de problemas enviables.
+    */
+    void afegir_problemas_enviable(const list<string>& L);
+
     /** @brief Inscribe al usuario a un curso.
         \pre El usuario no esta inscrito a ningún curso y también deve existir el curso con identificador c.
         \post Inscribe al usuario al curso con identificador c.
@@ -87,11 +93,16 @@ public:
 
     bool consultar_problema_enviable(string p);
 
+     /** @brief Consultora de el número de problemas enviables.
+        \pre <em>cierto</em>
+        \post El resultado es el número de problemas que se pueden enviar.
+    */   
+    int consultar_num_enviables() const;
+
     /** @brief Consultora de el número de problemas que ha intentado resolver.
         \pre <em>cierto</em>
         \post El resultado es el número de problemas que ha intentado resolver.
     */   
-
     int consultar_intentados() const;
 
     /** @brief Consultora de el número de problemas resueltos satisfactoriamente.

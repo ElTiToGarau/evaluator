@@ -82,3 +82,13 @@
     void Usuari::aumentar_numero_envios() {
         ++env_totales;
     }
+
+    void Usuari::afegir_problemas_enviable(const list<string>& L){
+        for(list<string>::const_iterator it=L.begin(); it!=L.end(); ++it){
+            problemas_enviables.insert(pair<string,int>((*it),0));
+        }
+    }
+
+    int Usuari::consultar_num_enviables() const {
+        return problemas_enviables.size();
+    }
