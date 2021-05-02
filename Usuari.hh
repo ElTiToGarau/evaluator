@@ -36,6 +36,12 @@ public:
   
     //Modificadoras
 
+    /** @brief Modifica si el usuario esta o no inscrito en un curso.
+        \pre <em>cierto</em>
+        \post El parametro implicito pasa a tener s como inscrito en curso.
+    */
+    void modificar_inscrito_en_curso(bool s);
+
     /** @brief Aumenta en 1 el número total de envios realizados.
         \pre <em>cierto</em>
         \post El parámetro implícito pasa a tener 1 envío mas.

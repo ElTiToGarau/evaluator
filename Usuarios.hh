@@ -89,6 +89,12 @@ public:
     */
     void afegir_problemas_enviable(const string id, const list<string>& L);
 
+    /** @brief Modifica si el usuario concreto esta o no inscrito en un curso.
+        \pre <em>cierto</em>
+        \post El parametro implicito del usuario id pasa a tener s como inscrito en curso.
+    */
+    void modificar_inscrito_en_curso(const string id, bool s);
+
     //Consultoras
 
     /** @brief Consultora de el número de problemas enviables de un usuario concreto.

@@ -96,6 +96,7 @@
     }
 
     void Usuarios::afegir_problema_resuelto(const string id, const string p) {
+        lista_usuaris[id].aumentar_problema_enviable(p);
         lista_usuaris[id].afegir_problema_resuelto(p);
         lista_usuaris[id].suprimir_problema_enviable(p);
     }
@@ -106,4 +107,8 @@
 
     int Usuarios::consultar_num_enviables(const string id) {
         return lista_usuaris[id].consultar_num_enviables();
+    }
+
+    void Usuarios::modificar_inscrito_en_curso(const string id, bool s){
+        lista_usuaris[id].modificar_inscrito_en_curso(s);
     }

@@ -207,7 +207,7 @@ int main() {
                             list<string> P = conjunto_sesiones.trobar_fulles(ses,p);
                             conjunto_usuarios.afegir_problemas_enviable(id,P);
                             if(conjunto_usuarios.consultar_num_enviables(id)==0){
-                                
+                                conjunto_usuarios.modificar_inscrito_en_curso(id,false);
                             }
                         }
                     }
