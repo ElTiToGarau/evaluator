@@ -52,13 +52,24 @@ public:
         \post Inscribe al usuario identificado por id al curso con identificador c.
     */
     void inscribir_usuario_curso(string id, int c, const list<string>& l);
-    
-    /** @brief Comprueva si el resultado es correcto o incoreecto, y actualiza todas las estadísticas correspondientes.
-        \pre Existe un usuario con el identificador <em>id</em>, existe un problema <em>p</em>, <em>r</em> solo puede ser 1 o 0
-        \post Actualiza todas las estadísticas correspondientes, tanto en el caso que r sea 1 como en el que r sea 0.
-        En el caso que una vez enviado el problema <em>p</em> se haya completado el curso, el usuario dejará de estar inscrito en el curso.
+
+    /** @brief Se aumenta en 1 el numero de envios a cierto problema del conjunto de problemas enviables del usuario concreto.
+        \pre p esta en el connunto de problemas enviables.
+        \post Se aumenta en 1 el númerode envios al problema p del conjunto de problemas enviables del usuario id.
     */
-    void comprovar_resultado(string id, string p, int r);
+    void aumentar_problema_enviable(const string id, const string p);
+
+    /** @brief Se añade un problema al conjunto de problemas intentados del usuario concreto.
+        \pre <em>cierto</em>
+        \post Se añade p al conjunto de problemas intentados del usuario id.
+    */
+    void afegir_problema_intentado(const string id, const string p);
+
+    /** @brief Aumenta en 1 el número total de envios realizados por el usuario concreto.
+        \pre <em>cierto</em>
+        \post El parámetro implícito del usuario id pasa a tener 1 envío mas.
+    */
+    void aumentar_numero_envios(const string id);
 
     //Consultoras
     /** @brief Consulta el número de usuarios registrados.

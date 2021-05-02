@@ -15,10 +15,6 @@
         lista_usuaris[id].inscribir_curso(c, l);
     }
 
-    /*void Usuarios::comprovar_resultado(string id, string p, int r){
-
-    }
-    */
     int Usuarios::num_usuarios() const {
         return lista_usuaris.size();
     }
@@ -85,4 +81,16 @@
 
     map<string,int> Usuarios::devolver_problemas_resueltos(string id){
         return lista_usuaris[id].devolver_problemas_resueltos();
+    }
+
+    void Usuarios::aumentar_problema_enviable(const string id, const string p){
+        lista_usuaris[id].aumentar_problema_enviable(p);
+    }
+
+    void Usuarios::afegir_problema_intentado(const string id, const string p) {
+        lista_usuaris[id].afegir_problema_intentado(p);
+    }
+
+    void Usuarios::aumentar_numero_envios(const string id) {
+        lista_usuaris[id].aumentar_numero_envios();
     }

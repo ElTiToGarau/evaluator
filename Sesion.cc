@@ -62,10 +62,31 @@
         return b;
     }
 
+    list<string> Sesion::find_leaves(const BinTree<string>& t, string id){
+        list<string> b;
+        if(t.empty()) return b;
+        else if(t.value()==id){
+            BinTree<string> d=t.right();
+            BinTree<string> e=t.left();
+            if(not d.empty()) b.push_back(d.value());
+            if(not e.empty()) b.push_back(e.value());
+        }
+        else{
+            b=find_leaves(t.left(), id);
+            if(b.empty()) b=find_leaves(t.right(), id);
+        }
+        return b;
+    }
+
     bool Sesion::existe_problema(string id){
         return find(problemes_sessio_bin,id);
     }
-    
+
+    list<string> Sesion::trobar_fulles(const string id){
+        list<string> L = find_leaves(problemes_sessio_bin,id);
+        return L;
+    }
+
     void Sesion::return_raiz(const map<string,int>& m, list<string>& l){
         if(m.size()==0){
             l.push_back(problemes_sessio_bin.value());

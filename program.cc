@@ -180,7 +180,6 @@ int main() {
             }
             else cout << "error: el usuario no existe" << endl;
         }
-        /*
         else if(comando == "envio" or comando == "e"){
             string id;
             cin >> id;
@@ -189,19 +188,29 @@ int main() {
                 cin >> p;
                 int curs;
                 curs = conjunto_usuarios.curso_usuario(id);
-                if(conjunto_cursos.existe_problema_en_curso(curs,id)){
+                list<string> L = conjunto_cursos.lista_sesiones(curs);
+                string ses = conjunto_sesiones.existe_problema(L,p);
+                if(ses!="0"){
                     if(conjunto_usuarios.problema_enviable(id,p)){
                         int r;
                         cin >> r;
-                        conjunto_usuarios.comprovar_resultado(id,p,r);
+                        if(r==0){
+                            conjunto_usuarios.afegir_problema_intentado(id,p);
+                            conjunto_usuarios.aumentar_numero_envios(id);
+                            conjunto_usuarios.aumentar_problema_enviable(id,p);
+                            conjunt_problemes.incrementar_totales(p);
+                        }
+                        else{
+                            conjunt_problemes.incrementar_correctos(p);
+                            
+                        }
                     }
                     else cout << "El problema no es enviable por el usuario." << endl;
                 }
-                cout << "El problema a enviar no forma parte del curso en el que esta inscrito el usuario." << endl;
+                else cout << "No existe ningún problema " << p << " en el curso " << curs << endl;
             }
-            cout << "El usuaio introducido o no existe o no esta inscrito a ningún curso." << endl;
+            else cout << "El usuaio introducido o no existe o no esta inscrito a ningún curso." << endl;
         }
-        */
         else if(comando == "listar_problemas" or comando == "lp"){
             cout << "#" << comando;
             cout << endl;

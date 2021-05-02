@@ -42,8 +42,14 @@ public:
     */
     void modificar_numero_envios(int num);
 
+    /** @brief Aumenta en 1 el número total de envios realizados.
+        \pre <em>cierto</em>
+        \post El parámetro implícito pasa a tener 1 envío mas.
+    */
+    void aumentar_numero_envios();
+
     /** @brief Se añade un problema al conjunto de problemas intentados.
-        \pre p no esta ya en el conjunto.
+        \pre <em>cierto</em>
         \post Se añade p al conjunto de problemas intentados.
     */
     void afegir_problema_intentado(const string id);
@@ -52,7 +58,7 @@ public:
         \pre p no esta ya en el conjunto.
         \post Se añade p al conjunto de problemas resueltos.
     */
-    void afegir_problema_resuelto(const string id, const int num);
+    void afegir_problema_resuelto(const string id);
 
     /** @brief Se añade un problema al conjunto de problemas enviables.
         \pre p no esta ya en el conjunto.

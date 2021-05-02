@@ -52,6 +52,12 @@ private:
     */
     static bool find(const BinTree<string>& t, string id);
 
+    /** @brief Si existe un problema con cierto identificador en el arbol binario retorna los problemas que tiene como hojas si los tiene. 
+        \pre <em>cierto</em>
+        \post Retorna un conjunto con un maximo de los dos hijos que puede tener el problema
+    */
+    static list<string> find_leaves(const BinTree<string>& t, string id);
+
     /** @brief Retorna los problemas base de la sesión en cuestion.
         \pre <em>cierto</em>
         \post Retorna los problemas base de la sesión segun los prequisitos, y los problemas que ya hayan sido resueltos
@@ -89,6 +95,12 @@ public:
         \post El resultado es el identificador de la raiz del arbol binario.
     */
     void return_raiz(const map<string,int>& t, list<string>& l);
+
+    /** @brief Si existe un problema con cierto identificador en el arbol binario retorna los problemas que tiene como hojas si los tiene. 
+        \pre <em>cierto</em>
+        \post Retorna un conjunto con un maximo de los dos hijos que puede tener el problema
+    */
+    list<string> trobar_fulles(const string id);
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el conjunto de problemas de forma ordenada. 

@@ -14,7 +14,9 @@
         problemas_intentados.insert(id);
     }
 
-    void Usuari::afegir_problema_resuelto(const string id, const int num){
+    void Usuari::afegir_problema_resuelto(const string id){
+        map<string,int>::iterator it=problemas_enviables.find(id);
+        int num=(*it).second;
         problemas_resueltos.insert(pair<string,int>(id,num));
     }
 
@@ -79,4 +81,8 @@
 
     map<string,int> Usuari::devolver_problemas_resueltos(){
         return problemas_resueltos;
+    }
+
+    void Usuari::aumentar_numero_envios() {
+        ++env_totales;
     }

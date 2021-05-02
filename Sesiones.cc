@@ -53,3 +53,7 @@
         }
         return llista;
     }
+
+    list<string> Sesiones::trobar_fulles(const string s, const string p){
+        return conjunt_sesions[s].trobar_fulles(p);
+    }

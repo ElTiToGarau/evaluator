@@ -65,3 +65,11 @@
             else return false;
         }
     }
+
+    void Problemas::incrementar_correctos(const string id) {
+        lista_problemas[id].incrementar_correctos();
+    }
+
+    void Problemas::incrementar_totales(const string id) {
+        lista_problemas[id].incrementar_totales();
+    }

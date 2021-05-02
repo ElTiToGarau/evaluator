@@ -54,6 +54,18 @@ public:
     */
     void afegir_problema(string id);
 
+    /** @brief Incrementa en 1 el número total de envíos de un usuario concreto.
+      \pre Número total de envíos >= número correcto de envíos.
+      \post El parámetro implícito del usuario id pasa a tener número total de envíos + 1.
+  */   
+  void incrementar_totales(const string id);
+
+  /** @brief Incrementa en 1 el número total de envíos y el número de envíos correctos de un usuario concreto.
+      \pre Número total de envíos >= número correcto de envíos.
+      \post El parámetro implícito del usuario id pasa a tener número total de envíos + 1 y número correcto de envíos + 1.
+  */   
+  void incrementar_correctos(const string id);
+
     //Consultoras
     /** @brief Consulta el número de probelmas que existen
         \pre <em>cierto</em>
