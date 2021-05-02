@@ -146,8 +146,7 @@ int main() {
             cout << " " << c << " " << p << endl;
             if(conjunto_cursos.existe_curso(c)){
                 if(conjunt_problemes.existe_problema(p)){
-                    list<string> L = conjunto_cursos.lista_sesiones(c);
-                    string ses = conjunto_sesiones.existe_problema(L,p);
+                    string ses = conjunto_sesiones.existe_problema(conjunto_cursos,c,p);
                     if(ses!="0"){
                         cout << ses << endl;
                     }
@@ -186,10 +185,7 @@ int main() {
             if(conjunto_usuarios.existe_usuarios(id) and conjunto_usuarios.consultar_incscrito_curso(id)){
                 string p;
                 cin >> p;
-                int curs;
-                curs = conjunto_usuarios.curso_usuario(id);
-                list<string> L = conjunto_cursos.lista_sesiones(curs);
-                string ses = conjunto_sesiones.existe_problema(L,p);
+                string ses = conjunto_sesiones.existe_problema(conjunto_cursos,conjunto_usuarios,id,p);
                 if(ses!="0"){
                     if(conjunto_usuarios.problema_enviable(id,p)){
                         int r;
@@ -204,8 +200,7 @@ int main() {
                             conjunt_problemes.incrementar_correctos(p);
                             conjunto_usuarios.afegir_problema_resuelto(id,p);
                             conjunto_usuarios.aumentar_numero_envios(id);
-                            list<string> P = conjunto_sesiones.trobar_fulles(ses,p);
-                            conjunto_usuarios.afegir_problemas_enviable(id,P);
+                            conjunto_usuarios.afegir_problemas_enviable(id,conjunto_sesiones.trobar_fulles(ses,p));
                             if(conjunto_usuarios.consultar_num_enviables(id)==0){
                                 conjunto_usuarios.modificar_inscrito_en_curso(id,false);
                             }
@@ -213,7 +208,7 @@ int main() {
                     }
                     else cout << "El problema no es enviable por el usuario." << endl;
                 }
-                else cout << "No existe ningún problema " << p << " en el curso " << curs << endl;
+                else cout << "No existe ningún problema " << p << " en el curso " << endl;
             }
             else cout << "El usuaio introducido o no existe o no esta inscrito a ningún curso." << endl;
         }

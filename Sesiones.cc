@@ -39,7 +39,17 @@
         }
     }
 
-    string Sesiones::existe_problema(const list<string>& l, string p){
+    string Sesiones::existe_problema(Cursos& c, int curs, const string p){
+        list<string> l = c.lista_sesiones(curs);
+        for(list<string>::const_iterator it=l.begin(); it!=l.end(); ++it){
+            if(conjunt_sesions[(*it)].existe_problema(p)) return (*it);
+        }
+        return "0";
+    }
+
+    string Sesiones::existe_problema(Cursos& c, Usuarios& u, const string id, const string p) {
+        int curs = u.curso_usuario(id);
+        list<string> l = c.lista_sesiones(curs);
         for(list<string>::const_iterator it=l.begin(); it!=l.end(); ++it){
             if(conjunt_sesions[(*it)].existe_problema(p)) return (*it);
         }
