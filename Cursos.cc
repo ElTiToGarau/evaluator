@@ -19,11 +19,6 @@
         return list_cursos[c-1].consultar_num_usuarios();
     }
 
-    list<string> Cursos::lista_sesiones(int c){
-        list<string> L = list_cursos[c-1].lista_sesiones();
-        return L;
-    }
-
     void Cursos::Escribir(){
         for(int i=0; i<list_cursos.size(); ++i){
             cout << i+1 << " " << list_cursos[i].consultar_veces_resuelto() << " ";

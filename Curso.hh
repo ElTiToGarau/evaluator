@@ -62,6 +62,12 @@ public:
     */
     void decrementar_usuarios_inscritos();
 
+    /** @brief Añade al conjunto de problemas y sesiones el problema que corresponde a una sesión pasados por referencia. 
+        \pre <em>cierto</em>
+        \post Devuelve false, si se ha podido agregar el problema y la sesión(no hay problemas repetidos), y devuelve true en caso contrario.
+    */
+    bool afegir_problemas(const string ses, const string p);
+
     //Consultoras
 
     /** @brief Consulta el número de sesiones que hay en el curso. 

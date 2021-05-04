@@ -3,6 +3,6 @@
 *.x
 /DOC
 /.vscode
-sample_*
+sample*
 *.out
 entrega*

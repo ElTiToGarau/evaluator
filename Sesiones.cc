@@ -54,3 +54,14 @@
     list<string> Sesiones::trobar_fulles(const string s, const string p){
         return conjunt_sesions[s].trobar_fulles(p);
     }
+
+    bool Sesiones::poner_problemas_sesion(Curso& c){
+        int mida = c.consultar_num_sesiones();
+        for (int i=0; 0<mida; ++i){
+            string id = c.devolver_sesion_especifica(i);
+            if(conjunt_sesions[id].modificar_problemas_curso(c,id)){
+                return false;
+            }
+        }
+        return true;
+    }

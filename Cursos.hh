@@ -78,12 +78,6 @@ public:
     */
     bool existe_curso(int id);
 
-    /** @brief Devuelve el conjunto de las sesiones que tiene el curso c
-        \pre <em>cierto</em>
-        \post El resultado es un conjunto de las sesiones que tiene el curso c.
-    */
-    list<string> lista_sesiones(int c);
-
     /** @brief Consulta el número de usuarios inscritos en el curso <em>c</em>. 
         \pre Tiene que existir el curso c.
         \post El resultado es el número de usuarios inscritos en el curso <em>c</em>.

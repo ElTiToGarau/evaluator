@@ -49,3 +49,13 @@
     void Curso::decrementar_usuarios_inscritos(){
         --usuarios_incritos;
     }
+
+    bool Curso::afegir_problemas(const string ses,const  string p){
+        map<string,string>::iterator it;
+        it=problemas_sesiones.find(p);
+        if(it!=problemas_sesiones.end()){
+            problemas_sesiones.insert(pair<string,string>(p,ses));
+            return false;
+        }
+        return true;
+    }

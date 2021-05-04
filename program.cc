@@ -62,18 +62,17 @@ int main() {
             }
             else cout << "error: la sesion ya existe" << endl;
         }
-        /*
         else if(comando == "nuevo_curso" or comando == "nc"){
             int s;
             cin >> s;
             Curso c;
-            if(c.leer(s)){
+            c.leer(s);
+            if(conjunto_sesiones.poner_problemas_sesion(c)){
                 conjunto_cursos.afegir_curso(c);
                 cout << conjunto_cursos.num_cursos() << endl;
             }
             else cout << "Hay uno o más problemas que se repiten en el curso!" << endl;
         }
-        */
         else if(comando == "alta_usuario" or comando == "a"){
             cout << "#" << comando;
             string id;

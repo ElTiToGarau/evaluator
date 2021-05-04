@@ -15,6 +15,7 @@ using namespace std;
 #endif 
 
 #include "Problema.hh"
+#include "Curso.hh"
 
     /** @class Sesion
     @brief Representa un Sesion con su identificador, y el subconjunto de problemas por la que esta formada la sesión.
@@ -64,6 +65,13 @@ private:
     */
     static void return_problemas_base(const BinTree<string>& t, const map<string,int>& m, list<string>& l);
 
+    /** @brief Recorre el arbol binario poniendo en el curso, los problemas que lo forman
+        \pre <em>cierto</em>
+        \post Se ha agregado al curso los problemas que forman el arbol binario, y devuelve false si no se ha intentado inserir un problema que ya estava, 
+        y true en caso contrario.
+    */
+    static bool insertar_problemas_curso(const BinTree<string>& t, Curso& c, const string id);
+
 public:
     //Constructoras
     /** @brief Creadora por defecto. 
@@ -75,6 +83,25 @@ public:
     Sesion();
 
     //Modificadoras
+
+    /** @brief Consulta la raiz del arbol binario de la sesión. 
+        \pre <em>cierto</em>
+        \post El resultado es el identificador de la raiz del arbol binario.
+    */
+    void return_raiz(const map<string,int>& t, list<string>& l);
+
+    /** @brief Si existe un problema con cierto identificador en el arbol binario retorna los problemas que tiene como hojas si los tiene. 
+        \pre <em>cierto</em>
+        \post Retorna un conjunto con un maximo de los dos hijos que puede tener el problema
+    */
+    list<string> trobar_fulles(const string id);
+
+    /** @brief Agrega al curso, los problemas por los cuales esta formada la sesión.
+        \pre <em>cierto</em>
+        \post Agrega al curso, los problemas por los cuales esta formada la sesión, y devuelve
+        true en caso que se intente colocar un problema el cual ya estava en la lista, false en caso contrario.
+    */
+    bool modificar_problemas_curso(Curso& c, const string id);
 
     //Consultoras
 
@@ -89,18 +116,6 @@ public:
         \post El resultado true si sí existe tal problema, i false en caso contrario.
     */
     bool existe_problema(string id);
-    
-    /** @brief Consulta la raiz del arbol binario de la sesión. 
-        \pre <em>cierto</em>
-        \post El resultado es el identificador de la raiz del arbol binario.
-    */
-    void return_raiz(const map<string,int>& t, list<string>& l);
-
-    /** @brief Si existe un problema con cierto identificador en el arbol binario retorna los problemas que tiene como hojas si los tiene. 
-        \pre <em>cierto</em>
-        \post Retorna un conjunto con un maximo de los dos hijos que puede tener el problema
-    */
-    list<string> trobar_fulles(const string id);
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el conjunto de problemas de forma ordenada. 

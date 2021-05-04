@@ -106,3 +106,18 @@
             }
         }
     }
+
+    bool Sesion::modificar_problemas_curso(Curso& c, const string id) {
+        return insertar_problemas_curso(problemes_sessio_bin,c,id);
+    }
+
+    bool Sesion::insertar_problemas_curso(const BinTree<string>& t, Curso& c, const string id) {
+        if(not t.empty()){
+            if(c.afegir_problemas(id,t.value())){
+                return true;
+            }
+            insertar_problemas_curso(t.right(),c,id);
+            insertar_problemas_curso(t.left(),c,id);
+        }
+        return false;
+    }
