@@ -4,5 +4,6 @@
 /DOC
 /.vscode
 sample*
+sample.*
 *.out
 entrega*
