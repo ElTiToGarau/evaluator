@@ -140,9 +140,7 @@ int main() {
             cout << " " << c << " " << p << endl;
             if(conjunto_cursos.existe_curso(c)){
                 if(conjunt_problemes.existe_problema(p)){
-                    Curso curs;
-                    conjunto_cursos.devolver_curso(curs,c);
-                    string ses = conjunto_sesiones.existe_problema(curs,p);
+                    string ses = conjunto_cursos.devolver_sesion_especifica(p,c);
                     if(ses!="0"){
                         cout << ses << endl;
                     }
@@ -181,10 +179,7 @@ int main() {
             if(conjunto_usuarios.existe_usuarios(id) and conjunto_usuarios.consultar_incscrito_curso(id)){
                 string p;
                 cin >> p;
-                int curs = conjunto_usuarios.curso_usuario(id);
-                Curso c;
-                conjunto_cursos.devolver_curso(c,curs);
-                string ses = conjunto_sesiones.existe_problema(c,p);
+                string ses = conjunto_cursos.devolver_sesion_especifica(p,conjunto_usuarios.curso_usuario(id));
                 if(ses!="0"){
                     if(conjunto_usuarios.problema_enviable(id,p)){
                         int r;

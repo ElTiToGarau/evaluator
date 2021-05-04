@@ -9,6 +9,15 @@
         return conjunto_sesiones.size();
     }
 
+    string Curso::devolver_sesion_especifica(string id) {
+        map<string,string>::const_iterator it;
+        it = problemas_sesiones.find(id);
+        if(it!=problemas_sesiones.end()){
+            return problemas_sesiones[id];
+        }
+        else return "0";
+    }
+
     string Curso::devolver_sesion_especifica(int i) {
         return conjunto_sesiones[i];
     }

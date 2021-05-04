@@ -55,12 +55,6 @@ public:
     */
     bool existe_sesion(string id);
 
-    /** @brief Consulta si existe un determinado problema en una lista de sesiones.
-        \pre <em>cierto</em>
-        \post El resultado es el true si existe el problema en la lista de sesiones, y false en caso contrario.
-    */
-    string existe_problema(Curso c, const string p);
-
     /** @brief Consulta los problemas raiz de cada sesión en la lista.
         \pre <em>cierto</em>
         \post El resultado es una lista con todos los problemas base de las sesiones en la lista.

@@ -66,3 +66,7 @@
     void Cursos::devolver_curso(Curso& curs, int c) {
         curs = list_cursos[c-1];
     }
+
+    string Cursos::devolver_sesion_especifica(string id, int c){
+        return list_cursos[c-1].devolver_sesion_especifica(id);
+    }

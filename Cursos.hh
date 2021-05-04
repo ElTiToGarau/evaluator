@@ -66,6 +66,13 @@ public:
     void devolver_curso(Curso& curs, int c);
 
     //Consultoras
+
+    /** @brief Devuelve el nombre de la sesión que ocupa la posición i dentro del conjunto de sesiones que forma el curso.
+        \pre <em>cierto</em>
+        \post El resultado es la sesión que esta en la posición i del conjunto de sesiones del curso.
+    */
+    string devolver_sesion_especifica(string id, int curs);
+
     /** @brief Consulta el número de sesiones que existen
         \pre <em>cierto</em>
         \post El resultado es el número de sesiones que hay en total.

@@ -38,14 +38,6 @@
             conjunt_sesions.insert(pair<string,Sesion>(id,s));
         }
     }
-
-    string Sesiones::existe_problema(Curso c, const string p){
-        int mida = c.consultar_num_sesiones();
-        for(int i=0; i<mida; ++i){
-            if(conjunt_sesions[c.devolver_sesion_especifica(i)].existe_problema(p)) return (c.devolver_sesion_especifica(i));
-        }
-        return "0";
-    }
     
     void Sesiones::problemas_raiz(const string l, const map<string,int>& m, list<string>& llista){
         conjunt_sesions[l].return_raiz(m,llista);
