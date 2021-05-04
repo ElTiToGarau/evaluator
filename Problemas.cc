@@ -42,7 +42,9 @@
         cout << ((lista_problemas[id].consultar_totales()+1)/(lista_problemas[id].consultar_correctos()+1)) << ")" << endl;
     }
     
-    void Problemas::leer(int P) {
+    void Problemas::leer() {
+        int P;
+        cin >> P;
         for(int i=0; i<P; ++i){
             string id;
             cin >> id;

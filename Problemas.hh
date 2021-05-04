@@ -96,7 +96,7 @@ public:
         \pre P > 0
         \post El resultado es leer del canal standard de entrada el conjunto de <em>P</em> problemas.
     */
-    void leer(int P);
+    void leer();
 };
 
 #endif

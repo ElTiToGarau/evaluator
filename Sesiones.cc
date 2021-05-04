@@ -29,7 +29,9 @@
         conjunt_sesions[id].Escribir();
     }
 
-    void Sesiones::leer(int Q){
+    void Sesiones::leer(){
+        int Q;
+        cin >> Q;
         for(int i=0; i<Q; ++i){
             string id;
             cin >> id;

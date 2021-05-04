@@ -27,14 +27,10 @@ int main() {
     Usuarios conjunto_usuarios;
     Sesiones conjunto_sesiones;
     Cursos conjunto_cursos;
-    int P,Q,M;
-    cin >> P;
-    conjunt_problemes.leer(P);
-    cin >> Q;
-    conjunto_sesiones.leer(Q);
+    conjunt_problemes.leer();
+    conjunto_sesiones.leer();
     conjunto_cursos.leer(conjunto_sesiones);
-    cin >> M;
-    conjunto_usuarios.leer(M);
+    conjunto_usuarios.leer();
     string comando;
     cin >> comando;
     while(comando != "fin"){

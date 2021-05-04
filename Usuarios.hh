@@ -183,7 +183,7 @@ public:
         \pre M > 0
         \post El resultado es leer del canal standard de entrada el conjunto de <em>P</em> usuarios.
     */
-    void leer(int M);
+    void leer();
 };
 
 #endif

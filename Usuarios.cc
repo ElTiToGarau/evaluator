@@ -78,7 +78,9 @@
         lista_usuaris[id].escribir_enviables();
     }
 
-    void Usuarios::leer(int M) {
+    void Usuarios::leer() {
+        int M;
+        cin >> M;
         for(int i=0; i<M; ++i){
             string id;
             cin >> id;

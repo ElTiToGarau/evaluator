@@ -90,7 +90,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es leer del canal standard de entrada el conjunto de sesiones y ponerlos en el parámetro implícito.
     */
-    void leer(int Q);
+    void leer();
 };
 
 #endif
