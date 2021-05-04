@@ -14,7 +14,6 @@ using namespace std;
 #endif 
 
 #include "Problema.hh"
-#include "Sesiones.hh"
 
     /** @class Curso
     @brief Representa un Curso con su identificador, y el subconjunto de sesiones por el que esta formado el curso.

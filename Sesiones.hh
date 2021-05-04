@@ -14,7 +14,7 @@ using namespace std;
 
 #include "Sesion.hh"
 #include "Problema.hh"
-#include "Cursos.hh"
+#include "Curso.hh"
 
     /** @class Sesiones
     @brief Representa todo el conjunto de Sesiones.
