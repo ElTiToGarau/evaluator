@@ -27,13 +27,12 @@ int main() {
     Usuarios conjunto_usuarios;
     Sesiones conjunto_sesiones;
     Cursos conjunto_cursos;
-    int P,Q,N,M;
+    int P,Q,M;
     cin >> P;
     conjunt_problemes.leer(P);
     cin >> Q;
     conjunto_sesiones.leer(Q);
-    cin >> N;
-    conjunto_cursos.leer(N);
+    conjunto_cursos.leer(conjunto_sesiones);
     cin >> M;
     conjunto_usuarios.leer(M);
     string comando;
@@ -142,7 +141,9 @@ int main() {
             cout << " " << c << " " << p << endl;
             if(conjunto_cursos.existe_curso(c)){
                 if(conjunt_problemes.existe_problema(p)){
-                    string ses = conjunto_sesiones.existe_problema(conjunto_cursos,c,p);
+                    Curso curs;
+                    conjunto_cursos.devolver_curso(curs,c);
+                    string ses = conjunto_sesiones.existe_problema(curs,p);
                     if(ses!="0"){
                         cout << ses << endl;
                     }
@@ -182,7 +183,9 @@ int main() {
                 string p;
                 cin >> p;
                 int curs = conjunto_usuarios.curso_usuario(id);
-                string ses = conjunto_sesiones.existe_problema(conjunto_cursos,curs,p);
+                Curso c;
+                conjunto_cursos.devolver_curso(c,curs);
+                string ses = conjunto_sesiones.existe_problema(c,p);
                 if(ses!="0"){
                     if(conjunto_usuarios.problema_enviable(id,p)){
                         int r;

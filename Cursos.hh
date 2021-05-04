@@ -12,7 +12,7 @@ using namespace std;
 #include <iostream>
 #endif 
 
-#include "Sesion.hh"
+#include "Sesiones.hh"
 #include "Curso.hh"
 
     /** @class Cursos
@@ -59,6 +59,12 @@ public:
     */
     void decrementar_usuarios_inscritos(int c);
 
+    /** @brief Modifica el curso pasado por parametro y devuelve el curso de conjunto de cursos. 
+        \pre <em>cierto</em>
+        \post Se modifica el curso pasado por parametro, y se guarda el curso identificado por c del conjunto de usuarios en el usuario pasado por referencia.
+    */
+    void devolver_curso(Curso& curs, int c);
+
     //Consultoras
     /** @brief Consulta el número de sesiones que existen
         \pre <em>cierto</em>
@@ -101,7 +107,7 @@ public:
         \pre El parametro implicito no esta inicializado.
         \post El resultado es leer del canal standard de entrada el conjunto de cursos y ponerlos en el parametro implícito.
     */
-    void leer(int N);
+    void leer(Sesiones& s);
 };
 
 #endif

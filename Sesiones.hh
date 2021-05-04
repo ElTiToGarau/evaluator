@@ -59,19 +59,25 @@ public:
         \pre <em>cierto</em>
         \post El resultado es el true si existe el problema en la lista de sesiones, y false en caso contrario.
     */
-    string existe_problema(Cursos& c, int curs, const string p);
+    string existe_problema(Curso c, const string p);
 
     /** @brief Consulta los problemas raiz de cada sesión en la lista.
         \pre <em>cierto</em>
         \post El resultado es una lista con todos los problemas base de las sesiones en la lista.
     */
-    list<string> problemas_raiz(const list<string>& l, const map<string,int>& m);
+    void problemas_raiz(const string l, const map<string,int>& m, list<string>& llista);
 
     /** @brief Si existe un problema con cierto identificador en el arbol binario retorna los problemas que tiene como hojas si los tiene la sesión concreta. 
         \pre La sesión s tiene que estar en el conjunto de sesiones.
         \post Retorna un conjunto con un maximo de los dos hijos que puede tener el problema p de la sesión s.
     */
     list<string> trobar_fulles(const string s, const string p);
+
+    /** @brief Añade en el mapa que se pasa por referencia los problemas de las sesón
+        \pre La sesión s tiene que estar en el conjunto de sesiones.
+        \post Añade en el mapa todos los problemas que corresponen a la sesión, y devuelve true si no hay problemas repetidos en el mapa, y false en caso contrario.
+    */
+    bool poner_problemas_sesion(Curso& c);
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el conjunto de sesiones de forma ordenada. 

@@ -39,20 +39,16 @@
         }
     }
 
-    string Sesiones::existe_problema(Cursos& c, int curs, const string p){
-        list<string> l = c.lista_sesiones(curs);
-        for(list<string>::const_iterator it=l.begin(); it!=l.end(); ++it){
-            if(conjunt_sesions[(*it)].existe_problema(p)) return (*it);
+    string Sesiones::existe_problema(Curso c, const string p){
+        int mida = c.consultar_num_sesiones();
+        for(int i=0; i<mida; ++i){
+            if(conjunt_sesions[c.devolver_sesion_especifica(i)].existe_problema(p)) return (c.devolver_sesion_especifica(i));
         }
         return "0";
     }
     
-    list<string> Sesiones::problemas_raiz(const list<string>& l, const map<string,int>& m){
-        list<string> llista;
-        for(list<string>::const_iterator it=l.begin(); it!=l.end(); ++it){
-            conjunt_sesions[(*it)].return_raiz(m,llista);
-        }
-        return llista;
+    void Sesiones::problemas_raiz(const string l, const map<string,int>& m, list<string>& llista){
+        conjunt_sesions[l].return_raiz(m,llista);
     }
 
     list<string> Sesiones::trobar_fulles(const string s, const string p){

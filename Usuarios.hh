@@ -97,6 +97,18 @@ public:
     */
     void modificar_inscrito_en_curso(const string id, bool s);
 
+    /** @brief Modifica el usuario por parametro y devuelve el usuario de conjunto de usuarios 
+        \pre <em>cierto</em>
+        \post Se modifica el usuario pasado por parametro, y se guarda el usuario identificado por id del conjunto de usuarios en el usuario pasado por referencia.
+    */
+    void devolver_usuario(Usuari& u, const string id);
+
+    /** @brief Modifica el usuario identificado por id, substituyendole por u.
+        \pre <em>cierto</em>
+        \post Se modifica el usuario identificado por id, del conjunto de usuario, substituyendolo por u.
+    */
+    void actualizar_usuario(Usuari& u, const string id);
+
     //Consultoras
 
     /** @brief Consultora de el número de problemas enviables de un usuario concreto.

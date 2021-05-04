@@ -9,6 +9,10 @@
         return conjunto_sesiones.size();
     }
 
+    string Curso::devolver_sesion_especifica(int i) {
+        return conjunto_sesiones[i];
+    }
+
     int Curso::consultar_num_usuarios(){
         return usuarios_incritos;
     }
@@ -25,27 +29,21 @@
         ++veces_completado;
     }
 
-    list<string> Curso::lista_sesiones(){
-        return conjunto_sesiones;
-    }
-
-    bool Curso::leer(int s){
+    void Curso::leer(int s){
         for(int i=0; i<s; ++i){
             string id;
             cin >> id;
             conjunto_sesiones.push_back(id);
         }
-        return true;
     }
 
     void Curso::escribir_sesiones(){
-        list<string>::iterator it2=conjunto_sesiones.end();
-        --it2;
+        int mida = conjunto_sesiones.size();
         cout << "(";
-        for(list<string>::iterator it1=conjunto_sesiones.begin(); it1!=it2; ++it1){
-            cout << (*it1) << " ";
+        for(int i=0; i<mida-1; ++i){
+            cout << conjunto_sesiones[i] << " ";
         }
-        cout << (*it2) << ")";
+        cout << conjunto_sesiones[mida-1] << ")";
     }
 
     void Curso::decrementar_usuarios_inscritos(){

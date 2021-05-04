@@ -12,8 +12,13 @@
     }
 
     void Usuarios::inscribir_usuario_curso(Cursos& c, Sesiones& s, string id, int curs) {
-        list<string> S = c.lista_sesiones(curs);
-        list<string> P = s.problemas_raiz(S,lista_usuaris[id].devolver_problemas_resueltos());
+        Curso curso;
+        c.devolver_curso(curso,curs);
+        int mida = curso.consultar_num_sesiones();
+        list<string> P;
+        for(int i=0; i<mida; ++i){
+            s.problemas_raiz(curso.devolver_sesion_especifica(i),lista_usuaris[id].devolver_problemas_resueltos(),P);
+        }
         lista_usuaris[id].inscribir_curso(curs, P);
         c.incrementar_usuarios_inscritos(curs);
     }
@@ -114,4 +119,12 @@
 
     void Usuarios::modificar_inscrito_en_curso(const string id, bool s){
         lista_usuaris[id].modificar_inscrito_en_curso(s);
+    }
+
+    void Usuarios::devolver_usuario(Usuari& u, const string id) {
+        u = lista_usuaris[id];
+    }
+
+    void Usuarios::actualizar_usuario(Usuari& u, const string id) {
+        lista_usuaris[id] = u;
     }

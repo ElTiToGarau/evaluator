@@ -42,13 +42,17 @@
         cout << endl;
     }
 
-    void Cursos::leer(int N){
+    void Cursos::leer(Sesiones& ses){
+        int N;
+        cin >> N;
         for(int i=0; i<N; ++i){
             Curso c;
             int s;
             cin >> s;
             c.leer(s);
-            list_cursos.push_back(c);
+            if(ses.poner_problemas_sesion(c)){
+                list_cursos.push_back(c);
+            }
         }
     }
 
@@ -62,4 +66,8 @@
 
     void Cursos::decrementar_usuarios_inscritos(int c){
         list_cursos[c-1].decrementar_usuarios_inscritos();
+    }
+
+    void Cursos::devolver_curso(Curso& curs, int c) {
+        curs = list_cursos[c-1];
     }

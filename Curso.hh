@@ -9,11 +9,12 @@
 #ifndef NO_DIAGRAM
 using namespace std;
 #include <iostream>
-#include <list>
+#include <vector>
+#include <map>
 #endif 
 
 #include "Problema.hh"
-#include "Sesion.hh"
+#include "Sesiones.hh"
 
     /** @class Curso
     @brief Representa un Curso con su identificador, y el subconjunto de sesiones por el que esta formado el curso.
@@ -23,7 +24,9 @@ class Curso
 {
 private:
     /** @brief  Conjunto de los identificadores de las sesiones por las cuales se conforma el curso */
-    list<string> conjunto_sesiones;
+    vector<string> conjunto_sesiones;
+    /** Conjunto de problemas, con a que sesión corresponde cada uno*/
+    map<string,string> problemas_sesiones;
     /** @brief  Número total de veces que se ha completado el curso */
     int veces_completado;
     /** @brief  Número total de usuarios inscritos en el curso actualmente */
@@ -67,17 +70,17 @@ public:
     */
     int consultar_num_sesiones();
 
+    /** @brief Devuelve el nombre de la sesión que ocupa la posición i dentro del conjunto de sesiones que forma el curso.
+        \pre <em>cierto</em>
+        \post El resultado es la sesión que esta en la posición i del conjunto de sesiones del curso.
+    */
+    string devolver_sesion_especifica(int i);
+
     /** @brief Consulta el número de veces que se ha completado el curso. 
         \pre <em>cierto</em>
         \post El resultado es el número de veces que se ha completado el curso.
     */
     int consultar_veces_resuelto();
-
-    /** @brief Devuelve una copia de la lista de sesiones que forman el curso. 
-        \pre <em>cierto</em>
-        \post El resultado es el conjunto de sesiones las cuales conforman el curso.
-    */
-    list<string> lista_sesiones();
 
     /** @brief Consulta el número de usuarios inscritos en el curso. 
         \pre <em>cierto</em>
@@ -92,7 +95,7 @@ public:
         \post El resultado es leer del canal standard de entrada un número de sesiones <em>s</em> que formaran el curso, si hay intersección de problemas en las sesiones devuelve false,
         de otro modo devuelve true.
     */
-    bool leer(int s);
+    void leer(int s);
 
     /** @brief Escribe por el canal standard de salida la sesiones que conforman curso. 
         \pre <em>cierto</em>
