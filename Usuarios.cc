@@ -37,8 +37,7 @@
     }
 
     bool Usuarios::consultar_incscrito_curso(string id) {
-        if(lista_usuaris[id].consultar_incscrito_curso()) return true;
-        else return false;
+        return lista_usuaris[id].consultar_incscrito_curso();
     }
 
     bool Usuarios::problema_enviable(string id, string p) {

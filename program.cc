@@ -59,6 +59,7 @@ int main() {
             else cout << "error: la sesion ya existe" << endl;
         }
         else if(comando == "nuevo_curso" or comando == "nc"){
+            cout << "#" << comando << endl;
             int s;
             cin >> s;
             Curso c;
@@ -172,15 +173,16 @@ int main() {
         else if(comando == "envio" or comando == "e"){
             string id;
             cin >> id;
+            string p;
+            cin >> p;
+            int r;
+            cin >> r;
+            cout << "#" << comando << " " << id << " " << p << " " << r << endl;
             if(conjunto_usuarios.existe_usuarios(id)){
                 if(conjunto_usuarios.consultar_incscrito_curso(id)){
-                    string p;
-                    cin >> p;
                     string ses = conjunto_cursos.devolver_sesion_especifica(p,conjunto_usuarios.curso_usuario(id));
                     if(ses!="0"){
                         if(conjunto_usuarios.problema_enviable(id,p)){
-                            int r;
-                            cin >> r;
                             conjunto_usuarios.enivio_problema(r,id,p,ses,conjunt_problemes,conjunto_sesiones);
                         }
                         else cout << "error: problema no enviable por el usuario" << endl;
