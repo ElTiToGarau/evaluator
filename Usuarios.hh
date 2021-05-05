@@ -16,6 +16,7 @@ using namespace std;
 #include "Sesiones.hh"
 #include "Usuari.hh"
 #include "Cursos.hh"
+#include "Problemas.hh"
 
     /** @class Usuarios
     @brief Representa todo el conjunto de Usuarios.
@@ -108,6 +109,12 @@ public:
         \post Se modifica el usuario identificado por id, del conjunto de usuario, substituyendolo por u.
     */
     void actualizar_usuario(Usuari& u, const string id);
+
+    /** @brief Modifica el usuario identificado por id, segun el envio sea correcto o incorrecto.
+        \pre Tiene que existir un usuario con identificador id.
+        \post Se modifica las estadísticas del usuario identificado por id, así como también las del problema enviado.
+    */
+    void enivio_problema(int r, string id, string p, string ses, Problemas& cjt_problemas, Sesiones& cjt_sesiones);
 
     //Consultoras
 

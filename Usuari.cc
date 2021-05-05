@@ -96,3 +96,7 @@
     void Usuari::modificar_inscrito_en_curso(bool s) {
         inscrito_en_curso=s;
     }
+
+    void Usuari::curso_acabado(){
+        inscrito_en_curso=false;
+    }

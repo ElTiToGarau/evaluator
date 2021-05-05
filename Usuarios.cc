@@ -130,3 +130,21 @@
     void Usuarios::actualizar_usuario(Usuari& u, const string id) {
         lista_usuaris[id] = u;
     }
+
+    void Usuarios::enivio_problema(int r, string id, string p, string ses, Problemas& cjt_problemas, Sesiones& cjt_sesiones){
+        if(r==0){
+            lista_usuaris[id].afegir_problema_intentado(p);
+            lista_usuaris[id].aumentar_numero_envios();
+            lista_usuaris[id].aumentar_problema_enviable(p);
+            cjt_problemas.incrementar_totales(p);
+        }
+        else{
+            cjt_problemas.incrementar_correctos(p);
+            lista_usuaris[id].afegir_problema_resuelto(p);
+            lista_usuaris[id].aumentar_numero_envios();
+            lista_usuaris[id].afegir_problemas_enviable(cjt_sesiones.trobar_fulles(ses,p));
+            if(lista_usuaris[id].consultar_num_enviables()==0){
+                lista_usuaris[id].curso_acabado();
+            }
+        }
+    }

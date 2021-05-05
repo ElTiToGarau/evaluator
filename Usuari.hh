@@ -89,6 +89,12 @@ public:
         \post Inscribe al usuario al curso con identificador c.
     */
     void inscribir_curso(int c, const list<string>& l);
+
+    /** @brief Hace que el usuario deja de estar inscrito al curso actual.
+        \pre El usuario tiene que estar inscrito en algun curso.
+        \post El usuario deja de estar inscrito al curso actual.
+    */
+    void curso_acabado();
     
     //Consultoras
 

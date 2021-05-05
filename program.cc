@@ -180,21 +180,7 @@ int main() {
                     if(conjunto_usuarios.problema_enviable(id,p)){
                         int r;
                         cin >> r;
-                        if(r==0){
-                            conjunto_usuarios.afegir_problema_intentado(id,p);
-                            conjunto_usuarios.aumentar_numero_envios(id);
-                            conjunto_usuarios.aumentar_problema_enviable(id,p);
-                            conjunt_problemes.incrementar_totales(p);
-                        }
-                        else{
-                            conjunt_problemes.incrementar_correctos(p);
-                            conjunto_usuarios.afegir_problema_resuelto(id,p);
-                            conjunto_usuarios.aumentar_numero_envios(id);
-                            conjunto_usuarios.afegir_problemas_enviable(id,conjunto_sesiones.trobar_fulles(ses,p));
-                            if(conjunto_usuarios.consultar_num_enviables(id)==0){
-                                conjunto_usuarios.modificar_inscrito_en_curso(id,false);
-                            }
-                        }
+                        conjunto_usuarios.enivio_problema(r,id,p,ses,conjunt_problemes,conjunto_sesiones);
                     }
                     else cout << "El problema no es enviable por el usuario." << endl;
                 }
