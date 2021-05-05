@@ -67,7 +67,7 @@ int main() {
                 conjunto_cursos.afegir_curso(c);
                 cout << conjunto_cursos.num_cursos() << endl;
             }
-            else cout << "Hay uno o más problemas que se repiten en el curso!" << endl;
+            else cout << "error: curso mal formado" << endl;
         }
         else if(comando == "alta_usuario" or comando == "a"){
             cout << "#" << comando;
@@ -172,21 +172,24 @@ int main() {
         else if(comando == "envio" or comando == "e"){
             string id;
             cin >> id;
-            if(conjunto_usuarios.existe_usuarios(id) and conjunto_usuarios.consultar_incscrito_curso(id)){
-                string p;
-                cin >> p;
-                string ses = conjunto_cursos.devolver_sesion_especifica(p,conjunto_usuarios.curso_usuario(id));
-                if(ses!="0"){
-                    if(conjunto_usuarios.problema_enviable(id,p)){
-                        int r;
-                        cin >> r;
-                        conjunto_usuarios.enivio_problema(r,id,p,ses,conjunt_problemes,conjunto_sesiones);
+            if(conjunto_usuarios.existe_usuarios(id)){
+                if(conjunto_usuarios.consultar_incscrito_curso(id)){
+                    string p;
+                    cin >> p;
+                    string ses = conjunto_cursos.devolver_sesion_especifica(p,conjunto_usuarios.curso_usuario(id));
+                    if(ses!="0"){
+                        if(conjunto_usuarios.problema_enviable(id,p)){
+                            int r;
+                            cin >> r;
+                            conjunto_usuarios.enivio_problema(r,id,p,ses,conjunt_problemes,conjunto_sesiones);
+                        }
+                        else cout << "error: problema no enviable por el usuario" << endl;
                     }
-                    else cout << "El problema no es enviable por el usuario." << endl;
+                    else cout << "error: el problema no pertenece al curso" << endl;
                 }
-                else cout << "No existe ningún problema " << p << " en el curso " << endl;
+                else cout << "error: usuario no inscrito en ningun curso" << endl;
             }
-            else cout << "El usuaio introducido o no existe o no esta inscrito a ningún curso." << endl;
+            else cout << "error: el usuario no existe" << endl;
         }
         else if(comando == "listar_problemas" or comando == "lp"){
             cout << "#" << comando;

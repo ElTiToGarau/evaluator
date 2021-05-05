@@ -52,7 +52,7 @@
     bool Sesiones::poner_problemas_sesion(Curso& c){
         int mida = c.consultar_num_sesiones();
         for (int i=0; 0<mida; ++i){
-            string id = c.devolver_sesion_especifica(i);
+            string id = c.devolver_sesion_especifica2(i);
             if(conjunt_sesions[id].modificar_problemas_curso(c,id)){
                 return false;
             }

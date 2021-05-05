@@ -85,7 +85,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es la sesión que esta en la posición i del conjunto de sesiones del curso.
     */
-    string devolver_sesion_especifica(int i);
+    string devolver_sesion_especifica2(int i);
 
     /** @brief Consulta el número de veces que se ha completado el curso. 
         \pre <em>cierto</em>

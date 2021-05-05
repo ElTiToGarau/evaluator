@@ -18,7 +18,7 @@
         else return "0";
     }
 
-    string Curso::devolver_sesion_especifica(int i) {
+    string Curso::devolver_sesion_especifica2(int i) {
         return conjunto_sesiones[i];
     }
 
