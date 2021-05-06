@@ -60,11 +60,10 @@
     }
 
     bool Curso::afegir_problemas(const string ses, const string p){
-        map<string,string>::iterator it;
-        it=problemas_sesiones.find(p);
-        if(it==problemas_sesiones.end()){
+        bool repetit=false;
+        if(problemas_sesiones.count(p)==0){
             problemas_sesiones.insert(pair<string,string>(p,ses));
-            return false;
         }
-        return true;
+        else repetit=true;
+        return repetit;
     }

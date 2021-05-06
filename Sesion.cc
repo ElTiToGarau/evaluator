@@ -116,12 +116,15 @@
     }
 
     bool Sesion::insertar_problemas_curso(const BinTree<string>& t, Curso& c, const string id) {
+        bool repetit=false;
         if(not t.empty()){
             if(c.afegir_problemas(id,t.value())){
-                return true;
+                repetit = true;
             }
-            insertar_problemas_curso(t.right(),c,id);
-            insertar_problemas_curso(t.left(),c,id);
+            else{
+                insertar_problemas_curso(t.right(),c,id);
+                insertar_problemas_curso(t.left(),c,id);
+            }
         }
-        return false;
+        return repetit;
     }

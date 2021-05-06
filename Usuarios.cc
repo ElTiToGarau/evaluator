@@ -15,11 +15,16 @@
         Curso curso;
         c.devolver_curso(curso,curs);
         int mida = curso.consultar_num_sesiones();
-        lista_usuaris[id].inscribir_curso(curs);
         for(int i=0; i<mida; ++i){
             s.problemas_raiz(curso.devolver_sesion_especifica2(i), lista_usuaris[id]);
         }
         c.incrementar_usuarios_inscritos(curs);
+        if(lista_usuaris[id].consultar_num_enviables()!=0){
+            lista_usuaris[id].inscribir_curso(curs);
+        }
+        else {
+            lista_usuaris[id].modificar_inscrito_en_curso(false);
+        }
     }
 
     int Usuarios::num_usuarios() const {
