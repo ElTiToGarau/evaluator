@@ -92,20 +92,21 @@
             u.afegir_problema_enviable(problemes_sessio_bin.value());
         }
         else{
-            return_problemas_base(problemes_sessio_bin,u);
+            bool found = false;
+            return_problemas_base(problemes_sessio_bin,u,found);
         }
     }
 
-    void Sesion::return_problemas_base(const BinTree<string>& t, Usuari& u){
-        while(not t.empty()){
+    void Sesion::return_problemas_base(const BinTree<string>& t, Usuari& u, bool& found){
+        while(not t.empty() and not found){
             string a=t.value();
             if(u.consultar_problema_resuelto(a)){
-                if(not t.right().empty()) u.afegir_problema_enviable(t.right().value());
-                if(not t.left().empty()) u.afegir_problema_enviable(t.left().value());
+                if(not t.right().empty()) return_problemas_base(t.right(),u,found);
+                if(not t.left().empty()) return_problemas_base(t.left(),u,found);
             }
             else{
-                return_problemas_base(t.left(),u);
-                return_problemas_base(t.right(),u);
+                u.afegir_problema_enviable(a);
+                found = true;
             }
         }
     }
