@@ -15,6 +15,7 @@ using namespace std;
 #include "Sesion.hh"
 #include "Problema.hh"
 #include "Curso.hh"
+#include "Usuari.hh"
 
     /** @class Sesiones
     @brief Representa todo el conjunto de Sesiones.
@@ -59,7 +60,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es una lista con todos los problemas base de las sesiones en la lista.
     */
-    void problemas_raiz(const string l, const map<string,int>& m, list<string>& llista);
+    void problemas_raiz(const string l, Usuari& u);
 
     /** @brief Si existe un problema con cierto identificador en el arbol binario retorna los problemas que tiene como hojas si los tiene la sesión concreta. 
         \pre La sesión s tiene que estar en el conjunto de sesiones.

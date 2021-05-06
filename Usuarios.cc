@@ -15,11 +15,10 @@
         Curso curso;
         c.devolver_curso(curso,curs);
         int mida = curso.consultar_num_sesiones();
-        list<string> P;
+        lista_usuaris[id].inscribir_curso(curs);
         for(int i=0; i<mida; ++i){
-            s.problemas_raiz(curso.devolver_sesion_especifica2(i),lista_usuaris[id].devolver_problemas_resueltos(),P);
+            s.problemas_raiz(curso.devolver_sesion_especifica2(i), lista_usuaris[id]);
         }
-        lista_usuaris[id].inscribir_curso(curs, P);
         c.incrementar_usuarios_inscritos(curs);
     }
 

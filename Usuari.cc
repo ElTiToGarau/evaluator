@@ -28,12 +28,9 @@
         ++problemas_enviables[id];
     }
 
-    void Usuari::inscribir_curso(int c, const list<string>& l){
+    void Usuari::inscribir_curso(int c){
         inscrito_en_curso=true;
         curso_inscrito = c;
-        for(list<string>::const_iterator it=l.begin(); it!=l.end(); ++it){
-            problemas_enviables.insert(pair<string,int>((*it),0));
-        }
     }
 
     bool Usuari::consultar_problema_enviable(string p){
@@ -99,4 +96,13 @@
 
     void Usuari::curso_acabado(){
         inscrito_en_curso=false;
+    }
+
+    int Usuari::mida_problemas_resueltos() const{
+        return problemas_resueltos.size();
+    }
+
+    bool Usuari::consultar_problema_resuelto(string p) const{
+        if(problemas_resueltos.count(p)==1) return true;
+        else return false;
     }

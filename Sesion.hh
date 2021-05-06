@@ -16,6 +16,7 @@ using namespace std;
 
 #include "Problema.hh"
 #include "Curso.hh"
+#include "Usuari.hh"
 
     /** @class Sesion
     @brief Representa un Sesion con su identificador, y el subconjunto de problemas por la que esta formada la sesión.
@@ -63,7 +64,7 @@ private:
         \pre <em>cierto</em>
         \post Retorna los problemas base de la sesión segun los prequisitos, y los problemas que ya hayan sido resueltos
     */
-    static void return_problemas_base(const BinTree<string>& t, const map<string,int>& m, list<string>& l);
+    static void return_problemas_base(const BinTree<string>& t, Usuari& u);
 
     /** @brief Recorre el arbol binario poniendo en el curso, los problemas que lo forman
         \pre <em>cierto</em>
@@ -88,7 +89,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es el identificador de la raiz del arbol binario.
     */
-    void return_raiz(const map<string,int>& t, list<string>& l);
+    void return_raiz(Usuari& u);
 
     /** @brief Si existe un problema con cierto identificador en el arbol binario retorna los problemas que tiene como hojas si los tiene. 
         \pre <em>cierto</em>

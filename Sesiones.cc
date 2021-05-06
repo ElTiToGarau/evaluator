@@ -41,8 +41,8 @@
         }
     }
     
-    void Sesiones::problemas_raiz(const string l, const map<string,int>& m, list<string>& llista){
-        conjunt_sesions[l].return_raiz(m,llista);
+    void Sesiones::problemas_raiz(const string l, Usuari& u){
+        conjunt_sesions[l].return_raiz(u);
     }
 
     list<string> Sesiones::trobar_fulles(const string s, const string p){

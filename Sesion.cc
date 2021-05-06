@@ -87,22 +87,25 @@
         return L;
     }
 
-    void Sesion::return_raiz(const map<string,int>& m, list<string>& l){
-        if(m.size()==0){
-            l.push_back(problemes_sessio_bin.value());
+    void Sesion::return_raiz(Usuari& u){
+        if(u.mida_problemas_resueltos()==0){
+            u.afegir_problema_enviable(problemes_sessio_bin.value());
         }
         else{
-            return_problemas_base(problemes_sessio_bin,m,l);
+            return_problemas_base(problemes_sessio_bin,u);
         }
     }
 
-    void Sesion::return_problemas_base(const BinTree<string>& t, const map<string,int>& m, list<string>& l){
+    void Sesion::return_problemas_base(const BinTree<string>& t, Usuari& u){
         while(not t.empty()){
             string a=t.value();
-            if(m.count(a)==0) l.push_back(a);
+            if(u.consultar_problema_resuelto(a)){
+                if(not t.right().empty()) u.afegir_problema_enviable(t.right().value());
+                if(not t.left().empty()) u.afegir_problema_enviable(t.left().value());
+            }
             else{
-                return_problemas_base(t.left(),m,l);
-                return_problemas_base(t.right(),m,l);
+                return_problemas_base(t.left(),u);
+                return_problemas_base(t.right(),u);
             }
         }
     }

@@ -88,7 +88,7 @@ public:
         \pre El usuario no esta inscrito a ningún curso y también deve existir el curso con identificador c.
         \post Inscribe al usuario al curso con identificador c.
     */
-    void inscribir_curso(int c, const list<string>& l);
+    void inscribir_curso(int c);
 
     /** @brief Hace que el usuario deja de estar inscrito al curso actual.
         \pre El usuario tiene que estar inscrito en algun curso.
@@ -98,12 +98,23 @@ public:
     
     //Consultoras
 
+    /** @brief Consulta el número de problemas resueltos por el usuario.
+        \pre <em>cierto</em>
+        \post Retorna el número de problemas enviables por el usuarios
+    */   
+    int mida_problemas_resueltos() const;
+
     /** @brief Consulta si un problema esta dentro del conjunto de problemas enviables.
         \pre <em>cierto</em>
         \post El resultado es true si el problema esta en el conjunto de problemas enviables, y false en cason contrario.
     */   
-
     bool consultar_problema_enviable(string p);
+
+    /** @brief Consulta si un problema esta dentro del conjunto de problemas resueltos.
+        \pre <em>cierto</em>
+        \post El resultado es true si el problema esta en el conjunto de problemas resueltos, y false en cason contrario.
+    */   
+    bool consultar_problema_resuelto(string p) const;
 
      /** @brief Consultora de el número de problemas enviables.
         \pre <em>cierto</em>
