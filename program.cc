@@ -183,7 +183,11 @@ int main() {
                     string ses = conjunto_cursos.devolver_sesion_especifica(p,conjunto_usuarios.curso_usuario(id));
                     if(ses!="0"){
                         if(conjunto_usuarios.problema_enviable(id,p)){
+                            int c = conjunto_usuarios.curso_usuario(id);
                             conjunto_usuarios.enivio_problema(r,id,p,ses,conjunt_problemes,conjunto_sesiones);
+                            if(not conjunto_usuarios.consultar_incscrito_curso(id)){
+                                conjunto_cursos.decrementar_usuarios_inscritos(c);
+                            }
                         }
                         else cout << "error: problema no enviable por el usuario" << endl;
                     }

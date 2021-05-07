@@ -71,7 +71,7 @@ private:
         \post Se ha agregado al curso los problemas que forman el arbol binario, y devuelve false si no se ha intentado inserir un problema que ya estava, 
         y true en caso contrario.
     */
-    static bool insertar_problemas_curso(const BinTree<string>& t, Curso& c, const string id);
+    static void insertar_problemas_curso(const BinTree<string>& t, Curso& c, const string id, bool& repetit);
 
 public:
     //Constructoras

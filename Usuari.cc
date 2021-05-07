@@ -10,17 +10,16 @@
         problemas_intentados.insert(id);
     }
 
-    void Usuari::afegir_problema_resuelto(const string id){
+    void Usuari::afegir_problema_resuelto(string id) {
         map<string,int>::iterator it=problemas_enviables.find(id);
-        int num=(*it).second;
-        problemas_resueltos.insert(pair<string,int>(id,num));
+        problemas_resueltos.insert(pair<string,int>(id,(*it).second));
     }
 
     void Usuari::afegir_problema_enviable(const string id) {
         problemas_enviables.insert(pair<string,int>(id,0));
     }
 
-    void Usuari::suprimir_problema_enviable(const string id) {
+    void Usuari::suprimir_problema_enviable(string id) {
         problemas_enviables.erase(id);
     }
 

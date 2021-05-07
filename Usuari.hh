@@ -64,13 +64,13 @@ public:
         \pre p no esta ya en el conjunto.
         \post Se añade p al conjunto de problemas enviables.
     */
-    void afegir_problema_enviable(const string id);
+    void afegir_problema_enviable(string id);
 
     /** @brief Suprime un problema del conjunto de problemas enviables.
         \pre p esta en el conjunto.
         \post Se elimina p al conjunto de problemas enviables.
     */
-    void suprimir_problema_enviable(const string id);
+    void suprimir_problema_enviable(string id);
 
     /** @brief Se aumenta en 1 el numero de envios a cierto problema del conjunto de problemas enviables.
         \pre p esta en el connunto de problemas enviables.

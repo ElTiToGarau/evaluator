@@ -112,19 +112,19 @@
     }
 
     bool Sesion::modificar_problemas_curso(Curso& c, const string id) {
-        return insertar_problemas_curso(problemes_sessio_bin,c,id);
+        bool repetit=false;
+        insertar_problemas_curso(problemes_sessio_bin,c,id,repetit);
+        return repetit;
     }
 
-    bool Sesion::insertar_problemas_curso(const BinTree<string>& t, Curso& c, const string id) {
-        bool repetit=false;
-        if(not t.empty()){
+    void Sesion::insertar_problemas_curso(const BinTree<string>& t, Curso& c, const string id, bool& repetit) {
+        if(not t.empty() and not repetit){
             if(c.afegir_problemas(id,t.value())){
                 repetit = true;
             }
             else{
-                insertar_problemas_curso(t.right(),c,id);
-                insertar_problemas_curso(t.left(),c,id);
+                insertar_problemas_curso(t.right(),c,id,repetit);
+                insertar_problemas_curso(t.left(),c,id,repetit);
             }
         }
-        return repetit;
     }
