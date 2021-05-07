@@ -13,6 +13,7 @@
     void Usuari::afegir_problema_resuelto(string id) {
         map<string,int>::iterator it=problemas_enviables.find(id);
         problemas_resueltos.insert(pair<string,int>(id,(*it).second));
+        problemas_enviables.erase(id);
     }
 
     void Usuari::afegir_problema_enviable(const string id) {
@@ -69,10 +70,6 @@
             cout << (*it).first;
             cout << "(" << (*it).second << ")" << endl;
         }
-    }
-
-    map<string,int> Usuari::devolver_problemas_resueltos(){
-        return problemas_resueltos;
     }
 
     void Usuari::aumentar_numero_envios() {

@@ -92,10 +92,6 @@
         }
     }
 
-    map<string,int> Usuarios::devolver_problemas_resueltos(string id){
-        return lista_usuaris[id].devolver_problemas_resueltos();
-    }
-
     void Usuarios::aumentar_problema_enviable(const string id, const string p){
         lista_usuaris[id].aumentar_problema_enviable(p);
     }
@@ -145,7 +141,6 @@
             cjt_problemas.incrementar_correctos(p);
             lista_usuaris[id].aumentar_problema_enviable(p);
             lista_usuaris[id].afegir_problema_resuelto(p);
-            lista_usuaris[id].suprimir_problema_enviable(p);
             lista_usuaris[id].aumentar_numero_envios();
             cjt_sesiones.trobar_fulles(ses,p,lista_usuaris[id]);
             if(lista_usuaris[id].consultar_num_enviables()==0){

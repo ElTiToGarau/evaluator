@@ -152,12 +152,6 @@ public:
     */   
     int cusro_inscrito();
 
-    /** @brief Consulta que problemas se han resuelto y con cuantos intentos.
-        \pre <em>cierto</em>
-        \post El resultado devuelve los problemas resueltos en orden creciente por el identificador del curso, así como cuantas veces se ha intentado resolver el problema.
-    */   
-    map<string,int> devolver_problemas_resueltos();
-
     //Escritura y lectura de Usuari
 
     /** @brief Escribe en el canal standard de salida los problemas resueltos.

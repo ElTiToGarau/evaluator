@@ -187,6 +187,7 @@ int main() {
                             conjunto_usuarios.enivio_problema(r,id,p,ses,conjunt_problemes,conjunto_sesiones);
                             if(not conjunto_usuarios.consultar_incscrito_curso(id)){
                                 conjunto_cursos.decrementar_usuarios_inscritos(c);
+                                conjunto_cursos.incrementar_veces_resuelto(c);
                             }
                         }
                         else cout << "error: problema no enviable por el usuario" << endl;
