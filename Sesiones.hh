@@ -66,7 +66,7 @@ public:
         \pre La sesión s tiene que estar en el conjunto de sesiones.
         \post Retorna un conjunto con un maximo de los dos hijos que puede tener el problema p de la sesión s.
     */
-    list<string> trobar_fulles(const string s, const string p);
+    void trobar_fulles(const string s, const string p, Usuari& u);
 
     /** @brief Añade en el mapa que se pasa por referencia los problemas de las sesón
         \pre La sesión s tiene que estar en el conjunto de sesiones.

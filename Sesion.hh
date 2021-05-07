@@ -58,7 +58,7 @@ private:
         \pre <em>cierto</em>
         \post Retorna un conjunto con un maximo de los dos hijos que puede tener el problema
     */
-    static list<string> find_leaves(const BinTree<string>& t, string id);
+    static void find_leaves(const BinTree<string>& t, string id, Usuari& u);
 
     /** @brief Retorna los problemas base de la sesión en cuestion.
         \pre <em>cierto</em>
@@ -95,7 +95,7 @@ public:
         \pre <em>cierto</em>
         \post Retorna un conjunto con un maximo de los dos hijos que puede tener el problema
     */
-    list<string> trobar_fulles(const string id);
+    void trobar_fulles(const string id, Usuari& u);
 
     /** @brief Agrega al curso, los problemas por los cuales esta formada la sesión.
         \pre <em>cierto</em>

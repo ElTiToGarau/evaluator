@@ -45,8 +45,8 @@
         conjunt_sesions[l].return_raiz(u);
     }
 
-    list<string> Sesiones::trobar_fulles(const string s, const string p){
-        return conjunt_sesions[s].trobar_fulles(p);
+    void Sesiones::trobar_fulles(const string s, const string p, Usuari& u){
+        conjunt_sesions[s].trobar_fulles(p,u);
     }
 
     bool Sesiones::poner_problemas_sesion(Curso& c){
