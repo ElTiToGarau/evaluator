@@ -62,6 +62,7 @@
         return b;
     }
 
+    //Podria ser que fos poc eficient!
     void Sesion::find_leaves(const BinTree<string>& t, string id, Usuari& u){
         if(not t.empty()){
                 if(t.value()==id){
