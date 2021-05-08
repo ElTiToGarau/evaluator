@@ -118,11 +118,15 @@
             else{
                 u.afegir_problema_enviable(a);
             }
-            if(not t.right().empty() and u.consultar_problema_resuelto(t.right().value())){
-                return_problemas_base(t.right(),u);
+            if(not t.right().empty()){
+                if(u.consultar_problema_resuelto(t.right().value())){
+                    return_problemas_base(t.right(),u);
+                }
             }
-            if(not t.left().empty() and u.consultar_problema_resuelto(t.left().value())){
-                return_problemas_base(t.left(),u);
+            if(not t.left().empty()){
+                if(u.consultar_problema_resuelto(t.left().value())){
+                    return_problemas_base(t.left(),u);
+                }
             }
         }
     }

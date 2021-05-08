@@ -178,9 +178,8 @@ int main() {
             int r;
             cin >> r;
             cout << "#" << comando << " " << id << " " << p << " " << r << endl;
-            string ses = conjunto_cursos.devolver_sesion_especifica(p,conjunto_usuarios.curso_usuario(id));
             int c = conjunto_usuarios.curso_usuario(id);
-            conjunto_usuarios.enivio_problema(r,id,p,ses,conjunt_problemes,conjunto_sesiones);
+            conjunto_usuarios.enivio_problema(r,id,p,conjunto_cursos.devolver_sesion_especifica(p,conjunto_usuarios.curso_usuario(id)),conjunt_problemes,conjunto_sesiones);
             if(not conjunto_usuarios.consultar_incscrito_curso(id)){
                 conjunto_cursos.decrementar_usuarios_inscritos(c);
                 conjunto_cursos.incrementar_veces_resuelto(c);
