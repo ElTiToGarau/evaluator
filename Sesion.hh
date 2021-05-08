@@ -64,7 +64,7 @@ private:
         \pre <em>cierto</em>
         \post Retorna los problemas base de la sesión segun los prequisitos, y los problemas que ya hayan sido resueltos
     */
-    static void return_problemas_base(const BinTree<string>& t, Usuari& u, bool& found);
+    static void return_problemas_base(const BinTree<string>& t, Usuari& u);
 
     /** @brief Recorre el arbol binario poniendo en el curso, los problemas que lo forman
         \pre <em>cierto</em>

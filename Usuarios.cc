@@ -139,6 +139,7 @@
         }
         else{
             cjt_problemas.incrementar_correctos(p);
+            lista_usuaris[id].afegir_problema_intentado(p);
             lista_usuaris[id].aumentar_problema_enviable(p);
             lista_usuaris[id].afegir_problema_resuelto(p);
             lista_usuaris[id].aumentar_numero_envios();

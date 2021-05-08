@@ -31,7 +31,7 @@
             cout << (*it).first << "(";
             cout << (*it).second.consultar_totales() << ",";
             cout << (*it).second.consultar_correctos() << ",";
-            cout << (((*it).second.consultar_totales()+1)/((*it).second.consultar_correctos()+1)) << ")" << endl;
+            cout << (((*it).second.consultar_totales()+1.0)/((*it).second.consultar_correctos()+1.0)) << ")" << endl;
         }
     }
     
@@ -39,7 +39,7 @@
         cout << id;
         cout << "(" << lista_problemas[id].consultar_totales() << ",";
         cout << lista_problemas[id].consultar_correctos() << ",";
-        cout << ((lista_problemas[id].consultar_totales()+1)/(lista_problemas[id].consultar_correctos()+1)) << ")" << endl;
+        cout << ((lista_problemas[id].consultar_totales()+1.0)/(lista_problemas[id].consultar_correctos()+1.0)) << ")" << endl;
     }
     
     void Problemas::leer() {

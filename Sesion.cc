@@ -65,7 +65,7 @@
     //Podria ser que fos poc eficient!
     void Sesion::find_leaves(const BinTree<string>& t, string id, Usuari& u){
         if(not t.empty()){
-                if(t.value()==id){
+            if(t.value()==id){
                 BinTree<string> d=t.right();
                 BinTree<string> e=t.left();
                 if(not d.empty()){
@@ -104,21 +104,25 @@
             u.afegir_problema_enviable(problemes_sessio_bin.value());
         }
         else{
-            bool found = false;
-            return_problemas_base(problemes_sessio_bin,u,found);
+            return_problemas_base(problemes_sessio_bin,u);
         }
     }
 
-    void Sesion::return_problemas_base(const BinTree<string>& t, Usuari& u, bool& found){
-        while(not t.empty() and not found){
+    void Sesion::return_problemas_base(const BinTree<string>& t, Usuari& u){
+        if(not t.empty()){    
             string a=t.value();
             if(u.consultar_problema_resuelto(a)){
-                if(not t.right().empty()) return_problemas_base(t.right(),u,found);
-                if(not t.left().empty()) return_problemas_base(t.left(),u,found);
+                if(not t.right().empty()) return_problemas_base(t.right(),u);
+                if(not t.left().empty()) return_problemas_base(t.left(),u);
             }
             else{
                 u.afegir_problema_enviable(a);
-                found = true;
+            }
+            if(not t.right().empty() and u.consultar_problema_resuelto(t.right().value())){
+                return_problemas_base(t.right(),u);
+            }
+            if(not t.left().empty() and u.consultar_problema_resuelto(t.left().value())){
+                return_problemas_base(t.left(),u);
             }
         }
     }
