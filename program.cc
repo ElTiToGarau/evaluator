@@ -178,25 +178,13 @@ int main() {
             int r;
             cin >> r;
             cout << "#" << comando << " " << id << " " << p << " " << r << endl;
-            if(conjunto_usuarios.existe_usuarios(id)){
-                if(conjunto_usuarios.consultar_incscrito_curso(id)){
-                    string ses = conjunto_cursos.devolver_sesion_especifica(p,conjunto_usuarios.curso_usuario(id));
-                    if(ses!="0"){
-                        if(conjunto_usuarios.problema_enviable(id,p)){
-                            int c = conjunto_usuarios.curso_usuario(id);
-                            conjunto_usuarios.enivio_problema(r,id,p,ses,conjunt_problemes,conjunto_sesiones);
-                            if(not conjunto_usuarios.consultar_incscrito_curso(id)){
-                                conjunto_cursos.decrementar_usuarios_inscritos(c);
-                                conjunto_cursos.incrementar_veces_resuelto(c);
-                            }
-                        }
-                        else cout << "error: problema no enviable por el usuario" << endl;
-                    }
-                    else cout << "error: el problema no pertenece al curso" << endl;
-                }
-                else cout << "error: usuario no inscrito en ningun curso" << endl;
+            string ses = conjunto_cursos.devolver_sesion_especifica(p,conjunto_usuarios.curso_usuario(id));
+            int c = conjunto_usuarios.curso_usuario(id);
+            conjunto_usuarios.enivio_problema(r,id,p,ses,conjunt_problemes,conjunto_sesiones);
+            if(not conjunto_usuarios.consultar_incscrito_curso(id)){
+                conjunto_cursos.decrementar_usuarios_inscritos(c);
+                conjunto_cursos.incrementar_veces_resuelto(c);
             }
-            else cout << "error: el usuario no existe" << endl;
         }
         else if(comando == "listar_problemas" or comando == "lp"){
             cout << "#" << comando;
