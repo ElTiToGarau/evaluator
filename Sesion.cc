@@ -71,13 +71,11 @@
                 if(not d.empty()){
                     if(u.consultar_problema_resuelto(d.value())){
                         find_leaves(d.right(),d.value(),u);
-                        find_leaves(d.left(),d.value(),u);
                     }
                     else u.afegir_problema_enviable(d.value());
                 }
                 if(not e.empty()){
                     if(u.consultar_problema_resuelto(e.value())){
-                        find_leaves(e.right(),e.value(),u);
                         find_leaves(e.left(),e.value(),u);
                     }
                     else u.afegir_problema_enviable(e.value());
@@ -110,23 +108,12 @@
 
     void Sesion::return_problemas_base(const BinTree<string>& t, Usuari& u){
         if(not t.empty()){    
-            string a=t.value();
-            if(u.consultar_problema_resuelto(a)){
-                if(not t.right().empty()) return_problemas_base(t.right(),u);
-                if(not t.left().empty()) return_problemas_base(t.left(),u);
+            if(not u.consultar_problema_resuelto(t.value())){
+                u.afegir_problema_enviable(t.value());
             }
             else{
-                u.afegir_problema_enviable(a);
-            }
-            if(not t.right().empty()){
-                if(u.consultar_problema_resuelto(t.right().value())){
-                    return_problemas_base(t.right(),u);
-                }
-            }
-            if(not t.left().empty()){
-                if(u.consultar_problema_resuelto(t.left().value())){
-                    return_problemas_base(t.left(),u);
-                }
+                if(not t.right().empty()) return_problemas_base(t.right(),u);
+                if(not t.left().empty()) return_problemas_base(t.left(),u);
             }
         }
     }
