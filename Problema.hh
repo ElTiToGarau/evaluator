@@ -33,18 +33,6 @@ public:
   Problema(const Problema& p);
   
   //Modificadoras
-  
-    /** @brief Modifica el valor de envíos correctos.
-      \pre Número total de envíos >= número correcto de envíos.
-      \post El parámetro implícito pasa a tener número correcto de envíos "correctos".
-  */   
-  void modificar_correctos(int correctos);
-
-    /** @brief Modifica el valor de total de envíos.
-      \pre Número total de envíos >= número correcto de envíos.
-      \post El parámetro implícito pasa a tener total de envíos "totales".
-  */   
-  void modificar_totales(int totales);
 
   /** @brief Incrementa en 1 el número total de envíos.
       \pre Número total de envíos >= número correcto de envíos.
