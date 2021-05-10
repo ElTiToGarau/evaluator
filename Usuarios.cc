@@ -107,11 +107,6 @@
     void Usuarios::afegir_problema_resuelto(const string id, const string p) {
         lista_usuaris[id].aumentar_problema_enviable(p);
         lista_usuaris[id].afegir_problema_resuelto(p);
-        lista_usuaris[id].suprimir_problema_enviable(p);
-    }
-
-    void Usuarios::afegir_problemas_enviable(const string id, const list<string>& L){
-        lista_usuaris[id].afegir_problemas_enviable(L);
     }
 
     int Usuarios::consultar_num_enviables(const string id) {

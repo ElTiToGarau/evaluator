@@ -76,12 +76,6 @@
         ++env_totales;
     }
 
-    void Usuari::afegir_problemas_enviable(const list<string>& L){
-        for(list<string>::const_iterator it=L.begin(); it!=L.end(); ++it){
-            problemas_enviables.insert(pair<string,int>((*it),0));
-        }
-    }
-
     int Usuari::consultar_num_enviables() const {
         return problemas_enviables.size();
     }
@@ -92,6 +86,7 @@
 
     void Usuari::curso_acabado(){
         inscrito_en_curso=false;
+        curso_inscrito=0;
     }
 
     int Usuari::mida_problemas_resueltos() const{
