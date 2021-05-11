@@ -54,11 +54,17 @@ private:
     */
     static bool find(const BinTree<string>& t, string id);
 
-    /** @brief Si existe un problema con cierto identificador en el arbol binario retorna los problemas que tiene como hojas si los tiene. 
+    /** @brief Busca en el arbol hasta encontar el valor de id.
         \pre <em>cierto</em>
-        \post Retorna un conjunto con un maximo de los dos hijos que puede tener el problema
+        \post Llama a la función <em>insertar_problema_enviable</em> para añadir los problemas enviables no resueltos a partit del subarbol con raiz id.
     */
     static void find_leaves(const BinTree<string>& t, string id, Usuari& u);
+
+    /** @brief Si el problema no esta resuelto lo añade al conjunto de problemas enviables, en caso contrario, sigue con los hijos del arbol.
+        \pre El arbol base tiene que tener como valor el problema realizado con el ultimo envio.
+        \post Añade al conjunto de problemas enviables del usuario los problemas no resuletos a partir de la raiz.
+    */
+    static void insertar_problema_enviable(const BinTree<string>& t, Usuari& u);
 
     /** @brief Retorna los problemas base de la sesión en cuestion.
         \pre <em>cierto</em>

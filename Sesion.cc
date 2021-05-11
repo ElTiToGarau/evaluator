@@ -65,25 +65,27 @@
     void Sesion::find_leaves(const BinTree<string>& t, string id, Usuari& u){
         if(not t.empty()){
             if(t.value()==id){
-                BinTree<string> d=t.right();
-                BinTree<string> e=t.left();
-                if(not d.empty()){
-                    if(u.consultar_problema_resuelto(d.value())){
-                        find_leaves(d.right(),d.value(),u);
-                    }
-                    else u.afegir_problema_enviable(d.value());
-                }
-                if(not e.empty()){
-                    if(u.consultar_problema_resuelto(e.value())){
-                        find_leaves(e.left(),e.value(),u);
-                    }
-                    else u.afegir_problema_enviable(e.value());
-                }
+                insertar_problema_enviable(t,u);
             }
             else{
                 find_leaves(t.left(), id, u);
                 find_leaves(t.right(), id, u);
             }
+        }
+    }
+
+    void Sesion::insertar_problema_enviable(const BinTree<string>& t, Usuari& u){
+        if(not t.right().empty()){
+            if(u.consultar_problema_resuelto(t.right().value())){
+                insertar_problema_enviable(t.right(),u);
+            }
+            else u.afegir_problema_enviable(t.right().value());
+        }
+        if(not t.left().empty()){
+            if(u.consultar_problema_resuelto(t.left().value())){
+                insertar_problema_enviable(t.left(),u);
+            }
+            else u.afegir_problema_enviable(t.left().value());
         }
     }
 
