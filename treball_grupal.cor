@@ -1,0 +1,352 @@
+#i Pedri 1
+error: el usuario no existe
+#i Astra 9
+error: el curso no existe
+#inscribir_curso Astra 1
+1
+#inscribir_curso Astra 2
+error: usuario inscrito en otro curso
+#i Breach 2
+1
+#i Breach 7
+error: usuario inscrito en otro curso
+#cu Cypher
+0
+#i Cypher 4
+1
+#i Jett 5
+1
+#i Cypher 4
+error: usuario inscrito en otro curso
+#cu Jett
+5
+#i Jett 1
+error: usuario inscrito en otro curso
+#curso_usuario Astra
+1
+#cu Breach
+2
+#inscribir_curso Messi 3
+error: el usuario no existe
+#cu Messi
+error: el usuario no existe
+#problemas_resueltos Astra
+#pr Pedri
+error: el usuario no existe
+#envio Astra SN0 0
+#e Astra SN0 1
+#pr Astra
+SN0(2)
+#e Astra SN1 1
+#e Astra SN2 1
+#e Astra SN3 0
+#e Astra SN6 1
+#e Astra SN3 0
+#e Astra SN3 1
+#escribir_problema SN3
+SN3(3,1,2)
+#e Astra SN7 0
+#e Astra SN7 1
+#envio Astra SN8 1
+#e Astra SN4 1
+#envio Astra SN5 1
+#pr Astra
+SN0(2)
+SN1(1)
+SN2(1)
+SN3(3)
+SN4(1)
+SN5(1)
+SN6(1)
+SN7(2)
+SN8(1)
+#e Astra SN10 1
+#e Astra SN11 1
+#e Astra SN15 1
+#pr Astra
+SN0(2)
+SN1(1)
+SN10(1)
+SN11(1)
+SN15(1)
+SN2(1)
+SN3(3)
+SN4(1)
+SN5(1)
+SN6(1)
+SN7(2)
+SN8(1)
+#e Astra SN9 1
+#cu Astra
+0
+#pr Astra
+SN0(2)
+SN1(1)
+SN10(1)
+SN11(1)
+SN15(1)
+SN2(1)
+SN3(3)
+SN4(1)
+SN5(1)
+SN6(1)
+SN7(2)
+SN8(1)
+SN9(1)
+#i Astra 3
+1
+#e Breach BTC 1
+#e Breach ETH 1
+#e Breach LTC 0
+#e Breach LTC 1
+#e Breach XBT 1
+#e Breach XRP 1
+#e Breach MAID 1
+#e Breach DASH 1
+#e Breach AUD 1
+#e Breach GBP 0
+#e Breach GBP 0
+#e Breach GBP 1
+#e Breach EUR 1
+#e Breach JPY 1
+#e Breach DOGE 0
+#e Breach DOGE 1
+#e Breach XMR 1
+#pr Breach
+AUD(1)
+BTC(1)
+DASH(1)
+DOGE(2)
+ETH(1)
+EUR(1)
+GBP(3)
+JPY(1)
+LTC(2)
+MAID(1)
+XBT(1)
+XMR(1)
+XRP(1)
+#cu Breach
+0
+#i Breach 3
+1
+#cu Breach
+0
+#e Cypher FDA 1
+#e Cypher ACF 1
+#e Cypher ESFA 1
+#e Jett FHA 1
+#e Jett GSA 0
+#e Jett GSA 1
+#e Jett ESFA 1
+#e Jett CIA 1
+#e Jett AHRQ 1
+#e Jett USAID 1
+#e Jett TSA 1
+#e Cypher HRSA 1
+#e Cypher TSA 1
+#e Cypher FAA 1
+#e Cypher DEA 1
+#e Cypher SAMHSA 1
+#e Cypher OSHA 1
+#e Cypher EBSA 1
+#e Cypher SAA 1
+#e Cypher FMCSA 1
+#e Jett NASA 1
+#e Jett NCUA 1
+#e Jett NHTSA 1
+#e Jett EPA 1
+#e Jett FEMA 1
+#e Jett SBA 1
+#e Cypher AD 1
+#e Cypher AT 1
+#e Cypher BW 1
+#e Cypher EG 1
+#e Cypher BE 1
+#e Cypher BM 0
+#e Cypher BM 1
+#e Cypher FI 1
+#e Cypher GL 1
+#cu Cypher
+0
+#pr Cypher
+ACF(1)
+AD(1)
+AT(1)
+BE(1)
+BM(2)
+BW(1)
+DEA(1)
+EBSA(1)
+EG(1)
+ESFA(1)
+FAA(1)
+FDA(1)
+FI(1)
+FMCSA(1)
+GL(1)
+HRSA(1)
+OSHA(1)
+SAA(1)
+SAMHSA(1)
+TSA(1)
+#e Jett BW 1
+#e Jett CA 0
+#e Jett CA 0
+#e Jett CA 1
+#e Jett ES 1
+#e Jett EC 1
+#e Jett CC 1
+#e Jett GR 1
+#e Jett CZ 1
+#envio Jett GS 1
+#cu Jett
+0
+#i Jett 7
+0
+#cu Jett
+0
+#i Breach 6
+1
+#e Breach CHF 1
+#e Breach USD 1
+#e Breach ALL 0
+#e Breach ALL 1
+#e Breach AFN 1
+#e Breach DZD 1
+#e Breach AOA 1
+#cu Breach
+0
+#i Cypher 7
+1
+#e Cypher FHA 0
+#e Cypher FHA 0
+#e Cypher FHA 0
+#e Cypher FHA 1
+#e Cypher GSA 1
+#e Cypher CIA 1
+#e Cypher AHRQ 1
+#e Cypher USAID 1
+#e Cypher NASA 0
+#e Cypher NASA 1
+#e Cypher NCUA 1
+#e Cypher NHTSA 1
+#e Cypher SBA 1
+#e Cypher EPA 1
+#e Cypher FEMA 1
+#cu Cypher
+0
+#pr Cypher
+ACF(1)
+AD(1)
+AHRQ(1)
+AT(1)
+BE(1)
+BM(2)
+BW(1)
+CIA(1)
+DEA(1)
+EBSA(1)
+EG(1)
+EPA(1)
+ESFA(1)
+FAA(1)
+FDA(1)
+FEMA(1)
+FHA(4)
+FI(1)
+FMCSA(1)
+GL(1)
+GSA(1)
+HRSA(1)
+NASA(2)
+NCUA(1)
+NHTSA(1)
+OSHA(1)
+SAA(1)
+SAMHSA(1)
+SBA(1)
+TSA(1)
+USAID(1)
+#listar_problemas
+ACF(1,1,1)
+AD(1,1,1)
+AFN(1,1,1)
+AHRQ(2,2,1)
+AMD(0,0,1)
+AOA(1,1,1)
+ARS(0,0,1)
+AT(1,1,1)
+ATS(0,0,1)
+AUD(1,1,1)
+AWG(0,0,1)
+AZN(0,0,1)
+BE(1,1,1)
+BEF(0,0,1)
+BSD(0,0,1)
+BTC(1,1,1)
+BW(2,2,1)
+CC(1,1,1)
+CHF(1,1,1)
+CIA(2,2,1)
+CZ(1,1,1)
+DASH(1,1,1)
+DEA(1,1,1)
+DZD(1,1,1)
+EBSA(1,1,1)
+EC(1,1,1)
+EG(1,1,1)
+EPA(2,2,1)
+ES(1,1,1)
+ESFA(2,2,1)
+ETH(1,1,1)
+EUR(1,1,1)
+FAA(1,1,1)
+FDA(1,1,1)
+FEMA(2,2,1)
+FI(1,1,1)
+FMCSA(1,1,1)
+GL(1,1,1)
+GR(1,1,1)
+GS(1,1,1)
+HRSA(1,1,1)
+JPY(1,1,1)
+MAID(1,1,1)
+NCUA(2,2,1)
+NHTSA(2,2,1)
+OSHA(1,1,1)
+SAA(1,1,1)
+SAMHSA(1,1,1)
+SBA(2,2,1)
+SN1(1,1,1)
+SN10(1,1,1)
+SN11(1,1,1)
+SN15(1,1,1)
+SN2(1,1,1)
+SN4(1,1,1)
+SN5(1,1,1)
+SN6(1,1,1)
+SN8(1,1,1)
+SN9(1,1,1)
+TSA(2,2,1)
+USAID(2,2,1)
+USD(1,1,1)
+XBT(1,1,1)
+XMR(1,1,1)
+XRP(1,1,1)
+GSA(3,2,1.33333)
+NASA(3,2,1.33333)
+ALL(2,1,1.5)
+BM(2,1,1.5)
+DOGE(2,1,1.5)
+LTC(2,1,1.5)
+SN0(2,1,1.5)
+SN7(2,1,1.5)
+CA(3,1,2)
+FHA(5,2,2)
+GBP(3,1,2)
+SN3(3,1,2)
+#ep NASA
+NASA(3,2,1.33333)
+#escribir_problema NCUA
+NCUA(2,2,1)

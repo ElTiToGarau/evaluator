@@ -1,4 +1,3 @@
-//Númerode problemes
 77
 SN0 SN1 SN2 SN3 SN4 SN5 SN6 SN7 SN8 SN9 SN10 SN11 SN15
 FDA ACF DEA ESFA HRSA SAMHSA EBSA TSA OSHA
@@ -9,8 +8,6 @@ AUD GBP EUR JPY CHF USD AFN ALL DZD
 AOA ARS AMD AWG ATS BEF AZN BSD 
 AD AT BE BM BW CA CC CZ EC EG ES FI
 GL GR GS
-
-//Número de sessions
 11
 starship SN0 SN1 SN2 0 0 SN3 0 0 SN4 SN5 0 0 0
 starshipV2 SN6 SN7 0 0 SN8 SN9 0 0 SN10 SN11 SN15 0 0 0 0
@@ -23,8 +20,6 @@ organizaciones1 FDA ACF ESFA TSA FAA 0 0 0 0 HRSA 0 0 DEA SAMHSA OSHA 0 0 0 EBSA
 organizaciones2 FHA GSA ESFA USAID TSA 0 0 0 0 CIA AHRQ 0 0 0 NASA 0 NCUA NHTSA SBA 0 0 0 EPA 0 FEMA 0 0
 nacions1 AD AT BW EG 0 0 0 0 BE 0 BM FI 0 0 GL 0 0
 nacions2 BW CA EC 0 0  ES 0 0 CC GR 0 0 CZ 0 GS 0 0
-
-//Número de cursos
 7
 2 starship starshipV2
 3 BestCrypto Crypto divisas1
@@ -33,16 +28,11 @@ nacions2 BW CA EC 0 0  ES 0 0 CC GR 0 0 CZ 0 GS 0 0
 2 organizaciones2 nacions2
 2 BestCrypto divisas2
 1 organizaciones2
-
-//Número de usuarios 
 4
 Astra
 Breach
 Cypher
 Jett
-
-//empiezo provando la función inscribir, de tal modo que de errores al inscribir, así como también pruevo el buean funcionamiento
-// de la función curso_usuario.
 i Pedri 1
 i Astra 9
 inscribir_curso Astra 1
@@ -59,14 +49,8 @@ curso_usuario Astra
 cu Breach
 inscribir_curso Messi 3
 cu Messi
-
-//Se comprueva que los problemas resueltos de algunos de los usuarios sean correctos en el momento de inscribirs en un curso por primera vez,
-//(los problemas resueltos de un usuario que se ha inscrito por primera vez a un curso, y que no ha realizado ningún envio correcto debe ser 0).
 problemas_resueltos Astra
 pr Pedri
-
-//se empieza a hacer envios correctos e incorrectos para provar el buen funcionamiento de la función envio, así como comprovar mediante problemas_resueltos, que los 
-//problemas correctos son los adecuados, además se haran envíos incorrectos, para también provar el buen funcionamiento de las funciones listar_problemas y escribir_problema.
 envio Astra SN0 0
 e Astra SN0 1
 pr Astra
@@ -91,9 +75,6 @@ e Astra SN9 1
 cu Astra
 pr Astra
 i Astra 3
-
-//se provara que ocurre en el caso en el que te intentes inscribir a un curso al cual ya tienes todos
-//los problemas resuelto, pero sin ser el mismo curso, y también el caso en que una sesión ya este realizada, pero las otras no.
 e Breach BTC 1
 e Breach ETH 1
 e Breach LTC 0
@@ -113,11 +94,8 @@ e Breach DOGE 1
 e Breach XMR 1
 pr Breach
 cu Breach
-
-//En este punto es donde se comprueva que pasa si el usuario ya ha realizado todos los problemas de un curso.
 i Breach 3
 cu Breach
-
 e Cypher FDA 1
 e Cypher ACF 1
 e Cypher ESFA 1
@@ -166,11 +144,8 @@ e Jett GR 1
 e Jett CZ 1
 envio Jett GS 1
 cu Jett
-//se vuelve a probar que ocurre cuando un usuario se inscribe al cual ya ha realizado todos los problemas.
 i Jett 7
 cu Jett
-
-//Prueva que pasa en el caso que una sesión ya este completada pero otra no.
 i Breach 6
 e Breach CHF 1
 e Breach USD 1
@@ -180,8 +155,6 @@ e Breach AFN 1
 e Breach DZD 1
 e Breach AOA 1
 cu Breach
-
-//Prueva que pasa cuando se inscribe a un curso donde ya hay problemas resueltos dentro del arbol de sesiones.
 i Cypher 7
 e Cypher FHA 0
 e Cypher FHA 0
@@ -199,11 +172,8 @@ e Cypher SBA 1
 e Cypher EPA 1
 e Cypher FEMA 1
 cu Cypher
-pr Cypher 
-
-//Se comprueva que todos los problemas tiene las estdísticas correctas, tanto mediante listar_problemas como escribir_problema.
+pr Cypher
 listar_problemas
 ep NASA
 escribir_problema NCUA
-
 fin
