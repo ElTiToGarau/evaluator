@@ -1,3 +1,7 @@
+/** @file Problemas.cc
+    @brief Código de la clase Problemas
+*/
+
 #include "Problemas.hh"
 
     Problemas::Problemas() {

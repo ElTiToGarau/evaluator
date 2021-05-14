@@ -1,3 +1,7 @@
+/** @file Usuarios.cc
+    @brief Código de la clase Usuarios
+*/
+
 #include "Usuarios.hh"
 
     Usuarios::Usuarios(){}

@@ -5,7 +5,7 @@
  * La implementación del programa principa se encuentra en program.cc.
  */
 
-/** @file main.cc
+/** @file program.cc
     @brief Programa principal d'EVALUATOR <em>Plataforma de gestión de problemas i cursos de programación</em>.
 */
 

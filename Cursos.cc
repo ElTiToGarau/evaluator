@@ -1,3 +1,7 @@
+/** @file Cursos.cc
+    @brief Código de la clase Cursos
+*/
+
 #include "Cursos.hh"
 
     Cursos::Cursos(){}

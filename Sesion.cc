@@ -1,3 +1,7 @@
+/** @file Sesion.cc
+    @brief Código de la clase Sesion
+*/
+
 #include "Sesion.hh"
 
     Sesion::Sesion(){
