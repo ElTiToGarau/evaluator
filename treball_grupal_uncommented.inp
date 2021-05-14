@@ -94,8 +94,6 @@ e Breach DOGE 1
 e Breach XMR 1
 pr Breach
 cu Breach
-i Breach 3
-cu Breach
 e Cypher FDA 1
 e Cypher ACF 1
 e Cypher ESFA 1
@@ -144,9 +142,8 @@ e Jett GR 1
 e Jett CZ 1
 envio Jett GS 1
 cu Jett
-i Jett 7
-cu Jett
 i Breach 6
+cu Breach
 e Breach CHF 1
 e Breach USD 1
 e Breach ALL 0
@@ -172,8 +169,10 @@ e Cypher SBA 1
 e Cypher EPA 1
 e Cypher FEMA 1
 cu Cypher
-pr Cypher
-listar_problemas
+pr Cypher 
 ep NASA
+ep SN15
+ep SN13
 escribir_problema NCUA
+listar_problemas
 fin
