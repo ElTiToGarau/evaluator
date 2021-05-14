@@ -50,12 +50,10 @@
             int s;
             cin >> s;
             c.leer(s);
-            //Con esta condición lo que hago es cerciorarme que el curso, tiene el mapa con cada problema que lo forma así como a que sesión
-            //pertenece el dicho problema, y en el caso de que hayan problemas repetidos (mismo problema distintas sesiones),
-            //no pone el curso dentro del conjunto de cursos.
-            if(ses.poner_problemas_sesion(c)){
-                list_cursos.push_back(c);
-            }
+            //Pone en el mapa del curso cada problema con su correspondiente sesión, y como que en el caso inicial los cursos ya tienen que estar bien formados,
+            //no se tiene que revisar si hay problemas repetidos.
+            ses.poner_problemas_sesion(c);
+            list_cursos.push_back(c);
         }
     }
 
