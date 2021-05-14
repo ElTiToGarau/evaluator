@@ -42,6 +42,7 @@
     }
 
     void Cursos::leer(Sesiones& ses){
+        //Función que lee los cursos iniciales.
         int N;
         cin >> N;
         for(int i=0; i<N; ++i){
@@ -49,6 +50,9 @@
             int s;
             cin >> s;
             c.leer(s);
+            //Con esta condición lo que hago es cerciorarme que el curso, tiene el mapa con cada problema que lo forma así como a que sesión
+            //pertenece el dicho problema, y en el caso de que hayan problemas repetidos (mismo problema distintas sesiones),
+            //no pone el curso dentro del conjunto de cursos.
             if(ses.poner_problemas_sesion(c)){
                 list_cursos.push_back(c);
             }
