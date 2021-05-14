@@ -128,10 +128,6 @@ XMR(1)
 XRP(1)
 #cu Breach
 0
-#i Breach 3
-1
-#cu Breach
-0
 #e Cypher FDA 1
 #e Cypher ACF 1
 #e Cypher ESFA 1
@@ -202,12 +198,10 @@ TSA(1)
 #envio Jett GS 1
 #cu Jett
 0
-#i Jett 7
-0
-#cu Jett
-0
 #i Breach 6
 1
+#cu Breach
+6
 #e Breach CHF 1
 #e Breach USD 1
 #e Breach ALL 0
@@ -268,6 +262,14 @@ SAMHSA(1)
 SBA(1)
 TSA(1)
 USAID(1)
+#ep NASA
+NASA(3,2,1.33333)
+#ep SN15
+SN15(1,1,1)
+#ep SN13
+error: el problema no existe
+#escribir_problema NCUA
+NCUA(2,2,1)
 #listar_problemas
 ACF(1,1,1)
 AD(1,1,1)
@@ -346,7 +348,3 @@ CA(3,1,2)
 FHA(5,2,2)
 GBP(3,1,2)
 SN3(3,1,2)
-#ep NASA
-NASA(3,2,1.33333)
-#escribir_problema NCUA
-NCUA(2,2,1)
