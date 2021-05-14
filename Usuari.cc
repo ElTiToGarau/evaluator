@@ -33,7 +33,7 @@
         curso_inscrito = c;
     }
 
-    bool Usuari::consultar_problema_enviable(string p){
+    bool Usuari::consultar_problema_enviable(string p)const{
         if(problemas_enviables.count(p)==1) return true;
         else return false;
     }
@@ -54,7 +54,7 @@
         return inscrito_en_curso;
     }
 
-    int Usuari::cusro_inscrito(){
+    int Usuari::cusro_inscrito()const{
         return curso_inscrito;
     }
 

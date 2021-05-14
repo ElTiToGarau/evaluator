@@ -4,7 +4,7 @@
         num_problemas=0;
     }
 
-    int Sesion::consultar_num_problemas() {
+    int Sesion::consultar_num_problemas() const{
         return num_problemas;
     }
 
@@ -63,6 +63,8 @@
     }
 
     void Sesion::find_leaves(const BinTree<string>& t, string id, Usuari& u){
+        //Esta función busca dentro del arbol binario pasado por referencia,
+        //una vez encontrado llama a la función <em>insertar_problema_enviable</em>.
         if(not t.empty()){
             if(t.value()==id){
                 insertar_problema_enviable(t,u);
@@ -75,6 +77,10 @@
     }
 
     void Sesion::insertar_problema_enviable(const BinTree<string>& t, Usuari& u){
+        //Esta función parte des del punto que el arbol que se le pasa por referencia,
+        //es el ultimo problema resuelto, y des de este punto va buscando en sus hijos,
+        //para encontrar los problemas enviables, que no estan resueltos, y ponerlos dentro
+        //de mapa de problemas enviables del usuario pasado por referencia.
         if(not t.right().empty()){
             if(u.consultar_problema_resuelto(t.right().value())){
                 insertar_problema_enviable(t.right(),u);
@@ -94,7 +100,7 @@
     }
 
 
-    bool Sesion::existe_problema(string id){
+    bool Sesion::existe_problema(string id) const{
         return find(problemes_sessio_bin,id);
     }
 
@@ -108,6 +114,9 @@
     }
 
     void Sesion::return_problemas_base(const BinTree<string>& t, Usuari& u){
+        //Función que recorre todo el arbol des de la raíz, para ir encontrando los problemas,
+        //enviables que aun no se han resuelto, en el momento de inscribir
+        //al ususario pasado por referencia a un nuevo curso.
         if(not t.empty()){    
             if(not u.consultar_problema_resuelto(t.value())){
                 u.afegir_problema_enviable(t.value());
@@ -126,6 +135,8 @@
     }
 
     void Sesion::insertar_problemas_curso(const BinTree<string>& t, Curso& c, const string id, bool& repetit) {
+        //Función que pone dentro de cada curso, el problema y a que sesión pertenecen, y que 
+        //retorna si el problema ya estaba en otra sesión.
         if(not t.empty() and not repetit){
             if(c.afegir_problemas(id,t.value())){
                 repetit = true;

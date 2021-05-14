@@ -1,7 +1,8 @@
 /**
  * @author Gerard Oliva Viñas
  * @mainpage 
- * Pràctica de Gerard Oliva Viñas, completant el projecte EVALUATOR.
+ * Practica de Gerard Oliva Viñas, completando el proyecto EVALUATOR.
+ * La implementación del programa principa se encuentra en program.cc.
  */
 
 /** @file main.cc
@@ -23,17 +24,18 @@ using namespace std;
 #include "Cursos.hh"
 
 int main() {
-    Problemas conjunt_problemes;
+    Problemas conjunt_problemes; //Se inicializan todos los conjunto como conjuntos vacíos.
     Usuarios conjunto_usuarios;
     Sesiones conjunto_sesiones;
     Cursos conjunto_cursos;
-    conjunt_problemes.leer();
+    conjunt_problemes.leer(); //Se lee cada conjunto para inicializarlos a los valores correctos de entrada.
     conjunto_sesiones.leer();
     conjunto_cursos.leer(conjunto_sesiones);
     conjunto_usuarios.leer();
     string comando;
-    cin >> comando;
+    cin >> comando; //Se lee el comando que se queire ejecutar.
     while(comando != "fin"){
+        //Cada <em>if</em> representa un comando, con su codigo correspondiente para poder realizar dicho comando.
         if(comando == "nuevo_problema" or comando == "np"){
             cout << "#" << comando;
             string id;
@@ -245,6 +247,7 @@ int main() {
             }
             else cout << "error: el usuario no existe" << endl;
         }
+        //Por último se lee el siguiente que se quiere realizar, en caso que el comando sea <em>fin</em> el programa finaliza.
         cin >> comando;
     }
 }

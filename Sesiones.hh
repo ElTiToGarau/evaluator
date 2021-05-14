@@ -43,6 +43,24 @@ public:
     */
     void afegir_sesion(string id, const Sesion& s);
 
+    /** @brief Modifica los problemas raiz de cada sesión y los añade al usuario.
+        \pre <em>cierto</em>
+        \post El resultado es una lista con todos los problemas base de las sesiones en la lista.
+    */
+    void problemas_raiz(const string l, Usuari& u);
+
+    /** @brief Si existe un problema con cierto identificador en el arbol binario retorna los problemas que tiene como hojas si los tiene la sesión concreta. 
+        \pre La sesión s tiene que estar en el conjunto de sesiones.
+        \post Añade al conjunto de problemas enviables del usuario los hijos no resueltos del arbol con raiz p.
+    */
+    void trobar_fulles(const string s, const string p, Usuari& u);
+
+    /** @brief Añade en el mapa que se pasa por referencia los problemas de las sesón
+        \pre La sesión s tiene que estar en el conjunto de sesiones.
+        \post Añade en el mapa todos los problemas que corresponen a la sesión, y devuelve true si no hay problemas repetidos en el mapa, y false en caso contrario.
+    */
+    bool poner_problemas_sesion(Curso& c);
+
     //Consultoras
     /** @brief Consulta el número de sesiones que existen
         \pre <em>cierto</em>
@@ -54,25 +72,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es el true si existe una sesión con identificador id, y false si no exsite.
     */
-    bool existe_sesion(string id);
-
-    /** @brief Consulta los problemas raiz de cada sesión en la lista.
-        \pre <em>cierto</em>
-        \post El resultado es una lista con todos los problemas base de las sesiones en la lista.
-    */
-    void problemas_raiz(const string l, Usuari& u);
-
-    /** @brief Si existe un problema con cierto identificador en el arbol binario retorna los problemas que tiene como hojas si los tiene la sesión concreta. 
-        \pre La sesión s tiene que estar en el conjunto de sesiones.
-        \post Retorna un conjunto con un maximo de los dos hijos que puede tener el problema p de la sesión s.
-    */
-    void trobar_fulles(const string s, const string p, Usuari& u);
-
-    /** @brief Añade en el mapa que se pasa por referencia los problemas de las sesón
-        \pre La sesión s tiene que estar en el conjunto de sesiones.
-        \post Añade en el mapa todos los problemas que corresponen a la sesión, y devuelve true si no hay problemas repetidos en el mapa, y false en caso contrario.
-    */
-    bool poner_problemas_sesion(Curso& c);
+    bool existe_sesion(string id)const;
 
     //Escritura y lectura
     /** @brief Escribe por el canal standard de salida el conjunto de sesiones de forma ordenada. 

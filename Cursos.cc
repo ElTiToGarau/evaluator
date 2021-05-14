@@ -10,12 +10,12 @@
         return list_cursos.size();
     }
 
-    bool Cursos::existe_curso(int id){
+    bool Cursos::existe_curso(int id)const{
         if(list_cursos.size()> id-1) return true;
         else return false;
     }
 
-    int Cursos::consultar_num_usuarios(int c) {
+    int Cursos::consultar_num_usuarios(int c) const{
         return list_cursos[c-1].consultar_num_usuarios();
     }
 
@@ -67,6 +67,6 @@
         curs = list_cursos[c-1];
     }
 
-    string Cursos::devolver_sesion_especifica(string id, int c){
+    string Cursos::devolver_sesion_especifica(string id, int c)const{
         return list_cursos[c-1].devolver_sesion_especifica(id);
     }

@@ -12,6 +12,8 @@
     }
 
     void Usuarios::inscribir_usuario_curso(Cursos& c, Sesiones& s, string id, int curs) {
+        //Función que inscribe a un usuario a un determinado curso, y pone como problemas enviables a los problemas de cada sesión
+        //no resueltos a los que por prerequisitos se pueden realizar envios.
         Curso curso;
         c.devolver_curso(curso,curs);
         int mida = curso.consultar_num_sesiones();
@@ -126,6 +128,11 @@
     }
 
     void Usuarios::enivio_problema(int r, string id, string p, string ses, Problemas& cjt_problemas, Sesiones& cjt_sesiones){
+        //Función que realiza el envio, y modifica las estadísticas en ambos casos, así como en caso de envio correcto, 
+        //pone los nuevos problemas enviables que se pueden enviar por cumplir los prerequisitos, y también pone al problema,
+        //enviado correctamente como problema resuelto, por ultimo en caso que el número de problemas enviables sea zero, 
+        //después de buscar los problemas enviables, se entiende que se ha acabado el curso, y se desinscribe al usuario del
+        //curso, así como modifica las estadísticas del curso.
         if(r==0){
             lista_usuaris[id].afegir_problema_intentado(p);
             lista_usuaris[id].aumentar_numero_envios();

@@ -71,7 +71,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es la sesión que esta en la posición i del conjunto de sesiones del curso.
     */
-    string devolver_sesion_especifica(string id, int curs);
+    string devolver_sesion_especifica(string id, int curs) const;
 
     /** @brief Consulta el número de sesiones que existen
         \pre <em>cierto</em>
@@ -83,13 +83,13 @@ public:
         \pre <em>cierto</em>
         \post El resultado es el true si existe una sesión con identificador id, y false si no exsite.
     */
-    bool existe_curso(int id);
+    bool existe_curso(int id)const;
 
     /** @brief Consulta el número de usuarios inscritos en el curso <em>c</em>. 
         \pre Tiene que existir el curso c.
         \post El resultado es el número de usuarios inscritos en el curso <em>c</em>.
     */
-    int consultar_num_usuarios(int c);
+    int consultar_num_usuarios(int c)const;
 
     //Escritura y lecttura
     /** @brief Escribe por el canal standard de salida el conjunto de cursos de forma ordenada. 

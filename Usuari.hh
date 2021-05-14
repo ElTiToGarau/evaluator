@@ -108,7 +108,7 @@ public:
         \pre <em>cierto</em>
         \post El resultado es true si el problema esta en el conjunto de problemas enviables, y false en cason contrario.
     */   
-    bool consultar_problema_enviable(string p);
+    bool consultar_problema_enviable(string p)const;
 
     /** @brief Consulta si un problema esta dentro del conjunto de problemas resueltos.
         \pre <em>cierto</em>
@@ -150,7 +150,7 @@ public:
         \pre El usuario tiene que estar inscrito en algun curso.
         \post El resultado el identificador de el curso al cual estás inscrito.
     */   
-    int cusro_inscrito();
+    int cusro_inscrito() const;
 
     //Escritura y lectura de Usuari
 

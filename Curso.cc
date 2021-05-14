@@ -5,28 +5,28 @@
         usuarios_incritos=0;
     }
 
-    int Curso::consultar_num_sesiones(){
+    int Curso::consultar_num_sesiones()const{
         return conjunto_sesiones.size();
     }
 
-    string Curso::devolver_sesion_especifica(string id) {
+    string Curso::devolver_sesion_especifica(string id) const{
         map<string,string>::const_iterator it;
         it = problemas_sesiones.find(id);
         if(it!=problemas_sesiones.end()){
-            return problemas_sesiones[id];
+            return (*it).second;
         }
         else return "0";
     }
 
-    string Curso::devolver_sesion_especifica2(int i) {
+    string Curso::devolver_sesion_especifica2(int i) const{
         return conjunto_sesiones[i];
     }
 
-    int Curso::consultar_num_usuarios(){
+    int Curso::consultar_num_usuarios()const{
         return usuarios_incritos;
     }
 
-    int Curso::consultar_veces_resuelto(){
+    int Curso::consultar_veces_resuelto()const{
         return veces_completado;
     }
 

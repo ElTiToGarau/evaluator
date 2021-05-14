@@ -73,31 +73,31 @@ public:
         \pre <em>cierto</em>
         \post El resultado es el número de sesiones que contiene el curso.
     */
-    int consultar_num_sesiones();
+    int consultar_num_sesiones() const;
 
     /** @brief Devuelve el nombre de la sesión que ocupa la posición i dentro del conjunto de sesiones que forma el curso.
         \pre <em>cierto</em>
         \post El resultado es la sesión que esta en la posición i del conjunto de sesiones del curso.
     */
-    string devolver_sesion_especifica(string id);
+    string devolver_sesion_especifica(string id) const;
 
     /** @brief Devuelve el nombre de la sesión que ocupa la posición i dentro del conjunto de sesiones que forma el curso.
         \pre <em>cierto</em>
         \post El resultado es la sesión que esta en la posición i del conjunto de sesiones del curso.
     */
-    string devolver_sesion_especifica2(int i);
+    string devolver_sesion_especifica2(int i) const;
 
     /** @brief Consulta el número de veces que se ha completado el curso. 
         \pre <em>cierto</em>
         \post El resultado es el número de veces que se ha completado el curso.
     */
-    int consultar_veces_resuelto();
+    int consultar_veces_resuelto() const;
 
     /** @brief Consulta el número de usuarios inscritos en el curso. 
         \pre <em>cierto</em>
         \post El resultado es el número de usuarios inscritos en el curso.
     */
-    int consultar_num_usuarios();
+    int consultar_num_usuarios() const;
 
     //Escritura y lectura
 

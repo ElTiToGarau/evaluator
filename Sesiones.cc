@@ -10,7 +10,7 @@
         return conjunt_sesions.size();
     }
 
-    bool Sesiones::existe_sesion(string id){
+    bool Sesiones::existe_sesion(string id)const{
         if(conjunt_sesions.count(id)==1) return true;
         else return false;
     }
@@ -50,6 +50,8 @@
     }
 
     bool Sesiones::poner_problemas_sesion(Curso& c){
+        //Función que pone dentro de el map del curso pasado por referencia curso, el problema y a que sesión pertenece dicho problema,
+        //a parte devuelve false si se intenta poner un problema repetido dentro del mapa del curso.
         bool repetit = true;
         int mida = c.consultar_num_sesiones();
         int i=0;

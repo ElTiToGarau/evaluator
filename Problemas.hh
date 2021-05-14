@@ -40,12 +40,6 @@ public:
         \post El resultado es un conjunto de problemas sin inicializar.
     */
     Problemas();
-    
-    /** @brief Creadora de una copia. 
-        \pre <em>cierto</em>
-        \post El resultado es una copia de la lista de problemas p.
-    */
-    Problemas(const Problemas& p);
 
     //Modificadoras
     /** @brief Añade al parámetro implícito el nuevo problema.
