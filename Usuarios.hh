@@ -111,7 +111,7 @@ public:
     void actualizar_usuario(Usuari& u, const string id);
 
     /** @brief Modifica el usuario identificado por id, segun el envio sea correcto o incorrecto.
-        \pre Tiene que existir un usuario con identificador id.
+        \pre Tiene que existir el usuario identificado por id, así como que este inscrito en un curso al que el problema p pertenezca, y que también el problema este dentro del conjunto de problemas al que el usuario puede hacer envios.
         \post Se modifica las estadísticas del usuario identificado por id, así como también las del problema enviado.
     */
     void enivio_problema(int r, string id, string p, string ses, Problemas& cjt_problemas, Sesiones& cjt_sesiones);
