@@ -1,6 +1,3 @@
-//Se realizan las pruevas para testear que inscribir funcione de un modo correcto,
-//para hacerlo se intenta inscribir a usuarios que no existen, inscribir a un usuario que ya esta inscrito en un curso i a cursos que no existen,
-//para así ver que el output es el indicado.
 #i Pedri 1
 error: el usuario no existe
 #i Astra 9
@@ -13,8 +10,6 @@ error: usuario inscrito en otro curso
 1
 #i Breach 7
 error: usuario inscrito en otro curso
-//Se prueva el buen funcionamiento de curso_usuario provando que pasa, 
-//en el caso que se pida el curso de un usuario que no esta inscrito a ningun curso.
 #cu Cypher
 0
 #i Cypher 4
@@ -33,20 +28,13 @@ error: usuario inscrito en otro curso
 2
 #inscribir_curso Messi 3
 error: el usuario no existe
-//Aquí se prueva que pasa cuando pides el curso a que un usuario pertenece, 
-//si dicho usuario no esta registrado en el sistema.
 #cu Messi
 error: el usuario no existe
-//Se prueva que pasa cuando se pide los problemas resueltos de un usuario,
-//el cual no ha resuelto ningun problema, y el caso en que el usuario no exista.
 #problemas_resueltos Astra
 #pr Pedri
 error: el usuario no existe
-//Se empieza a prova el buen funcionamiento de la función envio, y que también la función
-//envio modifique en todos los casos todas las estadísticas de forma adecuada.
 #envio Astra SN0 0
 #e Astra SN0 1
-//Se prueva que devuelva de forma correcta los problemas resueltos hasta el momento de el usuario concreto.
 #pr Astra
 SN0(2)
 #e Astra SN1 1
@@ -55,8 +43,6 @@ SN0(2)
 #e Astra SN6 1
 #e Astra SN3 0
 #e Astra SN3 1
-//Se prueva la función evio este modificando correctamente las estadísitcas de los problemas,
-//listando un problemas concreto para así poderlo comprovar.
 #escribir_problema SN3
 SN3(3,1,2)
 #e Astra SN7 0
@@ -77,8 +63,6 @@ SN8(1)
 #e Astra SN10 1
 #e Astra SN11 1
 #e Astra SN15 1
-//Se vuelve a comprovar que hasta el momento haya todos los problemas que se han ido resolviendo de forma correcta,
-//así como que las estadísitcas de los problemas esten bien indicadas.
 #pr Astra
 SN0(2)
 SN1(1)
@@ -93,9 +77,6 @@ SN6(1)
 SN7(2)
 SN8(1)
 #e Astra SN9 1
-//En este punto se ha finalizado un curso, y por tanto con el ultimo envio realizado,
-//la función envio tendría que haver desincrito al usuario del curso que ha terminado,
-//para provar que lo hace de forma correcta, se imprime en que curso esta inscrito el usuario.
 #cu Astra
 0
 #pr Astra
@@ -112,13 +93,8 @@ SN6(1)
 SN7(2)
 SN8(1)
 SN9(1)
-//Por ultimmo se prueva que un usuario el cual tiene problemas resueltos, y que ya ha terminado un curso
-//puede inscribirse a un nuevo curso sin problemas.
 #i Astra 3
 1
-//Se pueva realizando todos los envíos de otro usuario que esta inscrito a otro curso diferente del primero,
-//que liste de forma adecuada los problemas resueltos, y que por ultimo una vez finalizado el curso,
-//el usuario ya no este inscrito al curso.
 #e Breach BTC 1
 #e Breach ETH 1
 #e Breach LTC 0
@@ -136,7 +112,6 @@ SN9(1)
 #e Breach DOGE 0
 #e Breach DOGE 1
 #e Breach XMR 1
-//Se compruva que los problemas resuletos sean los correctos.
 #pr Breach
 AUD(1)
 BTC(1)
@@ -151,11 +126,8 @@ MAID(1)
 XBT(1)
 XMR(1)
 XRP(1)
-//Se comprueva que ya no esta inscrito a el curso que acaba de finalizar.
 #cu Breach
 0
-//Se prueva que se puede hacer envios a distintos usuarios de forma intermitente,
-//los cuales no esten inscritos en el mismo curso, y que las estadísitcas de cada usuario y de cada problema enviado se modifican de forma correcta.
 #e Cypher FDA 1
 #e Cypher ACF 1
 #e Cypher ESFA 1
@@ -191,8 +163,6 @@ XRP(1)
 #e Cypher BM 1
 #e Cypher FI 1
 #e Cypher GL 1
-//El usuario cypher ha acabado el curso y se comprueva que ya no este inscrito al curso,
-//así como que tenga los problemas resueltos correspondientes.
 #cu Cypher
 0
 #pr Cypher
@@ -216,8 +186,6 @@ OSHA(1)
 SAA(1)
 SAMHSA(1)
 TSA(1)
-//Se continua haciendo envios al usuario Jett, después de haver acabado
-//el curso del usuario Cypher.
 #e Jett BW 1
 #e Jett CA 0
 #e Jett CA 0
@@ -228,11 +196,8 @@ TSA(1)
 #e Jett GR 1
 #e Jett CZ 1
 #envio Jett GS 1
-//El usuario Jett acaba el curso y se comprueva que ya no este inscrita en el curso.
 #cu Jett
 0
-//Se vuelve a inscribir a un usuario a un curso y comprovar que se inscribe correctamente, así como
-//que cuando termina el curso, se desinscribe de forma adecuada.
 #i Breach 6
 1
 #cu Breach
@@ -246,9 +211,6 @@ TSA(1)
 #e Breach AOA 1
 #cu Breach
 0
-//Se inscribe al usuario Cypher a un curso, el cual tiene sesiones, que estan formada
-//por problemas que Cypher ya ha resuelto, y por tanto que en dichos casos realize bien los envíos
-//saltandose aqellos problemas que ya esten resueltos.
 #i Cypher 7
 1
 #e Cypher FHA 0
@@ -266,11 +228,8 @@ TSA(1)
 #e Cypher SBA 1
 #e Cypher EPA 1
 #e Cypher FEMA 1
-//Se comprueva que el usuario ha terminado el curso de forma adecuada.
 #cu Cypher
 0
-//Se comprueva que que el usuario Cypher tenga en el el la lista de problemas resueltos
-//los problemas correctos.
 #pr Cypher
 ACF(1)
 AD(1)
@@ -303,22 +262,14 @@ SAMHSA(1)
 SBA(1)
 TSA(1)
 USAID(1)
-//Se comprueva que al escribir un problema al que se la han realizado envios
-//que las estadísticas sean las adecuadas, y que también se listen las estadísitcas
-//que sean decimales de forma correcta.
 #ep NASA
 NASA(3,2,1.33333)
 #ep SN15
 SN15(1,1,1)
-//Se prueva a que cuando se intenta escribir un programa que no existe
-//que de el error correspondiente.
 #ep SN13
 error: el problema no existe
 #escribir_problema NCUA
 NCUA(2,2,1)
-//Por último se hace un listar problemas para comprovar que los problemas se listan de forma 
-//adecuada (que se impriman en el orden adecuado, primero por la ratio, y en caso de empate de forma alfabética) 
-//así como que muestran las estadísticas correctas.
 #listar_problemas
 ACF(1,1,1)
 AD(1,1,1)
