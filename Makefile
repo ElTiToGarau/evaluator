@@ -36,7 +36,11 @@ clean:
 	rm *.o
 	rm *.tar
 
-tar:
+html:
+	doxygen Doxyfile
+
+tar: html
+	zip -r html.zip html
 	zip jp_gerard.oliva.vinas.zip jp_gerard.oliva.vinas.txt jp_nico.rivera.txt noa.yu.ventura.txt
 	tar -cvf practica.tar *.cc Makefile Curso.hh Cursos.hh Problema.hh Problemas.hh Sesion.hh Sesiones.hh Usuari.hh Usuarios.hh html.zip jp_gerard.oliva.vinas.zip
-	rm jp_gerard.oliva.vinas.zip
+	rm *.zip

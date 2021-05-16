@@ -10,3 +10,5 @@ entrega*
 .DS*
 *.tar
 *.zip
+/html
+/latex
