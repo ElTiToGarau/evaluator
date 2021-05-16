@@ -37,4 +37,6 @@ clean:
 	rm *.tar
 
 tar:
-	tar -cvf practica.tar *.cc Makefile Curso.hh Cursos.hh Problema.hh Problemas.hh Sesion.hh Sesiones.hh Usuari.hh Usuarios.hh
+	zip -r html.zip /DOC/html
+	zip jp_gerard.oliva.vinas.zip jp_gerard.oliva.vinas.txt jp_nico.rivera.txt noa.yu.ventura.txt
+	tar -cvf practica.tar *.cc Makefile Curso.hh Cursos.hh Problema.hh Problemas.hh Sesion.hh Sesiones.hh Usuari.hh Usuarios.hh html.zip
