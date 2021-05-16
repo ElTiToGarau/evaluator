@@ -1,0 +1,741 @@
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+|                                                                                                                                                        |
+|                                                               ~ENTRADA COMENTADA~                                                                      |                        
+|                                                                                                                                                        |
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                        
+//INICIALITZACIÓ DELS CONJUNTS
+50 //(problemes)
+PRO01 PRO02 PRO03 PRO04 PRO05 PRO06 PRO07 PRO08 PRO09 PRO10 
+PRO11 PRO12 PRO13 PRO14 PRO15 PRO16 PRO17 PRO18 PRO19 PRO20 
+PRO21 PRO22 PRO23 PRO24 PRO25 PRO26 PRO27 PRO28 PRO29 PRO30 
+PRO31 PRO32 PRO33 PRO34 PRO35 PRO36 PRO37 PRO38 PRO39 PRO40 
+PRO41 PRO42 PRO43 PRO44 PRO45 PRO46 PRO47 PRO48 PRO49 PRO50 
+11 //(sessions)
+S1 PRO01 PRO02 PRO04 0 0 PRO05 PRO06 0 0 0 PRO03 PRO07 0 0 0
+S2 PRO30 PRO29 PRO27 PRO23 0 0 PRO21 0 0 PRO25 0 0 PRO28 PRO26 0 PRO24 0 PRO22 PRO20 0 0 0 0
+S3 PRO27 PRO15 PRO19 PRO09 0 0 PRO14 0 0 0 PRO16 PRO08 0 PRO11 0 0 PRO07 0 0
+S4 PRO10 0 PRO12 0 0 
+S5 PRO40 0 0
+S6 PRO40 PRO41 PRO30 PRO34 0 0 PRO35 0 0 PRO31 0 0 PRO42 PRO32 0 0 PRO33 0 0 
+S7 PRO43 PRO23 PRO27 0 0 PRO30 0 0 PRO24 PRO20 0 0 0
+S8 PRO50 PRO49 PRO48 PRO47 PRO46 0 0 PRO45 0 0 PRO44 0 0 PRO43 0 PRO42 0 0 PRO41 PRO40 0 0 PRO39 0 PRO38 0 0 
+S9 PRO25 PRO26 PRO11 PRO07 0 PRO02 0 0 PRO03 0 0 PRO09 0 PRO10 PRO05 0 0 PRO01 0 0 PRO31 PRO33 0 0 PRO40 PRO44 PRO45 0 0 0 PRO41 PRO49 PRO48 0 0 0 PRO50 0 0
+S10 PRO09 PRO12 PRO13 PRO07 PRO02 0 0 PRO05 0 0 0 PRO14 PRO10 PRO06 0 0 PRO01 0 0 0 PRO20 PRO23 PRO49 0 PRO48 0 0 0 PRO26 0 PRO15 0 0
+S11 PRO11 PRO03 PRO04 0 0 PRO06 PRO08 0 0 PRO17 0 0 PRO21 PRO24 0 0 PRO15 PRO18 0 0 PRO19 0 0
+3 //(cursos)
+1 S10
+2 S1 S2
+3 S3 S4 S5
+2 //(usuaris)
+Nico
+Gerard
+
+//FUNCIONS BÀSIQUES, PER PROVAR QUE TOT FUNCIONA EN CASOS GENERALS
+nuevo_problema PRO60
+np PRO50
+np PRO43
+np PRO60
+i Pedri 8 //ni l'usuari ni el curs existeixen, quin error dóna primer (error: no existe curso/usuario)? L'enunciat diu que primer es comprova l'usuari, després el curs i després si l'usuari ja està inscrit en un altre curs. Un programa mal fet donaria primer l'error de "l'usuari no existeix" o "usuari inscrit en un altre curs"
+alta_usuario Pedri
+i Pedri 1
+i Pedri 2 //comprovar que dóna error
+nueva_sesion S12 
+PRO29 PRO28 0 PRO43 0 0 PRO23 0 0
+ns S13 
+PRO29 PRO11 0 0 PRO05 PRO07 0 0 0
+nuevo_curso //l'algoritme de recurssivitat de l'arbre ha d'acabar molt d'hora, ja que només ha de comprovar les arrels de les dues sessions
+2 S12 S13 //no afegeix el curs
+nc 
+3 S9 S11 S13 //no afegeix el curs
+listar_cursos
+escribir_sesion S3
+es S7
+es S12
+nuevo_curso
+2 S7 S9 //sí que s'afegeix Curs 4
+escribir_problema PRO02
+pe Pedri
+e Pedri PRO09 0
+e Pedri PRO09 1 //comprovar que s'actualitza el ratio, l'usuari i els problemes enviables
+escibir_problema PRO09
+escribir_usuario Pedri
+problemas_enviables Pedri
+problemas_resueltos Pedri
+baja_usuario Pedri
+
+//INSTRUCCIONS RELACIONADES AMB SESSIÓ I ELS PROBLEMES QUE ES PODEN DONAR EN UN MAL PROGRAMA (PART PRINCIPAL D'AQUEST JOC DE PROVES)
+nueva_sesion S14
+PRO03 PRO02 PRO10 0 0 PRO11 0 PRO12 0 0 PRO20 0 PRO15 0 0
+ns S15 //cas especial quan només té una branca
+PRO60 PRO16 PRO22 0 0 0 0 
+nc 
+2 S4 S7 //sí afegeix Curs 5
+nc
+2 S11 S14 //no afegeix
+nc
+2 S11 S15 //sí afegeix Curs 6
+sesion_problema 2 PRO02
+nc 
+1 S3 //sí afegeix Curs 7
+session_problema 4 PRO11 
+sp 6 PRO11 //veiem que PRO11 pertany a més d'una sessió, però només una sessió que cconté el problema pertany al curs
+ns S16 
+PRO33 0 0 //cas base en què només tenim un node amb els dos fills buits
+nc 
+2 S6 S16 //no afegeix
+nc 
+2 S1 S4 //sí afegeix. Curs 8
+nc
+3 S1 S5 S10 //no afegeix
+nc
+2 S10 S15 //sí afegeix, Curs 9
+
+//encara que el problema sigui igual, són quatre situacions diferents
+sp 1 PRO12 //S10
+sp 2 PRO12 //no està al curs
+sp 3 PRO12 //S4
+sp 10 PRO12 //no existeix el curs
+sp 9 PRO12 //veiem que S10 pertany a més d'un curs
+ls 
+lc
+
+i Nico 8
+e Nico PRO01 1
+e Nico PRO02 1
+e Nico PRO03 0
+e Nico PRO03 1
+e Nico PRO04 1
+e Nico PRO05 1
+e Nico PRO07 0
+e Nico PRO06 1
+e Nico PRO10 1
+e Nico PRO12 0
+e Nico PRO12 1
+e Nico PRO07 1 //completa el curs
+curso_usuario Nico //ha de donar 0, perquè quan acabes un curs ja no hi estàs inscrit
+
+//comprovar que el programa funciona bé quan hi ha problemes resolts a arbres d'un nivell més baix que un arbre d'un nivell més alt
+i Nico 3
+pe Nico //si PRO12 apareix a la llista de problemes enviables, la funció de buscar els problemes enviables a l'arbre està malament
+
+//COMPROVAR ELS PROBLEMES ENVIABLES I ELS RESOLTS
+i Gerard 4
+a Noa
+inscribir_curso Noa 2
+pe Noa
+//mirar si s'actualitza bé el nombre d'intents que s'han fet al problema abans de resoldre'l
+envio Noa PRO01 1
+e Noa PRO02 0 
+e Noa PRO02 0
+e Noa PRO02 0
+e Noa PRO02 1
+problemes_enviables Noa
+e Gerard PRO43 1
+e Gerard PRO23 1
+e Gerard PRO27 0
+e Gerard PRO27 0
+pe Gerard
+problemas_resueltos Gerard
+
+lp //comprovar que els problemes i usuaris han estat actualitzats després d'haver fet els enviaments
+escribir_usuario Nico
+eu Gerard
+fin
+
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+|                                                                                                                                                        |
+|                                                               ~ENTRADA SENSE COMENTAR~                                                                   |                        
+|                                                                                                                                                        |
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+
+50 
+PRO01 PRO02 PRO03 PRO04 PRO05 PRO06 PRO07 PRO08 PRO09 PRO10 
+PRO11 PRO12 PRO13 PRO14 PRO15 PRO16 PRO17 PRO18 PRO19 PRO20 
+PRO21 PRO22 PRO23 PRO24 PRO25 PRO26 PRO27 PRO28 PRO29 PRO30 
+PRO31 PRO32 PRO33 PRO34 PRO35 PRO36 PRO37 PRO38 PRO39 PRO40 
+PRO41 PRO42 PRO43 PRO44 PRO45 PRO46 PRO47 PRO48 PRO49 PRO50 
+11 
+S1 PRO01 PRO02 PRO04 0 0 PRO05 PRO06 0 0 0 PRO03 PRO07 0 0 0
+S2 PRO30 PRO29 PRO27 PRO23 0 0 PRO21 0 0 PRO25 0 0 PRO28 PRO26 0 PRO24 0 PRO22 PRO20 0 0 0 0
+S3 PRO27 PRO15 PRO19 PRO09 0 0 PRO14 0 0 0 PRO16 PRO08 0 PRO11 0 0 PRO07 0 0
+S4 PRO10 0 PRO12 0 0 
+S5 PRO40 0 0
+S6 PRO40 PRO41 PRO30 PRO34 0 0 PRO35 0 0 PRO31 0 0 PRO42 PRO32 0 0 PRO33 0 0 
+S7 PRO43 PRO23 PRO27 0 0 PRO30 0 0 PRO24 PRO20 0 0 0
+S8 PRO50 PRO49 PRO48 PRO47 PRO46 0 0 PRO45 0 0 PRO44 0 0 PRO43 0 PRO42 0 0 PRO41 PRO40 0 0 PRO39 0 PRO38 0 0 
+S9 PRO25 PRO26 PRO11 PRO07 0 PRO02 0 0 PRO03 0 0 PRO09 0 PRO10 PRO05 0 0 PRO01 0 0 PRO31 PRO33 0 0 PRO40 PRO44 PRO45 0 0 0 PRO41 PRO49 PRO48 0 0 0 PRO50 0 0
+S10 PRO09 PRO12 PRO13 PRO07 PRO02 0 0 PRO05 0 0 0 PRO14 PRO10 PRO06 0 0 PRO01 0 0 0 PRO20 PRO23 PRO49 0 PRO48 0 0 0 PRO26 0 PRO15 0 0
+S11 PRO11 PRO03 PRO04 0 0 PRO06 PRO08 0 0 PRO17 0 0 PRO21 PRO24 0 0 PRO15 PRO18 0 0 PRO19 0 0
+3 
+1 S10
+2 S1 S2
+3 S3 S4 S5
+2
+Nico
+Gerard
+
+nuevo_problema PRO60
+np PRO50
+np PRO43
+np PRO60
+i Pedri 8 
+alta_usuario Pedri
+i Pedri 1
+i Pedri 2 
+nueva_sesion S12 
+PRO29 PRO28 0 PRO43 0 0 PRO23 0 0
+ns S13 
+PRO29 PRO11 0 0 PRO05 PRO07 0 0 0
+nuevo_curso
+2 S12 S13 
+nc 
+3 S9 S11 S13
+listar_cursos
+escribir_sesion S3
+es S7
+es S12
+nuevo_curso
+2 S7 S9
+escribir_problema PRO02
+pe Pedri
+e Pedri PRO09 0
+e Pedri PRO09 1
+escibir_problema PRO09
+escribir_usuario Pedri
+problemas_enviables Pedri
+problemas_resueltos Pedri
+baja_usuario Pedri
+
+nueva_sesion S14
+PRO03 PRO02 PRO10 0 0 PRO11 0 PRO12 0 0 PRO20 0 PRO15 0 0
+ns S15
+PRO60 PRO16 PRO22 0 0 0 0 
+nc 
+2 S4 S7
+nc
+2 S11 S14 
+nc
+2 S11 S15 
+sesion_problema 2 PRO02
+nc 
+1 S3 
+session_problema 4 PRO11 
+sp 6 PRO11
+ns S16 
+PRO33 0 0 
+nc 
+2 S6 S16 
+nc 
+2 S1 S4 
+nc
+3 S1 S5 S10 
+nc
+2 S10 S15 
+
+sp 1 PRO12
+sp 2 PRO12
+sp 3 PRO12
+sp 10 PRO12
+sp 9 PRO12
+ls 
+lc
+
+i Nico 8
+e Nico PRO01 1
+e Nico PRO02 1
+e Nico PRO03 0
+e Nico PRO03 1
+e Nico PRO04 1
+e Nico PRO05 1
+e Nico PRO07 0
+e Nico PRO06 1
+e Nico PRO10 1
+e Nico PRO12 0
+e Nico PRO12 1
+e Nico PRO07 1 
+curso_usuario Nico 
+i Nico 3
+pe Nico
+
+i Gerard 4
+a Noa
+inscribir_curso Noa 2
+pe Noa
+envio Noa PRO01 1
+e Noa PRO02 0 
+e Noa PRO02 0
+e Noa PRO02 0
+e Noa PRO02 1
+problemes_enviables Noa
+e Gerard PRO43 1
+e Gerard PRO23 1
+e Gerard PRO27 0
+e Gerard PRO27 0
+pe Gerard
+problemas_resueltos Gerard
+
+lp
+escribir_usuario Nico
+eu Gerard
+fin
+
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+|                                                                                                                                                        |
+|                                                                        ~SORTIDA COMENTADA~                                                             |                        
+|                                                                                                                                                        |
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ #nuevo_problema PRO60
+51
+#np PRO50
+error: el problema ya existe
+#np PRO43
+error: el problema ya existe
+#np PRO60
+error: el problema ya existe
+#i Pedri 8
+error: el usuario no existe
+#alta_usuario Pedri
+3
+#i Pedri 1
+1
+#i Pedri 2
+error: usuario inscrito en otro curso
+#nueva_sesion S12
+12
+#ns S13
+13
+
+//estiguin on estiguin els problemes repetits, s'han de trobar per tal que en un curs no apareixi el mateix problema més d'un cop
+#nuevo_curso
+error: curso mal formado
+#nc
+error: curso mal formado
+#listar_cursos
+1 0 1 1 (S10)
+2 0 0 2 (S1 S2)
+3 0 0 3 (S3 S4 S5)
+#escribir_sesion S3
+S3 9 ((((PRO09)(PRO14)PRO19)PRO15)(((PRO11)PRO08)(PRO07)PRO16)PRO27)
+#es S7
+S7 6 (((PRO27)(PRO30)PRO23)((PRO20)PRO24)PRO43)
+#es S12
+S12 4 (((PRO43)PRO28)(PRO23)PRO29)
+#nuevo_curso
+4
+#escribir_problema PRO02
+PRO02(0,0,1)
+
+//assegurar-se de que un enviament i la búsqueda de nous problemes enviables funciona bé
+#pe Pedri
+PRO09(0)
+#e Pedri PRO09 0
+#e Pedri PRO09 1
+#escribir_usuario Pedri
+Pedri(2,1,1,1)
+#problemas_enviables Pedri
+PRO12(0)
+PRO20(0)
+#problemas_resueltos Pedri
+PRO09(2)
+#baja_usuario Pedri
+2
+#nueva_sesion S14
+14
+#ns S15
+15
+#nc
+5
+#nc
+error: curso mal formado
+#nc
+6
+#sesion_problema 2 PRO02
+S1
+#nc
+7
+#sp 6 PRO11
+S11
+#ns S16
+16
+#nc
+error: curso mal formado
+#nc
+8
+#nc
+error: curso mal formado
+#nc
+9
+
+//veure que un mateix problema pot pertànyer a més d'un curs
+#sp 1 PRO12
+S10
+#sp 2 PRO12
+error: el problema no pertenece al curso
+#sp 3 PRO12
+S4
+#sp 10 PRO12
+error: el curso no existe
+#sp 9 PRO12
+S10
+
+//fer un algoritme que recorri els arbres i imprimeixi bé les sessions 
+#ls
+S1 7 (((PRO04)((PRO06)PRO05)PRO02)((PRO07)PRO03)PRO01)
+S10 16 (((((PRO02)(PRO05)PRO07)PRO13)(((PRO06)(PRO01)PRO10)PRO14)PRO12)((((PRO48)PRO49)PRO23)((PRO15)PRO26)PRO20)PRO09)
+S11 11 (((PRO04)((PRO08)(PRO17)PRO06)PRO03)((PRO24)((PRO18)(PRO19)PRO15)PRO21)PRO11)
+S12 4 (((PRO43)PRO28)(PRO23)PRO29)
+S13 4 ((PRO11)((PRO07)PRO05)PRO29)
+S14 7 (((PRO10)((PRO12)PRO11)PRO02)((PRO15)PRO20)PRO03)
+S15 3 (((PRO22)PRO16)PRO60)
+S16 1 (PRO33)
+S2 11 ((((PRO23)(PRO21)PRO27)(PRO25)PRO29)(((((PRO20)PRO22)PRO24)PRO26)PRO28)PRO30)
+S3 9 ((((PRO09)(PRO14)PRO19)PRO15)(((PRO11)PRO08)(PRO07)PRO16)PRO27)
+S4 2 ((PRO12)PRO10)
+S5 1 (PRO40)
+S6 9 ((((PRO34)(PRO35)PRO30)(PRO31)PRO41)((PRO32)(PRO33)PRO42)PRO40)
+S7 6 (((PRO27)(PRO30)PRO23)((PRO20)PRO24)PRO43)
+S8 13 (((((PRO46)(PRO45)PRO47)(PRO44)PRO48)((PRO42)PRO43)PRO49)((PRO40)((PRO38)PRO39)PRO41)PRO50)
+S9 19 (((((PRO02)PRO07)(PRO03)PRO11)(((PRO05)(PRO01)PRO10)PRO09)PRO26)((PRO33)(((PRO45)PRO44)(((PRO48)PRO49)(PRO50)PRO41)PRO40)PRO31)PRO25)
+#lc
+1 0 0 1 (S10)
+2 0 0 2 (S1 S2)
+3 0 0 3 (S3 S4 S5)
+4 0 0 2 (S7 S9)
+5 0 0 2 (S4 S7)
+6 0 0 2 (S11 S15)
+7 0 0 1 (S3)
+8 0 0 2 (S1 S4)
+9 0 0 2 (S10 S15)
+
+//comprovar que els usuaris s'actualitzen correctament, ja que les seves funcions fan servir la classe sessió
+#i Nico 8
+1
+#e Nico PRO01 1
+#e Nico PRO02 1
+#e Nico PRO03 0
+#e Nico PRO03 1
+#e Nico PRO04 1
+#e Nico PRO05 1
+#e Nico PRO07 0
+#e Nico PRO06 1
+#e Nico PRO10 1
+#e Nico PRO12 0
+#e Nico PRO12 1
+#e Nico PRO07 1
+#curso_usuario Nico //ens hem d'enrecordar que un cop completat un curs, deixem d'estar-hi inscrits
+0
+#i Nico 3
+1
+#pe Nico
+PRO27(0)
+PRO40(0)
+#i Gerard 4
+1
+#a Noa
+3
+#inscribir_curso Noa 2
+1
+#pe Noa
+PRO01(0)
+PRO30(0)
+#envio Noa PRO01 1
+#e Noa PRO02 0
+#e Noa PRO02 0
+#e Noa PRO02 0
+#e Noa PRO02 1
+#e Gerard PRO43 1
+#e Gerard PRO23 1
+#e Gerard PRO27 0
+#e Gerard PRO27 0
+#pe Gerard
+PRO24(0)
+PRO25(0)
+PRO27(2)
+PRO30(0)
+#problemas_resueltos Gerard
+PRO23(1)
+PRO43(1)
+
+//serveix per comprovar que s'han actualitzat correctament tots els camps del conjunt de problemes deprés d'haver fet tots els enviaments
+#lp
+PRO01(2,2,1)
+PRO04(1,1,1)
+PRO05(1,1,1)
+PRO06(1,1,1)
+PRO08(0,0,1)
+PRO10(1,1,1)
+PRO11(0,0,1)
+PRO13(0,0,1)
+PRO14(0,0,1)
+PRO15(0,0,1)
+PRO16(0,0,1)
+PRO17(0,0,1)
+PRO18(0,0,1)
+PRO19(0,0,1)
+PRO20(0,0,1)
+PRO21(0,0,1)
+PRO22(0,0,1)
+PRO23(1,1,1)
+PRO24(0,0,1)
+PRO25(0,0,1)
+PRO26(0,0,1)
+PRO28(0,0,1)
+PRO29(0,0,1)
+PRO30(0,0,1)
+PRO31(0,0,1)
+PRO32(0,0,1)
+PRO33(0,0,1)
+PRO34(0,0,1)
+PRO35(0,0,1)
+PRO36(0,0,1)
+PRO37(0,0,1)
+PRO38(0,0,1)
+PRO39(0,0,1)
+PRO40(0,0,1)
+PRO41(0,0,1)
+PRO42(0,0,1)
+PRO43(1,1,1)
+PRO44(0,0,1)
+PRO45(0,0,1)
+PRO46(0,0,1)
+PRO47(0,0,1)
+PRO48(0,0,1)
+PRO49(0,0,1)
+PRO50(0,0,1)
+PRO60(0,0,1)
+PRO03(2,1,1.5)
+PRO07(2,1,1.5)
+PRO09(2,1,1.5)
+PRO12(2,1,1.5)
+PRO02(5,2,2)
+PRO27(2,0,3)
+#escribir_usuario Nico
+Nico(12,9,9,3)
+#eu Gerard
+Gerard(4,2,3,4)
+ 
+  --------------------------------------------------------------------------------------------------------------------------------------------------------
+|                                                                                                                                                        |
+|                                                                        ~SORTIDA SENSE COMENTAR~                                                        |                        
+|                                                                                                                                                        |
+ --------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ #nuevo_problema PRO60
+51
+#np PRO50
+error: el problema ya existe
+#np PRO43
+error: el problema ya existe
+#np PRO60
+error: el problema ya existe
+#i Pedri 8
+error: el usuario no existe
+#alta_usuario Pedri
+3
+#i Pedri 1
+1
+#i Pedri 2
+error: usuario inscrito en otro curso
+#nueva_sesion S12
+12
+#ns S13
+13
+#nuevo_curso
+error: curso mal formado
+#nc
+error: curso mal formado
+#listar_cursos
+1 0 1 1 (S10)
+2 0 0 2 (S1 S2)
+3 0 0 3 (S3 S4 S5)
+#escribir_sesion S3
+S3 9 ((((PRO09)(PRO14)PRO19)PRO15)(((PRO11)PRO08)(PRO07)PRO16)PRO27)
+#es S7
+S7 6 (((PRO27)(PRO30)PRO23)((PRO20)PRO24)PRO43)
+#es S12
+S12 4 (((PRO43)PRO28)(PRO23)PRO29)
+#nuevo_curso
+4
+#escribir_problema PRO02
+PRO02(0,0,1)
+#pe Pedri
+PRO09(0)
+#e Pedri PRO09 0
+#e Pedri PRO09 1
+#escribir_usuario Pedri
+Pedri(2,1,1,1)
+#problemas_enviables Pedri
+PRO12(0)
+PRO20(0)
+#problemas_resueltos Pedri
+PRO09(2)
+#baja_usuario Pedri
+2
+#nueva_sesion S14
+14
+#ns S15
+15
+#nc
+5
+#nc
+error: curso mal formado
+#nc
+6
+#sesion_problema 2 PRO02
+S1
+#nc
+7
+#sp 6 PRO11
+S11
+#ns S16
+16
+#nc
+error: curso mal formado
+#nc
+8
+#nc
+error: curso mal formado
+#nc
+9
+#sp 1 PRO12
+S10
+#sp 2 PRO12
+error: el problema no pertenece al curso
+#sp 3 PRO12
+S4
+#sp 10 PRO12
+error: el curso no existe
+#sp 9 PRO12
+S10
+#ls
+S1 7 (((PRO04)((PRO06)PRO05)PRO02)((PRO07)PRO03)PRO01)
+S10 16 (((((PRO02)(PRO05)PRO07)PRO13)(((PRO06)(PRO01)PRO10)PRO14)PRO12)((((PRO48)PRO49)PRO23)((PRO15)PRO26)PRO20)PRO09)
+S11 11 (((PRO04)((PRO08)(PRO17)PRO06)PRO03)((PRO24)((PRO18)(PRO19)PRO15)PRO21)PRO11)
+S12 4 (((PRO43)PRO28)(PRO23)PRO29)
+S13 4 ((PRO11)((PRO07)PRO05)PRO29)
+S14 7 (((PRO10)((PRO12)PRO11)PRO02)((PRO15)PRO20)PRO03)
+S15 3 (((PRO22)PRO16)PRO60)
+S16 1 (PRO33)
+S2 11 ((((PRO23)(PRO21)PRO27)(PRO25)PRO29)(((((PRO20)PRO22)PRO24)PRO26)PRO28)PRO30)
+S3 9 ((((PRO09)(PRO14)PRO19)PRO15)(((PRO11)PRO08)(PRO07)PRO16)PRO27)
+S4 2 ((PRO12)PRO10)
+S5 1 (PRO40)
+S6 9 ((((PRO34)(PRO35)PRO30)(PRO31)PRO41)((PRO32)(PRO33)PRO42)PRO40)
+S7 6 (((PRO27)(PRO30)PRO23)((PRO20)PRO24)PRO43)
+S8 13 (((((PRO46)(PRO45)PRO47)(PRO44)PRO48)((PRO42)PRO43)PRO49)((PRO40)((PRO38)PRO39)PRO41)PRO50)
+S9 19 (((((PRO02)PRO07)(PRO03)PRO11)(((PRO05)(PRO01)PRO10)PRO09)PRO26)((PRO33)(((PRO45)PRO44)(((PRO48)PRO49)(PRO50)PRO41)PRO40)PRO31)PRO25)
+#lc
+1 0 0 1 (S10)
+2 0 0 2 (S1 S2)
+3 0 0 3 (S3 S4 S5)
+4 0 0 2 (S7 S9)
+5 0 0 2 (S4 S7)
+6 0 0 2 (S11 S15)
+7 0 0 1 (S3)
+8 0 0 2 (S1 S4)
+9 0 0 2 (S10 S15)
+#i Nico 8
+1
+#e Nico PRO01 1
+#e Nico PRO02 1
+#e Nico PRO03 0
+#e Nico PRO03 1
+#e Nico PRO04 1
+#e Nico PRO05 1
+#e Nico PRO07 0
+#e Nico PRO06 1
+#e Nico PRO10 1
+#e Nico PRO12 0
+#e Nico PRO12 1
+#e Nico PRO07 1
+#curso_usuario Nico
+0
+#i Nico 3
+1
+#pe Nico
+PRO27(0)
+PRO40(0)
+#i Gerard 4
+1
+#a Noa
+3
+#inscribir_curso Noa 2
+1
+#pe Noa
+PRO01(0)
+PRO30(0)
+#envio Noa PRO01 1
+#e Noa PRO02 0
+#e Noa PRO02 0
+#e Noa PRO02 0
+#e Noa PRO02 1
+#e Gerard PRO43 1
+#e Gerard PRO23 1
+#e Gerard PRO27 0
+#e Gerard PRO27 0
+#pe Gerard
+PRO24(0)
+PRO25(0)
+PRO27(2)
+PRO30(0)
+#problemas_resueltos Gerard
+PRO23(1)
+PRO43(1)
+#lp
+PRO01(2,2,1)
+PRO04(1,1,1)
+PRO05(1,1,1)
+PRO06(1,1,1)
+PRO08(0,0,1)
+PRO10(1,1,1)
+PRO11(0,0,1)
+PRO13(0,0,1)
+PRO14(0,0,1)
+PRO15(0,0,1)
+PRO16(0,0,1)
+PRO17(0,0,1)
+PRO18(0,0,1)
+PRO19(0,0,1)
+PRO20(0,0,1)
+PRO21(0,0,1)
+PRO22(0,0,1)
+PRO23(1,1,1)
+PRO24(0,0,1)
+PRO25(0,0,1)
+PRO26(0,0,1)
+PRO28(0,0,1)
+PRO29(0,0,1)
+PRO30(0,0,1)
+PRO31(0,0,1)
+PRO32(0,0,1)
+PRO33(0,0,1)
+PRO34(0,0,1)
+PRO35(0,0,1)
+PRO36(0,0,1)
+PRO37(0,0,1)
+PRO38(0,0,1)
+PRO39(0,0,1)
+PRO40(0,0,1)
+PRO41(0,0,1)
+PRO42(0,0,1)
+PRO43(1,1,1)
+PRO44(0,0,1)
+PRO45(0,0,1)
+PRO46(0,0,1)
+PRO47(0,0,1)
+PRO48(0,0,1)
+PRO49(0,0,1)
+PRO50(0,0,1)
+PRO60(0,0,1)
+PRO03(2,1,1.5)
+PRO07(2,1,1.5)
+PRO09(2,1,1.5)
+PRO12(2,1,1.5)
+PRO02(5,2,2)
+PRO27(2,0,3)
+#escribir_usuario Nico
+Nico(12,9,9,3)
+#eu Gerard
+Gerard(4,2,3,4)
