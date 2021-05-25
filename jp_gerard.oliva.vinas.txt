@@ -1,0 +1,1146 @@
+(Entrada comentada)
+
+//Númerode problemes
+77
+SN0 SN1 SN2 SN3 SN4 SN5 SN6 SN7 SN8 SN9 SN10 SN11 SN15
+FDA ACF DEA ESFA HRSA SAMHSA EBSA TSA OSHA
+SAA FAA FMCSA FHA GSA
+NASA NCUA NHTSA CIA USAID EPA SBA FEMA AHRQ
+BTC XBT ETH XRP LTC MAID DASH DOGE XMR
+AUD GBP EUR JPY CHF USD AFN ALL DZD 
+AOA ARS AMD AWG ATS BEF AZN BSD 
+AD AT BE BM BW CA CC CZ EC EG ES FI
+GL GR GS
+
+//Número de sessions
+11
+starship SN0 SN1 SN2 0 0 SN3 0 0 SN4 SN5 0 0 0
+starshipV2 SN6 SN7 0 0 SN8 SN9 0 0 SN10 SN11 SN15 0 0 0 0
+BestCrypto BTC ETH 0 0 LTC 0 0
+Crypto XBT XRP 0 MAID 0 0 DASH XMR 0 0 DOGE 0 0
+AllCrypto BTC XBT XRP MAID 0 0 0 LTC 0 0 ETH DASH 0 0 DOGE 0 XMR 0 0
+divisas1 AUD 0 GBP EUR 0 0 JPY 0 0
+divisas2 CHF USD ALL 0 0 0 AFN DZD 0 0 AOA 0 0
+organizaciones1 FDA ACF ESFA TSA FAA 0 0 0 0 HRSA 0 0 DEA SAMHSA OSHA 0 0 0 EBSA 0 SAA 0 FMCSA 0 0
+organizaciones2 FHA GSA ESFA USAID TSA 0 0 0 0 CIA AHRQ 0 0 0 NASA 0 NCUA NHTSA SBA 0 0 0 EPA 0 FEMA 0 0
+nacions1 AD AT BW EG 0 0 0 0 BE 0 BM FI 0 0 GL 0 0
+nacions2 BW CA EC 0 0  ES 0 0 CC GR 0 0 CZ 0 GS 0 0
+
+//Número de cursos
+7
+2 starship starshipV2
+3 BestCrypto Crypto divisas1
+1 AllCrypto
+2 organizaciones1 nacions1
+2 organizaciones2 nacions2
+2 BestCrypto divisas2
+1 organizaciones2
+
+//Número de usuarios 
+4
+Astra
+Breach
+Cypher
+Jett
+
+//empiezo provando la función inscribir, de tal modo que de errores al inscribir, así como también pruevo el buean funcionamiento
+// de la función curso_usuario.
+i Pedri 1
+i Astra 9
+inscribir_curso Astra 1
+inscribir_curso Astra 2
+i Breach 2
+i Breach 7
+cu Cypher
+i Cypher 4
+i Jett 5
+i Cypher 4
+cu Jett
+i Jett 1
+curso_usuario Astra
+cu Breach
+inscribir_curso Messi 3
+cu Messi
+
+//Se comprueva que los problemas resueltos de algunos de los usuarios sean correctos en el momento de inscribirs en un curso por primera vez,
+//(los problemas resueltos de un usuario que se ha inscrito por primera vez a un curso, y que no ha realizado ningún envio correcto debe ser 0).
+problemas_resueltos Astra
+pr Pedri
+
+//se empieza a hacer envios correctos e incorrectos para provar el buen funcionamiento de la función envio, así como comprovar mediante problemas_resueltos, que los 
+//problemas correctos son los adecuados, además se haran envíos incorrectos, para también provar el buen funcionamiento de las funciones listar_problemas y escribir_problema.
+envio Astra SN0 0
+e Astra SN0 1
+pr Astra
+e Astra SN1 1
+e Astra SN2 1
+e Astra SN3 0
+e Astra SN6 1
+e Astra SN3 0
+e Astra SN3 1
+escribir_problema SN3
+e Astra SN7 0
+e Astra SN7 1
+envio Astra SN8 1
+e Astra SN4 1
+envio Astra SN5 1
+pr Astra
+e Astra SN10 1
+e Astra SN11 1
+e Astra SN15 1
+pr Astra
+e Astra SN9 1
+cu Astra
+pr Astra
+i Astra 3
+
+//se provara que ocurre en el caso en el que te intentes inscribir a un curso al cual ya tienes todos
+//los problemas resuelto, pero sin ser el mismo curso, y también el caso en que una sesión ya este realizada, pero las otras no.
+e Breach BTC 1
+e Breach ETH 1
+e Breach LTC 0
+e Breach LTC 1
+e Breach XBT 1
+e Breach XRP 1
+e Breach MAID 1
+e Breach DASH 1
+e Breach AUD 1
+e Breach GBP 0
+e Breach GBP 0
+e Breach GBP 1
+e Breach EUR 1
+e Breach JPY 1
+e Breach DOGE 0
+e Breach DOGE 1
+e Breach XMR 1
+pr Breach
+cu Breach
+
+//En esta primera parte se solucionaran los problemas de los cursos a los que estan inscritos tanto el usuario Cypher como Jett, enviando envios correctos,
+//e incorrecots para seguir provando el correcto funcionamiento de las estdísticas.
+
+e Cypher FDA 1
+e Cypher ACF 1
+e Cypher ESFA 1
+e Jett FHA 1
+e Jett GSA 0
+e Jett GSA 1
+e Jett ESFA 1
+e Jett CIA 1
+e Jett AHRQ 1
+e Jett USAID 1
+e Jett TSA 1
+e Cypher HRSA 1
+e Cypher TSA 1
+e Cypher FAA 1
+e Cypher DEA  1
+e Cypher SAMHSA 1
+e Cypher OSHA 1
+e Cypher EBSA 1
+e Cypher SAA 1
+e Cypher FMCSA 1
+e Jett NASA 1
+e Jett NCUA 1
+e Jett NHTSA 1
+e Jett EPA 1
+e Jett FEMA 1
+e Jett SBA 1
+e Cypher AD 1
+e Cypher AT 1
+e Cypher BW 1
+e Cypher EG 1
+e Cypher BE 1
+e Cypher BM 0
+e Cypher BM 1
+e Cypher FI 1
+e Cypher GL 1
+cu Cypher
+pr Cypher
+e Jett BW 1
+e Jett CA 0
+e Jett CA 0
+e Jett CA 1
+e Jett ES 1
+e Jett EC 1
+e Jett CC 1
+e Jett GR 1
+e Jett CZ 1
+envio Jett GS 1
+cu Jett
+
+//Prueva que pasa en el caso que una sesión ya este completada pero otra no.
+i Breach 6
+cu Breach
+e Breach CHF 1
+e Breach USD 1
+e Breach ALL 0
+e Breach ALL 1
+e Breach AFN 1
+e Breach DZD 1
+e Breach AOA 1
+cu Breach
+
+//Prueva que pasa cuando se inscribe a un curso donde ya hay problemas resueltos dentro del arbol de algunas de las sesiones que forman el curso.
+i Cypher 7
+e Cypher FHA 0
+e Cypher FHA 0
+e Cypher FHA 0
+e Cypher FHA 1
+e Cypher GSA 1
+e Cypher CIA 1
+e Cypher AHRQ 1
+e Cypher USAID 1
+e Cypher NASA 0
+e Cypher NASA 1
+e Cypher NCUA 1
+e Cypher NHTSA 1
+e Cypher SBA 1
+e Cypher EPA 1
+e Cypher FEMA 1
+cu Cypher
+pr Cypher 
+
+//Se comprueva que todos los problemas tiene las estdísticas correctas, tanto mediante listar_problemas como escribir_problema.
+ep NASA
+ep SN15
+ep SN13
+escribir_problema NCUA
+listar_problemas
+
+fin
+
+(Entrada sin comentar)
+
+77
+SN0 SN1 SN2 SN3 SN4 SN5 SN6 SN7 SN8 SN9 SN10 SN11 SN15
+FDA ACF DEA ESFA HRSA SAMHSA EBSA TSA OSHA
+SAA FAA FMCSA FHA GSA
+NASA NCUA NHTSA CIA USAID EPA SBA FEMA AHRQ
+BTC XBT ETH XRP LTC MAID DASH DOGE XMR
+AUD GBP EUR JPY CHF USD AFN ALL DZD 
+AOA ARS AMD AWG ATS BEF AZN BSD 
+AD AT BE BM BW CA CC CZ EC EG ES FI
+GL GR GS
+11
+starship SN0 SN1 SN2 0 0 SN3 0 0 SN4 SN5 0 0 0
+starshipV2 SN6 SN7 0 0 SN8 SN9 0 0 SN10 SN11 SN15 0 0 0 0
+BestCrypto BTC ETH 0 0 LTC 0 0
+Crypto XBT XRP 0 MAID 0 0 DASH XMR 0 0 DOGE 0 0
+AllCrypto BTC XBT XRP MAID 0 0 0 LTC 0 0 ETH DASH 0 0 DOGE 0 XMR 0 0
+divisas1 AUD 0 GBP EUR 0 0 JPY 0 0
+divisas2 CHF USD ALL 0 0 0 AFN DZD 0 0 AOA 0 0
+organizaciones1 FDA ACF ESFA TSA FAA 0 0 0 0 HRSA 0 0 DEA SAMHSA OSHA 0 0 0 EBSA 0 SAA 0 FMCSA 0 0
+organizaciones2 FHA GSA ESFA USAID TSA 0 0 0 0 CIA AHRQ 0 0 0 NASA 0 NCUA NHTSA SBA 0 0 0 EPA 0 FEMA 0 0
+nacions1 AD AT BW EG 0 0 0 0 BE 0 BM FI 0 0 GL 0 0
+nacions2 BW CA EC 0 0  ES 0 0 CC GR 0 0 CZ 0 GS 0 0
+7
+2 starship starshipV2
+3 BestCrypto Crypto divisas1
+1 AllCrypto
+2 organizaciones1 nacions1
+2 organizaciones2 nacions2
+2 BestCrypto divisas2
+1 organizaciones2
+4
+Astra
+Breach
+Cypher
+Jett
+i Pedri 1
+i Astra 9
+inscribir_curso Astra 1
+inscribir_curso Astra 2
+i Breach 2
+i Breach 7
+cu Cypher
+i Cypher 4
+i Jett 5
+i Cypher 4
+cu Jett
+i Jett 1
+curso_usuario Astra
+cu Breach
+inscribir_curso Messi 3
+cu Messi
+problemas_resueltos Astra
+pr Pedri
+envio Astra SN0 0
+e Astra SN0 1
+pr Astra
+e Astra SN1 1
+e Astra SN2 1
+e Astra SN3 0
+e Astra SN6 1
+e Astra SN3 0
+e Astra SN3 1
+escribir_problema SN3
+e Astra SN7 0
+e Astra SN7 1
+envio Astra SN8 1
+e Astra SN4 1
+envio Astra SN5 1
+pr Astra
+e Astra SN10 1
+e Astra SN11 1
+e Astra SN15 1
+pr Astra
+e Astra SN9 1
+cu Astra
+pr Astra
+i Astra 3
+e Breach BTC 1
+e Breach ETH 1
+e Breach LTC 0
+e Breach LTC 1
+e Breach XBT 1
+e Breach XRP 1
+e Breach MAID 1
+e Breach DASH 1
+e Breach AUD 1
+e Breach GBP 0
+e Breach GBP 0
+e Breach GBP 1
+e Breach EUR 1
+e Breach JPY 1
+e Breach DOGE 0
+e Breach DOGE 1
+e Breach XMR 1
+pr Breach
+cu Breach
+e Cypher FDA 1
+e Cypher ACF 1
+e Cypher ESFA 1
+e Jett FHA 1
+e Jett GSA 0
+e Jett GSA 1
+e Jett ESFA 1
+e Jett CIA 1
+e Jett AHRQ 1
+e Jett USAID 1
+e Jett TSA 1
+e Cypher HRSA 1
+e Cypher TSA 1
+e Cypher FAA 1
+e Cypher DEA  1
+e Cypher SAMHSA 1
+e Cypher OSHA 1
+e Cypher EBSA 1
+e Cypher SAA 1
+e Cypher FMCSA 1
+e Jett NASA 1
+e Jett NCUA 1
+e Jett NHTSA 1
+e Jett EPA 1
+e Jett FEMA 1
+e Jett SBA 1
+e Cypher AD 1
+e Cypher AT 1
+e Cypher BW 1
+e Cypher EG 1
+e Cypher BE 1
+e Cypher BM 0
+e Cypher BM 1
+e Cypher FI 1
+e Cypher GL 1
+cu Cypher
+pr Cypher
+e Jett BW 1
+e Jett CA 0
+e Jett CA 0
+e Jett CA 1
+e Jett ES 1
+e Jett EC 1
+e Jett CC 1
+e Jett GR 1
+e Jett CZ 1
+envio Jett GS 1
+cu Jett
+i Breach 6
+cu Breach
+e Breach CHF 1
+e Breach USD 1
+e Breach ALL 0
+e Breach ALL 1
+e Breach AFN 1
+e Breach DZD 1
+e Breach AOA 1
+cu Breach
+i Cypher 7
+e Cypher FHA 0
+e Cypher FHA 0
+e Cypher FHA 0
+e Cypher FHA 1
+e Cypher GSA 1
+e Cypher CIA 1
+e Cypher AHRQ 1
+e Cypher USAID 1
+e Cypher NASA 0
+e Cypher NASA 1
+e Cypher NCUA 1
+e Cypher NHTSA 1
+e Cypher SBA 1
+e Cypher EPA 1
+e Cypher FEMA 1
+cu Cypher
+pr Cypher 
+ep NASA
+ep SN15
+ep SN13
+escribir_problema NCUA
+listar_problemas
+fin
+
+(Salida comentada)
+
+//Se realizan las pruevas para testear que inscribir funcione de un modo correcto,
+//para hacerlo se intenta inscribir a usuarios que no existen, inscribir a un usuario que ya esta inscrito en un curso i a cursos que no existen,
+//para así ver que el output es el indicado.
+#i Pedri 1
+error: el usuario no existe
+#i Astra 9
+error: el curso no existe
+#inscribir_curso Astra 1
+1
+#inscribir_curso Astra 2
+error: usuario inscrito en otro curso
+#i Breach 2
+1
+#i Breach 7
+error: usuario inscrito en otro curso
+//Se prueva el buen funcionamiento de curso_usuario provando que pasa, 
+//en el caso que se pida el curso de un usuario que no esta inscrito a ningun curso.
+#cu Cypher
+0
+#i Cypher 4
+1
+#i Jett 5
+1
+#i Cypher 4
+error: usuario inscrito en otro curso
+#cu Jett
+5
+#i Jett 1
+error: usuario inscrito en otro curso
+#curso_usuario Astra
+1
+#cu Breach
+2
+#inscribir_curso Messi 3
+error: el usuario no existe
+//Aquí se prueva que pasa cuando pides el curso a que un usuario pertenece, 
+//si dicho usuario no esta registrado en el sistema.
+#cu Messi
+error: el usuario no existe
+//Se prueva que pasa cuando se pide los problemas resueltos de un usuario,
+//el cual no ha resuelto ningun problema, y el caso en que el usuario no exista.
+#problemas_resueltos Astra
+#pr Pedri
+error: el usuario no existe
+//Se empieza a prova el buen funcionamiento de la función envio, y que también la función
+//envio modifique en todos los casos todas las estadísticas de forma adecuada.
+#envio Astra SN0 0
+#e Astra SN0 1
+//Se prueva que devuelva de forma correcta los problemas resueltos hasta el momento de el usuario concreto.
+#pr Astra
+SN0(2)
+#e Astra SN1 1
+#e Astra SN2 1
+#e Astra SN3 0
+#e Astra SN6 1
+#e Astra SN3 0
+#e Astra SN3 1
+//Se prueva la función evio este modificando correctamente las estadísitcas de los problemas,
+//listando un problemas concreto para así poderlo comprovar.
+#escribir_problema SN3
+SN3(3,1,2)
+#e Astra SN7 0
+#e Astra SN7 1
+#envio Astra SN8 1
+#e Astra SN4 1
+#envio Astra SN5 1
+#pr Astra
+SN0(2)
+SN1(1)
+SN2(1)
+SN3(3)
+SN4(1)
+SN5(1)
+SN6(1)
+SN7(2)
+SN8(1)
+#e Astra SN10 1
+#e Astra SN11 1
+#e Astra SN15 1
+//Se vuelve a comprovar que hasta el momento haya todos los problemas que se han ido resolviendo de forma correcta,
+//así como que las estadísitcas de los problemas esten bien indicadas.
+#pr Astra
+SN0(2)
+SN1(1)
+SN10(1)
+SN11(1)
+SN15(1)
+SN2(1)
+SN3(3)
+SN4(1)
+SN5(1)
+SN6(1)
+SN7(2)
+SN8(1)
+#e Astra SN9 1
+//En este punto se ha finalizado un curso, y por tanto con el ultimo envio realizado,
+//la función envio tendría que haver desincrito al usuario del curso que ha terminado,
+//para provar que lo hace de forma correcta, se imprime en que curso esta inscrito el usuario.
+#cu Astra
+0
+#pr Astra
+SN0(2)
+SN1(1)
+SN10(1)
+SN11(1)
+SN15(1)
+SN2(1)
+SN3(3)
+SN4(1)
+SN5(1)
+SN6(1)
+SN7(2)
+SN8(1)
+SN9(1)
+//Por ultimmo se prueva que un usuario el cual tiene problemas resueltos, y que ya ha terminado un curso
+//puede inscribirse a un nuevo curso sin problemas.
+#i Astra 3
+1
+//Se pueva realizando todos los envíos de otro usuario que esta inscrito a otro curso diferente del primero,
+//que liste de forma adecuada los problemas resueltos, y que por ultimo una vez finalizado el curso,
+//el usuario ya no este inscrito al curso.
+#e Breach BTC 1
+#e Breach ETH 1
+#e Breach LTC 0
+#e Breach LTC 1
+#e Breach XBT 1
+#e Breach XRP 1
+#e Breach MAID 1
+#e Breach DASH 1
+#e Breach AUD 1
+#e Breach GBP 0
+#e Breach GBP 0
+#e Breach GBP 1
+#e Breach EUR 1
+#e Breach JPY 1
+#e Breach DOGE 0
+#e Breach DOGE 1
+#e Breach XMR 1
+//Se compruva que los problemas resuletos sean los correctos.
+#pr Breach
+AUD(1)
+BTC(1)
+DASH(1)
+DOGE(2)
+ETH(1)
+EUR(1)
+GBP(3)
+JPY(1)
+LTC(2)
+MAID(1)
+XBT(1)
+XMR(1)
+XRP(1)
+//Se comprueva que ya no esta inscrito a el curso que acaba de finalizar.
+#cu Breach
+0
+//Se prueva que se puede hacer envios a distintos usuarios de forma intermitente,
+//los cuales no esten inscritos en el mismo curso, y que las estadísitcas de cada usuario y de cada problema enviado se modifican de forma correcta.
+#e Cypher FDA 1
+#e Cypher ACF 1
+#e Cypher ESFA 1
+#e Jett FHA 1
+#e Jett GSA 0
+#e Jett GSA 1
+#e Jett ESFA 1
+#e Jett CIA 1
+#e Jett AHRQ 1
+#e Jett USAID 1
+#e Jett TSA 1
+#e Cypher HRSA 1
+#e Cypher TSA 1
+#e Cypher FAA 1
+#e Cypher DEA 1
+#e Cypher SAMHSA 1
+#e Cypher OSHA 1
+#e Cypher EBSA 1
+#e Cypher SAA 1
+#e Cypher FMCSA 1
+#e Jett NASA 1
+#e Jett NCUA 1
+#e Jett NHTSA 1
+#e Jett EPA 1
+#e Jett FEMA 1
+#e Jett SBA 1
+#e Cypher AD 1
+#e Cypher AT 1
+#e Cypher BW 1
+#e Cypher EG 1
+#e Cypher BE 1
+#e Cypher BM 0
+#e Cypher BM 1
+#e Cypher FI 1
+#e Cypher GL 1
+//El usuario cypher ha acabado el curso y se comprueva que ya no este inscrito al curso,
+//así como que tenga los problemas resueltos correspondientes.
+#cu Cypher
+0
+#pr Cypher
+ACF(1)
+AD(1)
+AT(1)
+BE(1)
+BM(2)
+BW(1)
+DEA(1)
+EBSA(1)
+EG(1)
+ESFA(1)
+FAA(1)
+FDA(1)
+FI(1)
+FMCSA(1)
+GL(1)
+HRSA(1)
+OSHA(1)
+SAA(1)
+SAMHSA(1)
+TSA(1)
+//Se continua haciendo envios al usuario Jett, después de haver acabado
+//el curso del usuario Cypher.
+#e Jett BW 1
+#e Jett CA 0
+#e Jett CA 0
+#e Jett CA 1
+#e Jett ES 1
+#e Jett EC 1
+#e Jett CC 1
+#e Jett GR 1
+#e Jett CZ 1
+#envio Jett GS 1
+//El usuario Jett acaba el curso y se comprueva que ya no este inscrita en el curso.
+#cu Jett
+0
+//Se vuelve a inscribir a un usuario a un curso y comprovar que se inscribe correctamente, así como
+//que cuando termina el curso, se desinscribe de forma adecuada.
+#i Breach 6
+1
+#cu Breach
+6
+#e Breach CHF 1
+#e Breach USD 1
+#e Breach ALL 0
+#e Breach ALL 1
+#e Breach AFN 1
+#e Breach DZD 1
+#e Breach AOA 1
+#cu Breach
+0
+//Se inscribe al usuario Cypher a un curso, el cual tiene sesiones, que estan formada
+//por problemas que Cypher ya ha resuelto, y por tanto que en dichos casos realize bien los envíos
+//saltandose aqellos problemas que ya esten resueltos.
+#i Cypher 7
+1
+#e Cypher FHA 0
+#e Cypher FHA 0
+#e Cypher FHA 0
+#e Cypher FHA 1
+#e Cypher GSA 1
+#e Cypher CIA 1
+#e Cypher AHRQ 1
+#e Cypher USAID 1
+#e Cypher NASA 0
+#e Cypher NASA 1
+#e Cypher NCUA 1
+#e Cypher NHTSA 1
+#e Cypher SBA 1
+#e Cypher EPA 1
+#e Cypher FEMA 1
+//Se comprueva que el usuario ha terminado el curso de forma adecuada.
+#cu Cypher
+0
+//Se comprueva que que el usuario Cypher tenga en el el la lista de problemas resueltos
+//los problemas correctos.
+#pr Cypher
+ACF(1)
+AD(1)
+AHRQ(1)
+AT(1)
+BE(1)
+BM(2)
+BW(1)
+CIA(1)
+DEA(1)
+EBSA(1)
+EG(1)
+EPA(1)
+ESFA(1)
+FAA(1)
+FDA(1)
+FEMA(1)
+FHA(4)
+FI(1)
+FMCSA(1)
+GL(1)
+GSA(1)
+HRSA(1)
+NASA(2)
+NCUA(1)
+NHTSA(1)
+OSHA(1)
+SAA(1)
+SAMHSA(1)
+SBA(1)
+TSA(1)
+USAID(1)
+//Se comprueva que al escribir un problema al que se la han realizado envios
+//que las estadísticas sean las adecuadas, y que también se listen las estadísitcas
+//que sean decimales de forma correcta.
+#ep NASA
+NASA(3,2,1.33333)
+#ep SN15
+SN15(1,1,1)
+//Se prueva a que cuando se intenta escribir un programa que no existe
+//que de el error correspondiente.
+#ep SN13
+error: el problema no existe
+#escribir_problema NCUA
+NCUA(2,2,1)
+//Por último se hace un listar problemas para comprovar que los problemas se listan de forma 
+//adecuada (que se impriman en el orden adecuado, primero por la ratio, y en caso de empate de forma alfabética) 
+//así como que muestran las estadísticas correctas.
+#listar_problemas
+ACF(1,1,1)
+AD(1,1,1)
+AFN(1,1,1)
+AHRQ(2,2,1)
+AMD(0,0,1)
+AOA(1,1,1)
+ARS(0,0,1)
+AT(1,1,1)
+ATS(0,0,1)
+AUD(1,1,1)
+AWG(0,0,1)
+AZN(0,0,1)
+BE(1,1,1)
+BEF(0,0,1)
+BSD(0,0,1)
+BTC(1,1,1)
+BW(2,2,1)
+CC(1,1,1)
+CHF(1,1,1)
+CIA(2,2,1)
+CZ(1,1,1)
+DASH(1,1,1)
+DEA(1,1,1)
+DZD(1,1,1)
+EBSA(1,1,1)
+EC(1,1,1)
+EG(1,1,1)
+EPA(2,2,1)
+ES(1,1,1)
+ESFA(2,2,1)
+ETH(1,1,1)
+EUR(1,1,1)
+FAA(1,1,1)
+FDA(1,1,1)
+FEMA(2,2,1)
+FI(1,1,1)
+FMCSA(1,1,1)
+GL(1,1,1)
+GR(1,1,1)
+GS(1,1,1)
+HRSA(1,1,1)
+JPY(1,1,1)
+MAID(1,1,1)
+NCUA(2,2,1)
+NHTSA(2,2,1)
+OSHA(1,1,1)
+SAA(1,1,1)
+SAMHSA(1,1,1)
+SBA(2,2,1)
+SN1(1,1,1)
+SN10(1,1,1)
+SN11(1,1,1)
+SN15(1,1,1)
+SN2(1,1,1)
+SN4(1,1,1)
+SN5(1,1,1)
+SN6(1,1,1)
+SN8(1,1,1)
+SN9(1,1,1)
+TSA(2,2,1)
+USAID(2,2,1)
+USD(1,1,1)
+XBT(1,1,1)
+XMR(1,1,1)
+XRP(1,1,1)
+GSA(3,2,1.33333)
+NASA(3,2,1.33333)
+ALL(2,1,1.5)
+BM(2,1,1.5)
+DOGE(2,1,1.5)
+LTC(2,1,1.5)
+SN0(2,1,1.5)
+SN7(2,1,1.5)
+CA(3,1,2)
+FHA(5,2,2)
+GBP(3,1,2)
+SN3(3,1,2)
+
+(Salida sin comentar)
+
+#i Pedri 1
+error: el usuario no existe
+#i Astra 9
+error: el curso no existe
+#inscribir_curso Astra 1
+1
+#inscribir_curso Astra 2
+error: usuario inscrito en otro curso
+#i Breach 2
+1
+#i Breach 7
+error: usuario inscrito en otro curso
+#cu Cypher
+0
+#i Cypher 4
+1
+#i Jett 5
+1
+#i Cypher 4
+error: usuario inscrito en otro curso
+#cu Jett
+5
+#i Jett 1
+error: usuario inscrito en otro curso
+#curso_usuario Astra
+1
+#cu Breach
+2
+#inscribir_curso Messi 3
+error: el usuario no existe
+#cu Messi
+error: el usuario no existe
+#problemas_resueltos Astra
+#pr Pedri
+error: el usuario no existe
+#envio Astra SN0 0
+#e Astra SN0 1
+#pr Astra
+SN0(2)
+#e Astra SN1 1
+#e Astra SN2 1
+#e Astra SN3 0
+#e Astra SN6 1
+#e Astra SN3 0
+#e Astra SN3 1
+#escribir_problema SN3
+SN3(3,1,2)
+#e Astra SN7 0
+#e Astra SN7 1
+#envio Astra SN8 1
+#e Astra SN4 1
+#envio Astra SN5 1
+#pr Astra
+SN0(2)
+SN1(1)
+SN2(1)
+SN3(3)
+SN4(1)
+SN5(1)
+SN6(1)
+SN7(2)
+SN8(1)
+#e Astra SN10 1
+#e Astra SN11 1
+#e Astra SN15 1
+#pr Astra
+SN0(2)
+SN1(1)
+SN10(1)
+SN11(1)
+SN15(1)
+SN2(1)
+SN3(3)
+SN4(1)
+SN5(1)
+SN6(1)
+SN7(2)
+SN8(1)
+#e Astra SN9 1
+#cu Astra
+0
+#pr Astra
+SN0(2)
+SN1(1)
+SN10(1)
+SN11(1)
+SN15(1)
+SN2(1)
+SN3(3)
+SN4(1)
+SN5(1)
+SN6(1)
+SN7(2)
+SN8(1)
+SN9(1)
+#i Astra 3
+1
+#e Breach BTC 1
+#e Breach ETH 1
+#e Breach LTC 0
+#e Breach LTC 1
+#e Breach XBT 1
+#e Breach XRP 1
+#e Breach MAID 1
+#e Breach DASH 1
+#e Breach AUD 1
+#e Breach GBP 0
+#e Breach GBP 0
+#e Breach GBP 1
+#e Breach EUR 1
+#e Breach JPY 1
+#e Breach DOGE 0
+#e Breach DOGE 1
+#e Breach XMR 1
+#pr Breach
+AUD(1)
+BTC(1)
+DASH(1)
+DOGE(2)
+ETH(1)
+EUR(1)
+GBP(3)
+JPY(1)
+LTC(2)
+MAID(1)
+XBT(1)
+XMR(1)
+XRP(1)
+#cu Breach
+0
+#e Cypher FDA 1
+#e Cypher ACF 1
+#e Cypher ESFA 1
+#e Jett FHA 1
+#e Jett GSA 0
+#e Jett GSA 1
+#e Jett ESFA 1
+#e Jett CIA 1
+#e Jett AHRQ 1
+#e Jett USAID 1
+#e Jett TSA 1
+#e Cypher HRSA 1
+#e Cypher TSA 1
+#e Cypher FAA 1
+#e Cypher DEA 1
+#e Cypher SAMHSA 1
+#e Cypher OSHA 1
+#e Cypher EBSA 1
+#e Cypher SAA 1
+#e Cypher FMCSA 1
+#e Jett NASA 1
+#e Jett NCUA 1
+#e Jett NHTSA 1
+#e Jett EPA 1
+#e Jett FEMA 1
+#e Jett SBA 1
+#e Cypher AD 1
+#e Cypher AT 1
+#e Cypher BW 1
+#e Cypher EG 1
+#e Cypher BE 1
+#e Cypher BM 0
+#e Cypher BM 1
+#e Cypher FI 1
+#e Cypher GL 1
+#cu Cypher
+0
+#pr Cypher
+ACF(1)
+AD(1)
+AT(1)
+BE(1)
+BM(2)
+BW(1)
+DEA(1)
+EBSA(1)
+EG(1)
+ESFA(1)
+FAA(1)
+FDA(1)
+FI(1)
+FMCSA(1)
+GL(1)
+HRSA(1)
+OSHA(1)
+SAA(1)
+SAMHSA(1)
+TSA(1)
+#e Jett BW 1
+#e Jett CA 0
+#e Jett CA 0
+#e Jett CA 1
+#e Jett ES 1
+#e Jett EC 1
+#e Jett CC 1
+#e Jett GR 1
+#e Jett CZ 1
+#envio Jett GS 1
+#cu Jett
+0
+#i Breach 6
+1
+#cu Breach
+6
+#e Breach CHF 1
+#e Breach USD 1
+#e Breach ALL 0
+#e Breach ALL 1
+#e Breach AFN 1
+#e Breach DZD 1
+#e Breach AOA 1
+#cu Breach
+0
+#i Cypher 7
+1
+#e Cypher FHA 0
+#e Cypher FHA 0
+#e Cypher FHA 0
+#e Cypher FHA 1
+#e Cypher GSA 1
+#e Cypher CIA 1
+#e Cypher AHRQ 1
+#e Cypher USAID 1
+#e Cypher NASA 0
+#e Cypher NASA 1
+#e Cypher NCUA 1
+#e Cypher NHTSA 1
+#e Cypher SBA 1
+#e Cypher EPA 1
+#e Cypher FEMA 1
+#cu Cypher
+0
+#pr Cypher
+ACF(1)
+AD(1)
+AHRQ(1)
+AT(1)
+BE(1)
+BM(2)
+BW(1)
+CIA(1)
+DEA(1)
+EBSA(1)
+EG(1)
+EPA(1)
+ESFA(1)
+FAA(1)
+FDA(1)
+FEMA(1)
+FHA(4)
+FI(1)
+FMCSA(1)
+GL(1)
+GSA(1)
+HRSA(1)
+NASA(2)
+NCUA(1)
+NHTSA(1)
+OSHA(1)
+SAA(1)
+SAMHSA(1)
+SBA(1)
+TSA(1)
+USAID(1)
+#ep NASA
+NASA(3,2,1.33333)
+#ep SN15
+SN15(1,1,1)
+#ep SN13
+error: el problema no existe
+#escribir_problema NCUA
+NCUA(2,2,1)
+#listar_problemas
+ACF(1,1,1)
+AD(1,1,1)
+AFN(1,1,1)
+AHRQ(2,2,1)
+AMD(0,0,1)
+AOA(1,1,1)
+ARS(0,0,1)
+AT(1,1,1)
+ATS(0,0,1)
+AUD(1,1,1)
+AWG(0,0,1)
+AZN(0,0,1)
+BE(1,1,1)
+BEF(0,0,1)
+BSD(0,0,1)
+BTC(1,1,1)
+BW(2,2,1)
+CC(1,1,1)
+CHF(1,1,1)
+CIA(2,2,1)
+CZ(1,1,1)
+DASH(1,1,1)
+DEA(1,1,1)
+DZD(1,1,1)
+EBSA(1,1,1)
+EC(1,1,1)
+EG(1,1,1)
+EPA(2,2,1)
+ES(1,1,1)
+ESFA(2,2,1)
+ETH(1,1,1)
+EUR(1,1,1)
+FAA(1,1,1)
+FDA(1,1,1)
+FEMA(2,2,1)
+FI(1,1,1)
+FMCSA(1,1,1)
+GL(1,1,1)
+GR(1,1,1)
+GS(1,1,1)
+HRSA(1,1,1)
+JPY(1,1,1)
+MAID(1,1,1)
+NCUA(2,2,1)
+NHTSA(2,2,1)
+OSHA(1,1,1)
+SAA(1,1,1)
+SAMHSA(1,1,1)
+SBA(2,2,1)
+SN1(1,1,1)
+SN10(1,1,1)
+SN11(1,1,1)
+SN15(1,1,1)
+SN2(1,1,1)
+SN4(1,1,1)
+SN5(1,1,1)
+SN6(1,1,1)
+SN8(1,1,1)
+SN9(1,1,1)
+TSA(2,2,1)
+USAID(2,2,1)
+USD(1,1,1)
+XBT(1,1,1)
+XMR(1,1,1)
+XRP(1,1,1)
+GSA(3,2,1.33333)
+NASA(3,2,1.33333)
+ALL(2,1,1.5)
+BM(2,1,1.5)
+DOGE(2,1,1.5)
+LTC(2,1,1.5)
+SN0(2,1,1.5)
+SN7(2,1,1.5)
+CA(3,1,2)
+FHA(5,2,2)
+GBP(3,1,2)
+SN3(3,1,2)

@@ -1,3 +1,7 @@
+/** @file Problema.cc
+    @brief Código de la clase Problema
+*/
+
 #include "Problema.hh"
 
 Problema::Problema(){
@@ -8,19 +12,6 @@ Problema::Problema(){
 Problema::Problema(const Problema& p){
     env_correctos=p.env_correctos;
     env_totales=p.env_totales;
-}
-
-void Problema::modificar(int correctos, int totales){
-    env_correctos=correctos;
-    env_totales=totales;
-}
-
-void Problema::modificar_correctos(int correctos){
-    env_correctos=correctos;
-}
-
-void Problema::modificar_totales(int totales){
-    env_totales=totales;
 }
 
 void Problema::incrementar_correctos(){

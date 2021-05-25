@@ -1,3 +1,7 @@
+/** @file Usuari.cc
+    @brief Código de la clase Usuari
+*/
+
 #include "Usuari.hh"
 
     Usuari::Usuari(){
@@ -6,23 +10,21 @@
         curso_inscrito=0;
     }
 
-    void Usuari::modificar_numero_envios(int num){
-        env_totales=num;
-    }
-
     void Usuari::afegir_problema_intentado(const string id){
         problemas_intentados.insert(id);
     }
 
-    void Usuari::afegir_problema_resuelto(const string id, const int num){
-        problemas_resueltos.insert(pair<string,int>(id,num));
+    void Usuari::afegir_problema_resuelto(string id) {
+        map<string,int>::iterator it=problemas_enviables.find(id);
+        problemas_resueltos.insert(pair<string,int>(id,(*it).second));
+        problemas_enviables.erase(id);
     }
 
     void Usuari::afegir_problema_enviable(const string id) {
         problemas_enviables.insert(pair<string,int>(id,0));
     }
 
-    void Usuari::suprimir_problema_enviable(const string id) {
+    void Usuari::suprimir_problema_enviable(string id) {
         problemas_enviables.erase(id);
     }
 
@@ -30,15 +32,12 @@
         ++problemas_enviables[id];
     }
 
-    void Usuari::inscribir_curso(int c, const list<string>& l){
+    void Usuari::inscribir_curso(int c){
         inscrito_en_curso=true;
         curso_inscrito = c;
-        for(list<string>::const_iterator it=l.begin(); it!=l.end(); ++it){
-            problemas_enviables.insert(pair<string,int>((*it),0));
-        }
     }
 
-    bool Usuari::consultar_problema_enviable(string p){
+    bool Usuari::consultar_problema_enviable(string p)const{
         if(problemas_enviables.count(p)==1) return true;
         else return false;
     }
@@ -59,7 +58,7 @@
         return inscrito_en_curso;
     }
 
-    int Usuari::cusro_inscrito(){
+    int Usuari::cusro_inscrito()const{
         return curso_inscrito;
     }
 
@@ -75,4 +74,30 @@
             cout << (*it).first;
             cout << "(" << (*it).second << ")" << endl;
         }
+    }
+
+    void Usuari::aumentar_numero_envios() {
+        ++env_totales;
+    }
+
+    int Usuari::consultar_num_enviables() const {
+        return problemas_enviables.size();
+    }
+
+    void Usuari::modificar_inscrito_en_curso(bool s) {
+        inscrito_en_curso=s;
+    }
+
+    void Usuari::curso_acabado(){
+        inscrito_en_curso=false;
+        curso_inscrito=0;
+    }
+
+    int Usuari::mida_problemas_resueltos() const{
+        return problemas_resueltos.size();
+    }
+
+    bool Usuari::consultar_problema_resuelto(string p) const{
+        if(problemas_resueltos.count(p)==1) return true;
+        else return false;
     }

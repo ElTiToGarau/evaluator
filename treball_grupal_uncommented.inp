@@ -1,0 +1,178 @@
+77
+SN0 SN1 SN2 SN3 SN4 SN5 SN6 SN7 SN8 SN9 SN10 SN11 SN15
+FDA ACF DEA ESFA HRSA SAMHSA EBSA TSA OSHA
+SAA FAA FMCSA FHA GSA
+NASA NCUA NHTSA CIA USAID EPA SBA FEMA AHRQ
+BTC XBT ETH XRP LTC MAID DASH DOGE XMR
+AUD GBP EUR JPY CHF USD AFN ALL DZD 
+AOA ARS AMD AWG ATS BEF AZN BSD 
+AD AT BE BM BW CA CC CZ EC EG ES FI
+GL GR GS
+11
+starship SN0 SN1 SN2 0 0 SN3 0 0 SN4 SN5 0 0 0
+starshipV2 SN6 SN7 0 0 SN8 SN9 0 0 SN10 SN11 SN15 0 0 0 0
+BestCrypto BTC ETH 0 0 LTC 0 0
+Crypto XBT XRP 0 MAID 0 0 DASH XMR 0 0 DOGE 0 0
+AllCrypto BTC XBT XRP MAID 0 0 0 LTC 0 0 ETH DASH 0 0 DOGE 0 XMR 0 0
+divisas1 AUD 0 GBP EUR 0 0 JPY 0 0
+divisas2 CHF USD ALL 0 0 0 AFN DZD 0 0 AOA 0 0
+organizaciones1 FDA ACF ESFA TSA FAA 0 0 0 0 HRSA 0 0 DEA SAMHSA OSHA 0 0 0 EBSA 0 SAA 0 FMCSA 0 0
+organizaciones2 FHA GSA ESFA USAID TSA 0 0 0 0 CIA AHRQ 0 0 0 NASA 0 NCUA NHTSA SBA 0 0 0 EPA 0 FEMA 0 0
+nacions1 AD AT BW EG 0 0 0 0 BE 0 BM FI 0 0 GL 0 0
+nacions2 BW CA EC 0 0  ES 0 0 CC GR 0 0 CZ 0 GS 0 0
+7
+2 starship starshipV2
+3 BestCrypto Crypto divisas1
+1 AllCrypto
+2 organizaciones1 nacions1
+2 organizaciones2 nacions2
+2 BestCrypto divisas2
+1 organizaciones2
+4
+Astra
+Breach
+Cypher
+Jett
+i Pedri 1
+i Astra 9
+inscribir_curso Astra 1
+inscribir_curso Astra 2
+i Breach 2
+i Breach 7
+cu Cypher
+i Cypher 4
+i Jett 5
+i Cypher 4
+cu Jett
+i Jett 1
+curso_usuario Astra
+cu Breach
+inscribir_curso Messi 3
+cu Messi
+problemas_resueltos Astra
+pr Pedri
+envio Astra SN0 0
+e Astra SN0 1
+pr Astra
+e Astra SN1 1
+e Astra SN2 1
+e Astra SN3 0
+e Astra SN6 1
+e Astra SN3 0
+e Astra SN3 1
+escribir_problema SN3
+e Astra SN7 0
+e Astra SN7 1
+envio Astra SN8 1
+e Astra SN4 1
+envio Astra SN5 1
+pr Astra
+e Astra SN10 1
+e Astra SN11 1
+e Astra SN15 1
+pr Astra
+e Astra SN9 1
+cu Astra
+pr Astra
+i Astra 3
+e Breach BTC 1
+e Breach ETH 1
+e Breach LTC 0
+e Breach LTC 1
+e Breach XBT 1
+e Breach XRP 1
+e Breach MAID 1
+e Breach DASH 1
+e Breach AUD 1
+e Breach GBP 0
+e Breach GBP 0
+e Breach GBP 1
+e Breach EUR 1
+e Breach JPY 1
+e Breach DOGE 0
+e Breach DOGE 1
+e Breach XMR 1
+pr Breach
+cu Breach
+e Cypher FDA 1
+e Cypher ACF 1
+e Cypher ESFA 1
+e Jett FHA 1
+e Jett GSA 0
+e Jett GSA 1
+e Jett ESFA 1
+e Jett CIA 1
+e Jett AHRQ 1
+e Jett USAID 1
+e Jett TSA 1
+e Cypher HRSA 1
+e Cypher TSA 1
+e Cypher FAA 1
+e Cypher DEA  1
+e Cypher SAMHSA 1
+e Cypher OSHA 1
+e Cypher EBSA 1
+e Cypher SAA 1
+e Cypher FMCSA 1
+e Jett NASA 1
+e Jett NCUA 1
+e Jett NHTSA 1
+e Jett EPA 1
+e Jett FEMA 1
+e Jett SBA 1
+e Cypher AD 1
+e Cypher AT 1
+e Cypher BW 1
+e Cypher EG 1
+e Cypher BE 1
+e Cypher BM 0
+e Cypher BM 1
+e Cypher FI 1
+e Cypher GL 1
+cu Cypher
+pr Cypher
+e Jett BW 1
+e Jett CA 0
+e Jett CA 0
+e Jett CA 1
+e Jett ES 1
+e Jett EC 1
+e Jett CC 1
+e Jett GR 1
+e Jett CZ 1
+envio Jett GS 1
+cu Jett
+i Breach 6
+cu Breach
+e Breach CHF 1
+e Breach USD 1
+e Breach ALL 0
+e Breach ALL 1
+e Breach AFN 1
+e Breach DZD 1
+e Breach AOA 1
+cu Breach
+i Cypher 7
+e Cypher FHA 0
+e Cypher FHA 0
+e Cypher FHA 0
+e Cypher FHA 1
+e Cypher GSA 1
+e Cypher CIA 1
+e Cypher AHRQ 1
+e Cypher USAID 1
+e Cypher NASA 0
+e Cypher NASA 1
+e Cypher NCUA 1
+e Cypher NHTSA 1
+e Cypher SBA 1
+e Cypher EPA 1
+e Cypher FEMA 1
+cu Cypher
+pr Cypher 
+ep NASA
+ep SN15
+ep SN13
+escribir_problema NCUA
+listar_problemas
+fin

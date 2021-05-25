@@ -22,7 +22,7 @@ public:
 
       Se ejecuta automáticamente al declarar un problema.
       \pre <em>cierto</em>
-      \post El resultado es un problema con identificador igual a cero, número de envíos totales igual a cero y número de envíos correctos igual a cero.
+      \post El resultado es un problema sin inicializar.
   */   
   Problema();
 
@@ -33,24 +33,6 @@ public:
   Problema(const Problema& p);
   
   //Modificadoras
-
-    /** @brief Modifica los valores de número total de envíos y número correcto de envíos.
-      \pre Número total de envíos >= número correcto de envíos y totales >= correctos.
-      \post El parámetro implícito pasa a tener total de envíos "totales", y número correcto de envíos "correctos".
-  */   
-  void modificar(int correctos, int totales);
-  
-    /** @brief Modifica el valor de envíos correctos.
-      \pre Número total de envíos >= número correcto de envíos.
-      \post El parámetro implícito pasa a tener número correcto de envíos "correctos".
-  */   
-  void modificar_correctos(int correctos);
-
-    /** @brief Modifica el valor de total de envíos.
-      \pre Número total de envíos >= número correcto de envíos.
-      \post El parámetro implícito pasa a tener total de envíos "totales".
-  */   
-  void modificar_totales(int totales);
 
   /** @brief Incrementa en 1 el número total de envíos.
       \pre Número total de envíos >= número correcto de envíos.
@@ -81,7 +63,9 @@ public:
   //Escritura y lectura de Problema
 
 private:
+    /** @brief Número de envíos totales al problema */
     int env_totales;
+    /** @brief Número de envíos correctos al problema */
     int env_correctos;
 };
 

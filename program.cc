@@ -1,4 +1,11 @@
-/** @file main.cc
+/**
+ * @author Gerard Oliva Viñas
+ * @mainpage 
+ * Practica de Gerard Oliva Viñas, completando el proyecto EVALUATOR.
+ * La implementación del programa principa se encuentra en program.cc.
+ */
+
+/** @file program.cc
     @brief Programa principal d'EVALUATOR <em>Plataforma de gestión de problemas i cursos de programación</em>.
 */
 
@@ -17,22 +24,18 @@ using namespace std;
 #include "Cursos.hh"
 
 int main() {
-    Problemas conjunt_problemes;
+    Problemas conjunt_problemes; //Se inicializan todos los conjunto como conjuntos vacíos.
     Usuarios conjunto_usuarios;
     Sesiones conjunto_sesiones;
     Cursos conjunto_cursos;
-    int P,Q,N,M;
-    cin >> P;
-    conjunt_problemes.leer(P);
-    cin >> Q;
-    conjunto_sesiones.leer(Q);
-    cin >> N;
-    conjunto_cursos.leer(N);
-    cin >> M;
-    conjunto_usuarios.leer(M);
+    conjunt_problemes.leer(); //Se lee cada conjunto para inicializarlos a los valores correctos de entrada.
+    conjunto_sesiones.leer();
+    conjunto_cursos.leer(conjunto_sesiones);
+    conjunto_usuarios.leer();
     string comando;
-    cin >> comando;
+    cin >> comando; //Se lee el comando que se queire ejecutar.
     while(comando != "fin"){
+        //Cada <em>if</em> representa un comando, con su codigo correspondiente para poder realizar dicho comando.
         if(comando == "nuevo_problema" or comando == "np"){
             cout << "#" << comando;
             string id;
@@ -57,18 +60,18 @@ int main() {
             }
             else cout << "error: la sesion ya existe" << endl;
         }
-        /*
         else if(comando == "nuevo_curso" or comando == "nc"){
+            cout << "#" << comando << endl;
             int s;
             cin >> s;
             Curso c;
-            if(c.leer(s)){
+            c.leer(s);
+            if(conjunto_sesiones.poner_problemas_sesion(c)){
                 conjunto_cursos.afegir_curso(c);
                 cout << conjunto_cursos.num_cursos() << endl;
             }
-            else cout << "Hay uno o más problemas que se repiten en el curso!" << endl;
+            else cout << "error: curso mal formado" << endl;
         }
-        */
         else if(comando == "alta_usuario" or comando == "a"){
             cout << "#" << comando;
             string id;
@@ -105,10 +108,7 @@ int main() {
             if(conjunto_usuarios.existe_usuarios(id)){
                 if(conjunto_cursos.existe_curso(c)){
                     if(not conjunto_usuarios.consultar_incscrito_curso(id)){
-                        list<string> S = conjunto_cursos.lista_sesiones(c);
-                        list<string> P = conjunto_sesiones.problemas_raiz(S);
-                        conjunto_usuarios.inscribir_usuario_curso(id,c,P);
-                        conjunto_cursos.incrementar_usuarios_inscritos(c);
+                        conjunto_usuarios.inscribir_usuario_curso(conjunto_cursos,conjunto_sesiones,id,c);
                         cout << conjunto_cursos.consultar_num_usuarios(c) << endl;
                     }
                     else cout << "error: usuario inscrito en otro curso" << endl;
@@ -139,8 +139,7 @@ int main() {
             cout << " " << c << " " << p << endl;
             if(conjunto_cursos.existe_curso(c)){
                 if(conjunt_problemes.existe_problema(p)){
-                    list<string> L = conjunto_cursos.lista_sesiones(c);
-                    string ses = conjunto_sesiones.existe_problema(L,p);
+                    string ses = conjunto_cursos.devolver_sesion_especifica(p,c);
                     if(ses!="0"){
                         cout << ses << endl;
                     }
@@ -173,28 +172,21 @@ int main() {
             }
             else cout << "error: el usuario no existe" << endl;
         }
-        /*
         else if(comando == "envio" or comando == "e"){
             string id;
             cin >> id;
-            if(conjunto_usuarios.existe_usuarios(id) and conjunto_usuarios.consultar_incscrito_curso(id)){
-                string p;
-                cin >> p;
-                int curs;
-                curs = conjunto_usuarios.curso_usuario(id);
-                if(conjunto_cursos.existe_problema_en_curso(curs,id)){
-                    if(conjunto_usuarios.problema_enviable(id,p)){
-                        int r;
-                        cin >> r;
-                        conjunto_usuarios.comprovar_resultado(id,p,r);
-                    }
-                    else cout << "El problema no es enviable por el usuario." << endl;
-                }
-                cout << "El problema a enviar no forma parte del curso en el que esta inscrito el usuario." << endl;
+            string p;
+            cin >> p;
+            int r;
+            cin >> r;
+            cout << "#" << comando << " " << id << " " << p << " " << r << endl;
+            int c = conjunto_usuarios.curso_usuario(id);
+            conjunto_usuarios.enivio_problema(r,id,p,conjunto_cursos.devolver_sesion_especifica(p,conjunto_usuarios.curso_usuario(id)),conjunt_problemes,conjunto_sesiones);
+            if(not conjunto_usuarios.consultar_incscrito_curso(id)){
+                conjunto_cursos.decrementar_usuarios_inscritos(c);
+                conjunto_cursos.incrementar_veces_resuelto(c);
             }
-            cout << "El usuaio introducido o no existe o no esta inscrito a ningún curso." << endl;
         }
-        */
         else if(comando == "listar_problemas" or comando == "lp"){
             cout << "#" << comando;
             cout << endl;
@@ -255,6 +247,7 @@ int main() {
             }
             else cout << "error: el usuario no existe" << endl;
         }
+        //Por último se lee el siguiente que se quiere realizar, en caso que el comando sea <em>fin</em> el programa finaliza.
         cin >> comando;
     }
 }

@@ -12,7 +12,7 @@ using namespace std;
 #include <iostream>
 #endif 
 
-#include "Sesion.hh"
+#include "Sesiones.hh"
 #include "Curso.hh"
 
     /** @class Cursos
@@ -21,15 +21,16 @@ using namespace std;
 class Cursos
 {
 private:
+    /** @brief  Conjunto de cursos */
     vector<Curso> list_cursos;
 
 public:
     //Constructoras
     /** @brief Creadora por defecto. 
 
-        Se ejecuta automáticamente al declarar un problema.
+        Se ejecuta automáticamente al declarar un conjunto de cursos.
         \pre <em>cierto</em>
-        \post El resultado es un map de cursos vacío, con id igual a "0" y con N = 0.
+        \post El resultado es un conjunto de cursos sin inicializar.
     */
     Cursos();
 
@@ -58,7 +59,20 @@ public:
     */
     void decrementar_usuarios_inscritos(int c);
 
+    /** @brief Modifica el curso pasado por parametro y devuelve el curso de conjunto de cursos. 
+        \pre <em>cierto</em>
+        \post Se modifica el curso pasado por parametro, y se guarda el curso identificado por c del conjunto de usuarios en el usuario pasado por referencia.
+    */
+    void devolver_curso(Curso& curs, int c);
+
     //Consultoras
+
+    /** @brief Devuelve el nombre de la sesión que ocupa la posición i dentro del conjunto de sesiones que forma el curso.
+        \pre <em>cierto</em>
+        \post El resultado es la sesión que esta en la posición i del conjunto de sesiones del curso.
+    */
+    string devolver_sesion_especifica(string id, int curs) const;
+
     /** @brief Consulta el número de sesiones que existen
         \pre <em>cierto</em>
         \post El resultado es el número de sesiones que hay en total.
@@ -69,24 +83,18 @@ public:
         \pre <em>cierto</em>
         \post El resultado es el true si existe una sesión con identificador id, y false si no exsite.
     */
-    bool existe_curso(int id);
-
-    /** @brief Devuelve una lista con las sesiones que tiene el curso c
-        \pre <em>cierto</em>
-        \post El resultado es una lista con las sesiones que tiene el curso c.
-    */
-    list<string> lista_sesiones(int c);
+    bool existe_curso(int id)const;
 
     /** @brief Consulta el número de usuarios inscritos en el curso <em>c</em>. 
         \pre Tiene que existir el curso c.
         \post El resultado es el número de usuarios inscritos en el curso <em>c</em>.
     */
-    int consultar_num_usuarios(int c);
+    int consultar_num_usuarios(int c)const;
 
     //Escritura y lecttura
-    /** @brief Escribe por el canal standard de salida el map de cursos de forma ordenada. 
+    /** @brief Escribe por el canal standard de salida el conjunto de cursos de forma ordenada. 
         \pre <em>cierto</em>
-        \post El resultado es escribir en el canal standard de salida el map de cursos de forma ordenada.
+        \post El resultado es escribir en el canal standard de salida el conjunto de cursos de forma ordenada.
     */
     void Escribir();
 
@@ -100,7 +108,7 @@ public:
         \pre El parametro implicito no esta inicializado.
         \post El resultado es leer del canal standard de entrada el conjunto de cursos y ponerlos en el parametro implícito.
     */
-    void leer(int N);
+    void leer(Sesiones& s);
 };
 
 #endif

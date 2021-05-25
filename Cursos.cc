@@ -1,3 +1,7 @@
+/** @file Cursos.cc
+    @brief Código de la clase Cursos
+*/
+
 #include "Cursos.hh"
 
     Cursos::Cursos(){}
@@ -10,18 +14,13 @@
         return list_cursos.size();
     }
 
-    bool Cursos::existe_curso(int id){
+    bool Cursos::existe_curso(int id)const{
         if(list_cursos.size()> id-1) return true;
         else return false;
     }
 
-    int Cursos::consultar_num_usuarios(int c) {
+    int Cursos::consultar_num_usuarios(int c) const{
         return list_cursos[c-1].consultar_num_usuarios();
-    }
-
-    list<string> Cursos::lista_sesiones(int c){
-        list<string> L = list_cursos[c-1].lista_sesiones();
-        return L;
     }
 
     void Cursos::Escribir(){
@@ -42,12 +41,18 @@
         cout << endl;
     }
 
-    void Cursos::leer(int N){
+    void Cursos::leer(Sesiones& ses){
+        //Función que lee los cursos iniciales.
+        int N;
+        cin >> N;
         for(int i=0; i<N; ++i){
             Curso c;
             int s;
             cin >> s;
             c.leer(s);
+            //Pone en el mapa del curso cada problema con su correspondiente sesión, y como que en el caso inicial los cursos ya tienen que estar bien formados,
+            //no se tiene que revisar si hay problemas repetidos.
+            ses.poner_problemas_sesion(c);
             list_cursos.push_back(c);
         }
     }
@@ -62,4 +67,12 @@
 
     void Cursos::decrementar_usuarios_inscritos(int c){
         list_cursos[c-1].decrementar_usuarios_inscritos();
+    }
+
+    void Cursos::devolver_curso(Curso& curs, int c) {
+        curs = list_cursos[c-1];
+    }
+
+    string Cursos::devolver_sesion_especifica(string id, int c)const{
+        return list_cursos[c-1].devolver_sesion_especifica(id);
     }

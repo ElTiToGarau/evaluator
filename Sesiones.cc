@@ -1,3 +1,7 @@
+/** @file Sesiones.cc
+    @brief Código de la clase Sesiones
+*/
+
 #include "Sesiones.hh"
 
     Sesiones::Sesiones(){}
@@ -10,7 +14,7 @@
         return conjunt_sesions.size();
     }
 
-    bool Sesiones::existe_sesion(string id){
+    bool Sesiones::existe_sesion(string id)const{
         if(conjunt_sesions.count(id)==1) return true;
         else return false;
     }
@@ -29,7 +33,9 @@
         conjunt_sesions[id].Escribir();
     }
 
-    void Sesiones::leer(int Q){
+    void Sesiones::leer(){
+        int Q;
+        cin >> Q;
         for(int i=0; i<Q; ++i){
             string id;
             cin >> id;
@@ -38,18 +44,27 @@
             conjunt_sesions.insert(pair<string,Sesion>(id,s));
         }
     }
-
-    string Sesiones::existe_problema(const list<string>& l, string p){
-        for(list<string>::const_iterator it=l.begin(); it!=l.end(); ++it){
-            if(conjunt_sesions[(*it)].existe_problema(p)) return (*it);
-        }
-        return "0";
-    }
     
-    list<string> Sesiones::problemas_raiz(const list<string>& l){
-        list<string> llista;
-        for(list<string>::const_iterator it=l.begin(); it!=l.end(); ++it){
-            llista.push_back(conjunt_sesions[(*it)].return_raiz());
+    void Sesiones::problemas_raiz(const string l, Usuari& u){
+        conjunt_sesions[l].return_raiz(u);
+    }
+
+    void Sesiones::trobar_fulles(const string s, const string p, Usuari& u){
+        conjunt_sesions[s].trobar_fulles(p,u);
+    }
+
+    bool Sesiones::poner_problemas_sesion(Curso& c){
+        //Función que pone dentro de el map del curso pasado por referencia curso, el problema y a que sesión pertenece dicho problema,
+        //a parte devuelve false si se intenta poner un problema repetido dentro del mapa del curso.
+        bool repetit = true;
+        int mida = c.consultar_num_sesiones();
+        int i=0;
+        while (i<mida and repetit){
+            string id = c.devolver_sesion_especifica2(i);
+            if(conjunt_sesions[id].modificar_problemas_curso(c,id)){
+                repetit = false;
+            }
+            ++i;
         }
-        return llista;
+        return repetit;
     }

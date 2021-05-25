@@ -1,0 +1,872 @@
+//////////--------- Entrada Comentada ---------------/////////
+
+	//Añadimos 7 problemas para crear la primera sesión
+7
+index
+rec1 rec2
+vec1 vec2 vec3
+mat
+
+	//Añadimos una sesión para comprobar la ejecución del programa iniciado con el mínimo número de sesiones
+1
+pro1 index 0 mat llistes 0 rec2 rec3 0 0 0 0
+
+	//Añadimos un curso para comprobar la ejecución del programa iniciado con el mínimo número de cursos
+1
+1 pro1
+
+
+	//No añadimos ningún usuario para comprobar la ejecución del programa al iniciar con el mínimo número de usuarios
+0
+
+	//Empezamos listando los cursos con la instrucción completa
+	//Comprobamos que se listan bien los cursos al haber el mínimo número de cursos con el mínimo número de sesiones
+listar_cursos
+
+	//se comprueba que el caso anterior funciona con la instrucción escribir_curso
+escribir_curso 1
+
+	//Se comprueba el caso de escribir_curso con un curso que no existe (Se comprueban los dos casos, por encima y por debajo del límite)
+escribir_curso 2
+escribir_curso 0
+
+	//Se comprueba la instrucción listar_usuarios en el caso de no haber usuarios
+listar_usuarios
+
+	//Se comprueba la instrucción escribir_usuarios con un usuario que no existe
+escribir_usuario Pedri
+
+	//Añadimos problemas a la plataforma con la instrucción larga
+nuevo_problema rec3
+nuevo_problema rec4
+
+	//comprobamos que no se puede añadir un problema ya existente
+np rec3
+np rec4
+	//Se vuelve a comprobar el mismo para asegurarnos que no se ha borrado al no poderse añadir
+np rec3
+
+	//Añadimos problemas a la plataforma con la instrucción corta
+np llistes
+np conjunts
+np diccionaris
+np rec5
+np rec6
+np arbres1
+np arbres2
+
+	//Creamos dos sesiones con algún problema en común para poder comprobar si se crean correctamente los cursos
+ns pro2
+index rec2 rec3 0 0 rec4 0 0 llistes conjunts 0 0 diccionaris 0 0
+nueva_sesion recu
+index rec1 0 rec2 0 0 vec1 vec2 vec3 0 0 mat 0 0 0
+
+	//Creamos una sesión que no tenga problemas repetidos con la primera sesión
+ns pro3
+rec5 rec6 0 0 arbres1 arbres2 0 0 0
+
+	//Añadimos un curso correcto con más de una sesión (comprobamos la instrucción larga)
+nuevo_curso
+2 pro2 pro3
+
+	//Añadimos un curso incorrecto (comprobamos la instrucción corta)
+nc
+2 pro2 recu
+
+	//Comprobamos que los cursos se han añadido correctamente con la instrucción lc (instrucción corta)
+lc
+
+	//Comprobamos que los cursos se han añadido correctamente con la instrucción ec
+ec 1
+ec 2
+	//Y con el curso 3 (que no debería existir)
+ec 3
+
+	//Añadimos usuarios a la plataforma (instrucción larga)
+alta_usuario Noa
+	//Añadimos usuarios a la plataforma (instrucción corta)
+a Nico
+a Gerard
+
+	//Comprobamos que los usuarios estan como corresponde con la instrucción listar_usuarios y escribir_usuario
+listar_usuarios
+eu Nico
+eu Gerard
+eu Noa
+eu Pedri
+
+	//comprobamos que se imprime el mensaje de error correspondiente al dar de baja a un usuario no existente (instruccion larga)
+baja_usuario Pedri
+
+	//Damos de baja a usuarios existentes (instruccion corta)
+b Nico
+b Noa
+
+	//Comprobamos que los usuarios estan como corresponde con la instrucción listar_usuarios y escribir_usuario
+listar_usuarios
+eu Nico
+eu Gerard
+eu Noa
+eu Pedri
+
+	//Comprobamos que no podemos dar de baja a un usuario previamente dado de baja
+b Nico
+
+	//Comprobamos que los usuarios estan como corresponde con la instrucción listar_usuarios y escribir_usuario
+listar_usuarios
+eu Nico
+eu Gerard
+eu Noa
+eu Pedri
+
+	//Añadimos usuarios previamente dados de baja
+a Noa
+a Nico
+	//Añadimos un usuario previamente añadido
+a Gerard
+
+	//Comprobamos que los usuarios estan como corresponde con la instrucción listar_usuarios y escribir_usuario
+listar_usuarios
+eu Nico
+eu Gerard
+eu Noa
+eu Pedri
+
+	//Inscribimos un usuarios a un cursos existentes
+i Noa 2
+	//Inscribimos un usuario a un curso por encima de los que existen y  auno por debajo
+inscribir_curso Nico 0
+i Gerard 3
+	//Inscribimos un usuario no existente a un curso no existente
+i Pedri 0
+
+	//Comprobamos que los usuarios y los cursos se han actualizado correctamente
+lc
+ec 0
+ec 1
+ec 2
+ec 3
+lu
+eu Nico
+eu Noa
+eu Gerard
+eu Pedri
+
+	//Completamos un curso con envios tanto correctos como erroneos
+e Noa index 1
+e Noa llistes 1
+e Noa rec5 0
+e Noa rec2 1
+e Noa conjunts 0
+e Noa conjunts 0
+e Noa conjunts 0
+e Noa diccionaris 1
+e Noa rec3 1
+e Noa rec4 1
+e Noa rec5 1
+e Noa rec6 1
+e Noa arbres1 1
+e Noa arbres2 1
+e Noa conjunts 1
+
+	//Comprobamos que los datos del usuario y del curso se han actualizado correctamente
+eu Noa
+ec 2
+
+	//Inscribimos al mismo usuarios a otro curso con algunos problemas en comun con el anterior y hacemos algunos envios, para compobar que los problemas enviables del usuario quedan correctamente actualizados
+i Noa 1
+e Noa mat 0
+eu Noa
+ec 1
+e Noa mat 1
+
+	//Comprobamos que el curso y el usuario han quedado actualizados
+eu Noa
+ec 1
+	
+	//Incribimos un usuario a un curso
+i Gerard 2
+
+	//Y damos de baja los dos usuarios para comprobar que tanto un usuario incrito a un curso como un usuario que ha completado algún curso se den de baja correctamente
+b Gerard
+b Noa
+
+lc
+eu Noa
+eu Gerard
+
+	//Volvemos a dar de alta a Noa, la incribimos a un curso y hacemos un envio para comprobar que los datos de este usuario se borraron al darlo de baja
+a Noa
+i Noa 2
+e Noa rec5 1
+
+	//Comprobamos que todos los cursos y usuarios estan correctamente actualizados
+lc
+ec 0
+ec 1
+ec 2
+ec 3
+lu
+eu Nico
+eu Noa
+eu Gerard
+eu Pedri
+
+fin
+
+
+//////////////--------- Entrada Sin Comentar -----------//////
+
+7
+index
+rec1 rec2
+vec1 vec2 vec3
+mat
+1
+pro1 index 0 mat llistes 0 rec2 rec3 0 0 0 0
+1
+1 pro1
+0
+listar_cursos
+escribir_curso 1
+escribir_curso 2
+escribir_curso 0
+listar_usuarios
+escribir_usuario Pedri
+nuevo_problema rec3
+nuevo_problema rec4
+np rec3
+np rec4
+np rec3
+np llistes
+np conjunts
+np diccionaris
+np rec5
+np rec6
+np arbres1
+np arbres2
+ns pro2
+index rec2 rec3 0 0 rec4 0 0 llistes conjunts 0 0 diccionaris 0 0
+nueva_sesion recu
+index rec1 0 rec2 0 0 vec1 vec2 vec3 0 0 mat 0 0 0
+ns pro3
+rec5 rec6 0 0 arbres1 arbres2 0 0 0
+nuevo_curso
+2 pro2 pro3
+nc
+2 pro2 recu
+lc
+ec 1
+ec 2
+ec 3
+alta_usuario Noa
+a Nico
+a Gerard
+listar_usuarios
+eu Nico
+eu Gerard
+eu Noa
+eu Pedri
+baja_usuario Pedri
+b Nico
+b Noa
+listar_usuarios
+eu Nico
+eu Gerard
+eu Noa
+eu Pedri
+b Nico
+listar_usuarios
+eu Nico
+eu Gerard
+eu Noa
+eu Pedri
+a Noa
+a Nico
+a Gerard
+listar_usuarios
+eu Nico
+eu Gerard
+eu Noa
+eu Pedri
+i Noa 2
+inscribir_curso Nico 0
+i Gerard 3
+i Pedri 0
+lc
+ec 0
+ec 1
+ec 2
+ec 3
+lu
+eu Nico
+eu Noa
+eu Gerard
+eu Pedri
+e Noa index 1
+e Noa llistes 1
+e Noa rec5 0
+e Noa rec2 1
+e Noa conjunts 0
+e Noa conjunts 0
+e Noa conjunts 0
+e Noa diccionaris 1
+e Noa rec3 1
+e Noa rec4 1
+e Noa rec5 1
+e Noa rec6 1
+e Noa arbres1 1
+e Noa arbres2 1
+e Noa conjunts 1
+eu Noa
+ec 2
+i Noa 1
+e Noa mat 0
+eu Noa
+ec 1
+e Noa mat 1
+eu Noa
+ec 1
+i Gerard 2
+b Gerard
+b Noa
+lc
+eu Noa
+eu Gerard
+a Noa
+i Noa 2
+e Noa rec5 1
+lc
+ec 0
+ec 1
+ec 2
+ec 3
+lu
+eu Nico
+eu Noa
+eu Gerard
+eu Pedri
+fin
+
+
+/////////////------------- Salida Comentada ---------///////////////
+
+	//Salida al listar los cursos con solo un curso recién añadido
+#listar_cursos
+1 0 0 1 (pro1)
+#escribir_curso 1
+1 0 0 1 (pro1)
+
+	//escribir_curso de cursos que no existen
+#escribir_curso 2
+error: el curso no existe
+#escribir_curso 0
+error: el curso no existe
+
+	//listar_usuarios con zero usuarios
+#listar_usuarios
+
+	//escribir_usuario que no existe
+#escribir_usuario Pedri
+error: el usuario no existe
+
+	//Añadimos problemas a la plataforma con la instrucción larga
+#nuevo_problema rec3
+8
+#nuevo_problema rec4
+9
+
+	//comprobamos que no se puede añadir un problema ya existente
+#np rec3
+error: el problema ya existe
+#np rec4
+error: el problema ya existe
+
+	//Se vuelve a comprobar el mismo para asegurarnos que no se ha borrado al no poderse añadir
+#np rec3
+error: el problema ya existe
+
+	//Añadimos problemas a la plataforma con la instrucción corta
+#np llistes
+10
+#np conjunts
+11
+#np diccionaris
+12
+#np rec5
+13
+#np rec6
+14
+#np arbres1
+15
+#np arbres2
+16
+
+	//Añadimos dos sesiones a la plataforma
+#ns pro2
+2
+#nueva_sesion recu
+3
+
+	//Creamos una sesión que no tenga problemas repetidos con la primera sesión
+#ns pro3
+4
+
+	//Añadimos un curso correcto con más de una sesión (comprobamos la instrucción larga)
+#nuevo_curso
+2
+
+	//Añadimos un curso incorrecto (comprobamos la instrucción corta)
+#nc
+error: curso mal formado
+
+	//Comprobamos que los cursos se han añadido correctamente con la instrucción lc (instrucción corta)
+#lc
+1 0 0 1 (pro1)
+2 0 0 2 (pro2 pro3)
+
+	//Comprobamos que los cursos se han añadido correctamente con la instrucción ec
+#ec 1
+1 0 0 1 (pro1)
+#ec 2
+2 0 0 2 (pro2 pro3)
+	//Y con el curso 3 (que no debería existir)
+#ec 3
+error: el curso no existe
+
+//Añadimos usuarios a la plataforma (instrucción larga)
+#alta_usuario Noa
+1
+
+	//Añadimos usuarios a la plataforma (instrucción corta)
+#a Nico
+2
+#a Gerard
+3
+
+	//Comprobamos que los usuarios estan como corresponde con la instrucción listar_usuarios y escribir_usuario
+#listar_usuarios
+Gerard(0,0,0,0)
+Nico(0,0,0,0)
+Noa(0,0,0,0)
+#eu Nico
+Nico(0,0,0,0)
+#eu Gerard
+Gerard(0,0,0,0)
+#eu Noa
+Noa(0,0,0,0)
+#eu Pedri
+error: el usuario no existe
+
+	//comprobamos que se imprime el mensaje de error correspondiente al dar de baja a un usuario no existente (instruccion larga)
+#baja_usuario Pedri
+error: el usuario no existe
+
+	//Damos de baja a usuarios existentes (instruccion corta)
+#b Nico
+2
+#b Noa
+1
+
+	//Comprobamos que los usuarios estan como corresponde con la instrucción listar_usuarios y escribir_usuario
+#listar_usuarios
+Gerard(0,0,0,0)
+#eu Nico
+error: el usuario no existe
+#eu Gerard
+Gerard(0,0,0,0)
+#eu Noa
+error: el usuario no existe
+#eu Pedri
+error: el usuario no existe
+
+	//Comprobamos que no podemos dar de baja a un usuario previamente dado de baja
+#b Nico
+error: el usuario no existe
+
+	//Comprobamos que los usuarios estan como corresponde con la instrucción listar_usuarios y escribir_usuario
+#listar_usuarios
+Gerard(0,0,0,0)
+#eu Nico
+error: el usuario no existe
+#eu Gerard
+Gerard(0,0,0,0)
+#eu Noa
+error: el usuario no existe
+#eu Pedri
+error: el usuario no existe
+
+	//Añadimos usuarios previamente dados de baja
+#a Noa
+2
+#a Nico
+3
+	//Añadimos un usuario previamente añadido
+#a Gerard
+error: el usuario ya existe
+
+	//Comprobamos que los usuarios estan como corresponde con la instrucción listar_usuarios y escribir_usuario
+#listar_usuarios
+Gerard(0,0,0,0)
+Nico(0,0,0,0)
+Noa(0,0,0,0)
+#eu Nico
+Nico(0,0,0,0)
+#eu Gerard
+Gerard(0,0,0,0)
+#eu Noa
+Noa(0,0,0,0)
+#eu Pedri
+error: el usuario no existe
+
+	//Inscribimos un usuarios a un cursos existentes
+#i Noa 2
+1
+	//Inscribimos un usuario a un curso por encima de los que existen y  auno por debajo
+#inscribir_curso Nico 0
+error: el curso no existe
+#i Gerard 3
+error: el curso no existe
+	//Inscribimos un usuario no existente a un curso no existente
+#i Pedri 0
+error: el usuario no existe
+
+	//Comprobamos que los usuarios y los cursos se han actualizado correctamente
+#lc
+1 0 0 1 (pro1)
+2 0 1 2 (pro2 pro3)
+#ec 0
+error: el curso no existe
+#ec 1
+1 0 0 1 (pro1)
+#ec 2
+2 0 1 2 (pro2 pro3)
+#ec 3
+error: el curso no existe
+#lu
+Gerard(0,0,0,0)
+Nico(0,0,0,0)
+Noa(0,0,0,2)
+#eu Nico
+Nico(0,0,0,0)
+#eu Noa
+Noa(0,0,0,2)
+#eu Gerard
+Gerard(0,0,0,0)
+#eu Pedri
+error: el usuario no existe
+
+	//Completamos un curso con envios tanto correctos como erroneos
+#e Noa index 1
+#e Noa llistes 1
+#e Noa rec5 0
+#e Noa rec2 1
+#e Noa conjunts 0
+#e Noa conjunts 0
+#e Noa conjunts 0
+#e Noa diccionaris 1
+#e Noa rec3 1
+#e Noa rec4 1
+#e Noa rec5 1
+#e Noa rec6 1
+#e Noa arbres1 1
+#e Noa arbres2 1
+#e Noa conjunts 1
+
+	//Comprobamos que los datos del usuario y del curso se han actualizado correctamente
+#eu Noa
+Noa(15,11,11,0)
+#ec 2
+2 1 0 2 (pro2 pro3)
+
+	//Inscribimos al mismo usuarios a otro curso con algunos problemas en comun con el anterior y hacemos algunos envios, para compobar que los problemas enviables del usuario quedan correctamente actualizados
+#i Noa 1
+1
+#e Noa mat 0
+#eu Noa
+Noa(16,11,12,1)
+#ec 1
+1 0 1 1 (pro1)
+#e Noa mat 1
+
+	//Comprobamos que el curso y el usuario han quedado actualizados
+#eu Noa
+Noa(17,12,12,0)
+#ec 1
+1 1 0 1 (pro1)
+
+	//Incribimos un usuario a un curso
+#i Gerard 2
+1
+
+	//Y damos de baja los dos usuarios para comprobar que tanto un usuario incrito a un curso como un usuario que ha completado algún curso se den de baja correctamente
+#b Gerard
+2
+#b Noa
+1
+
+#lc
+1 1 0 1 (pro1)
+2 1 0 2 (pro2 pro3)
+
+#eu Noa
+error: el usuario no existe
+#eu Gerard
+error: el usuario no existe
+
+	//Volvemos a dar de alta a Noa, la incribimos a un curso y hacemos un envio para comprobar que los datos de este usuario se borraron al darlo de baja
+#a Noa
+2
+#i Noa 2
+1
+#e Noa rec5 1
+
+	//Comprobamos que todos los cursos y usuarios estan correctamente actualizados
+#lc
+1 1 0 1 (pro1)
+2 1 1 2 (pro2 pro3)
+#ec 0
+error: el curso no existe
+#ec 1
+1 1 0 1 (pro1)
+#ec 2
+2 1 1 2 (pro2 pro3)
+#ec 3
+error: el curso no existe
+#lu
+Nico(0,0,0,0)
+Noa(1,1,1,2)
+#eu Nico
+Nico(0,0,0,0)
+#eu Noa
+Noa(1,1,1,2)
+#eu Gerard
+error: el usuario no existe
+#eu Pedri
+error: el usuario no existe
+
+
+
+////////////------------ Salida Sin Comentar --------------////////////
+
+#listar_cursos
+1 0 0 1 (pro1)
+#escribir_curso 1
+1 0 0 1 (pro1)
+#escribir_curso 2
+error: el curso no existe
+#escribir_curso 0
+error: el curso no existe
+#listar_usuarios
+#escribir_usuario Pedri
+error: el usuario no existe
+#nuevo_problema rec3
+8
+#nuevo_problema rec4
+9
+#np rec3
+error: el problema ya existe
+#np rec4
+error: el problema ya existe
+#np rec3
+error: el problema ya existe
+#np llistes
+10
+#np conjunts
+11
+#np diccionaris
+12
+#np rec5
+13
+#np rec6
+14
+#np arbres1
+15
+#np arbres2
+16
+#ns pro2
+2
+#nueva_sesion recu
+3
+#ns pro3
+4
+#nuevo_curso
+2
+#nc
+error: curso mal formado
+#lc
+1 0 0 1 (pro1)
+2 0 0 2 (pro2 pro3)
+#ec 1
+1 0 0 1 (pro1)
+#ec 2
+2 0 0 2 (pro2 pro3)
+#ec 3
+error: el curso no existe
+#alta_usuario Noa
+1
+#a Nico
+2
+#a Gerard
+3
+#listar_usuarios
+Gerard(0,0,0,0)
+Nico(0,0,0,0)
+Noa(0,0,0,0)
+#eu Nico
+Nico(0,0,0,0)
+#eu Gerard
+Gerard(0,0,0,0)
+#eu Noa
+Noa(0,0,0,0)
+#eu Pedri
+error: el usuario no existe
+#baja_usuario Pedri
+error: el usuario no existe
+#b Nico
+2
+#b Noa
+1
+#listar_usuarios
+Gerard(0,0,0,0)
+#eu Nico
+error: el usuario no existe
+#eu Gerard
+Gerard(0,0,0,0)
+#eu Noa
+error: el usuario no existe
+#eu Pedri
+error: el usuario no existe
+#b Nico
+error: el usuario no existe
+#listar_usuarios
+Gerard(0,0,0,0)
+#eu Nico
+error: el usuario no existe
+#eu Gerard
+Gerard(0,0,0,0)
+#eu Noa
+error: el usuario no existe
+#eu Pedri
+error: el usuario no existe
+#a Noa
+2
+#a Nico
+3
+#a Gerard
+error: el usuario ya existe
+#listar_usuarios
+Gerard(0,0,0,0)
+Nico(0,0,0,0)
+Noa(0,0,0,0)
+#eu Nico
+Nico(0,0,0,0)
+#eu Gerard
+Gerard(0,0,0,0)
+#eu Noa
+Noa(0,0,0,0)
+#eu Pedri
+error: el usuario no existe
+#i Noa 2
+1
+#inscribir_curso Nico 0
+error: el curso no existe
+#i Gerard 3
+error: el curso no existe
+#i Pedri 0
+error: el usuario no existe
+#lc
+1 0 0 1 (pro1)
+2 0 1 2 (pro2 pro3)
+#ec 0
+error: el curso no existe
+#ec 1
+1 0 0 1 (pro1)
+#ec 2
+2 0 1 2 (pro2 pro3)
+#ec 3
+error: el curso no existe
+#lu
+Gerard(0,0,0,0)
+Nico(0,0,0,0)
+Noa(0,0,0,2)
+#eu Nico
+Nico(0,0,0,0)
+#eu Noa
+Noa(0,0,0,2)
+#eu Gerard
+Gerard(0,0,0,0)
+#eu Pedri
+error: el usuario no existe
+#e Noa index 1
+#e Noa llistes 1
+#e Noa rec5 0
+#e Noa rec2 1
+#e Noa conjunts 0
+#e Noa conjunts 0
+#e Noa conjunts 0
+#e Noa diccionaris 1
+#e Noa rec3 1
+#e Noa rec4 1
+#e Noa rec5 1
+#e Noa rec6 1
+#e Noa arbres1 1
+#e Noa arbres2 1
+#e Noa conjunts 1
+#eu Noa
+Noa(15,11,11,0)
+#ec 2
+2 1 0 2 (pro2 pro3)
+#i Noa 1
+1
+#e Noa mat 0
+#eu Noa
+Noa(16,11,12,1)
+#ec 1
+1 0 1 1 (pro1)
+#e Noa mat 1
+#eu Noa
+Noa(17,12,12,0)
+#ec 1
+1 1 0 1 (pro1)
+#i Gerard 2
+1
+#b Gerard
+2
+#b Noa
+1
+#lc
+1 1 0 1 (pro1)
+2 1 0 2 (pro2 pro3)
+#eu Noa
+error: el usuario no existe
+#eu Gerard
+error: el usuario no existe
+#a Noa
+2
+#i Noa 2
+1
+#e Noa rec5 1
+#lc
+1 1 0 1 (pro1)
+2 1 1 2 (pro2 pro3)
+#ec 0
+error: el curso no existe
+#ec 1
+1 1 0 1 (pro1)
+#ec 2
+2 1 1 2 (pro2 pro3)
+#ec 3
+error: el curso no existe
+#lu
+Nico(0,0,0,0)
+Noa(1,1,1,2)
+#eu Nico
+Nico(0,0,0,0)
+#eu Noa
+Noa(1,1,1,2)
+#eu Gerard
+error: el usuario no existe
+#eu Pedri
+error: el usuario no existe
+

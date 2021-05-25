@@ -3,6 +3,12 @@
 *.x
 /DOC
 /.vscode
-sample_*
+sample*
+sample.*
 *.out
 entrega*
+.DS*
+*.tar
+*.zip
+/html
+/latex
